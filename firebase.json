@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "target": "project-owlly",
+      "target": "project-owlly-dev",
       "public": "www",
       "ignore": [
         "firebase.json",
