@@ -1,0 +1,7 @@
+{
+  "name": "owlly",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
