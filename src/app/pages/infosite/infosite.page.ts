@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-pdftest',
-  templateUrl: './pdftest.page.html',
-  styleUrls: ['./pdftest.page.scss'],
+  selector: 'app-infosite',
+  templateUrl: './infosite.page.html',
+  styleUrls: ['./infosite.page.scss'],
 })
-export class PdftestPage implements OnInit {
+export class InfositePage implements OnInit {
 
   user: any = {};
 
@@ -26,4 +25,5 @@ export class PdftestPage implements OnInit {
   loadPdf() {
     
   }
+
 }

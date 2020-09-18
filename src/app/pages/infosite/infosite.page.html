@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pdftest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" id="infosite">
+      <h1>Initiative | Infopage</h1>
+      <h4>Du unterstützt folgendes Volksbegehren: <br></h4>
+      <h2> {{initiative}} <br></h2>
+      <p> {{initiativText}}</p>
+      
+      <ion-list>
+        <ion-item>
+          <ion-label>Volksbegehren unterstützen und QR Code scannen</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Individuelles PDF Dokument erstellen</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>PDF Dokument mit eID+ unterschreiben, den QR Code scannen</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Volkebegehren unterstützen und QR Code scannen</ion-label>
+        </ion-item>
+        <ion-item color="secondary" href="mailto:brifkasten@owlly.ch">
+          <ion-label>PDF Dokument in den digitalen Briefkasten werfen. (click me)
+            </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Owlly Account anlegen <a href="https://google.com"></a><ion-icon name="information-circle-outline"></ion-icon></ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Deine Email Adresse mit "WeCollect teilen <ion-icon name="information-circle-outline"></ion-icon></ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+      <div class="ion-text-center" id="dlButton">
+      <ion-button download="Wahlkampfbudget" size="large" color="success" href="https://www.jfsh.ch/wp-content/uploads/Wahlbudget_JFSH_2020.xlsx" >
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        Mein PDF herunterladen</ion-button>
+      </div>
+  </div>
+</ion-content>

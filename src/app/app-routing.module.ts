@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'pdftest',
     loadChildren: () => import('./pages/pdftest/pdftest.module').then( m => m.PdftestPageModule)
   },
+  {
+    path: 'infosite',
+    loadChildren: () => import('./pages/infosite/infosite.module').then( m => m.InfositePageModule)
+  },
 
 ];
 
