@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'pdftest',
+    loadChildren: () => import('./pages/pdftest/pdftest.module').then( m => m.PdftestPageModule)
   },
+
 ];
 
 @NgModule({
