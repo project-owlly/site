@@ -37,10 +37,31 @@
           <ion-checkbox slot="start"></ion-checkbox>
         </ion-item>
       </ion-list>
+      <ion-list-header>
+        <ion-label>Userangaben</ion-label>
+      </ion-list-header>
+      <ion-list>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input [(ngModel)]="user.email" type="text" ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>User</ion-label>
+            <ion-input [(ngModel)]="user.name" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-button (click)="submit()" >
+              submit
+            </ion-button>
+          </ion-item>
+      </ion-list>
+
       <div class="ion-text-center" id="dlButton">
       <ion-button download="Wahlkampfbudget" size="large" color="success" href="https://www.jfsh.ch/wp-content/uploads/Wahlbudget_JFSH_2020.xlsx" >
         <ion-icon name="arrow-down-circle-outline"></ion-icon>
         Mein PDF herunterladen</ion-button>
       </div>
+
+      <p *ngIf="pdfData">{{pdfData | json}}</p>
   </div>
 </ion-content>
