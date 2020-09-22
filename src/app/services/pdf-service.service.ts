@@ -14,7 +14,7 @@ export class PdfServiceService {
 
   generate(email: string, user: string){
     console.log(email, user);
-    this.http.post(this.url, {email: email, name: name});
+    this.http.post<any>(this.url, {adress: email, vorname: name}).subscribe(data => {this.pdf = data.result})
   
   }
 }
