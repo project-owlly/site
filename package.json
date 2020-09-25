@@ -1,8 +1,8 @@
 {
   "name": "owlly",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "liitu consulting gmbh",
+  "homepage": "https://liitu.ch",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,12 +30,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.9",
-    "@angular/cli": "~9.1.5",
+    "@angular/cli": "9.1.12",
     "@angular/compiler": "~9.1.6",
     "@angular/compiler-cli": "~9.1.6",
     "@angular/language-service": "~9.1.6",
     "@capacitor/cli": "2.1.0",
     "@ionic/angular-toolkit": "^2.1.1",
+    "@ionic/app-scripts": "^3.2.4",
     "@schematics/angular": "^10.0.8",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
