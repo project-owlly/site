@@ -6,46 +6,44 @@
 
 <ion-content>
   <ion-grid>
-  <ion-row>
-    <ion-col>
-      <div class="ion-text-center">
-        <h2>Dies ist der erste Test für den Download einer Datei, das Grid und das Nutzen von Forms.</h2>
-      </div>
-    </ion-col>
-    <ion-col>
-      <div>
-        <ion-input placeholder="Enter Input"></ion-input>
-        <ion-button type="submit">submit</ion-button>
-      </div>
-    </ion-col>
-    <ion-col>
-      <div>
-
-        <ion-list>
-          <ion-item>
-            <ion-label>Email</ion-label>
-            <ion-input [(ngModel)]="user.email" type="text" ></ion-input>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h2>Dies ist der erste Test für den Download einer Datei, das Grid und das Nutzen von Forms.</h2>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-input placeholder="Enter Input"></ion-input>
+          <ion-button type="submit">submit</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-list>
+            <ion-item>
+              <ion-label>Email</ion-label>
+              <ion-input [(ngModel)]="user.email" type="text"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label>User</ion-label>
               <ion-input [(ngModel)]="user.name" type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-button (click)="submit()" >
-                  submit
-                </ion-button>
-              </ion-item>
-        </ion-list>
-
-        
-
-      </div>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-button (click)="submit()">
+                submit
+              </ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div class="container ion-text-center" style="" id="dlbcont">
-    <ion-button download="Wahlkampfbudget" size="large" color="success" href="https://www.jfsh.ch/wp-content/uploads/Wahlbudget_JFSH_2020.xlsx" >
+    <ion-button download="Wahlkampfbudget" size="large" color="success"
+      href="https://www.jfsh.ch/wp-content/uploads/Wahlbudget_JFSH_2020.xlsx">
       <ion-icon name="arrow-down-circle-outline"></ion-icon>
-      Download File</ion-button>
+      Download File
+    </ion-button>
   </div>
 </ion-content>
