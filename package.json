@@ -1,8 +1,8 @@
 {
   "name": "owlly",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "liitu consulting gmbh",
+  "homepage": "https://liitu.ch",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
