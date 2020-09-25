@@ -1,44 +1,15 @@
 import * as functions from 'firebase-functions';
+import 'firebase-functions/lib/logger/compat';
 
-var cors = require('cors');
+import {getOwlly} from './request/owlly/owlly.get';
+import {postMailbox} from './request/mailbox/postMailbox';
+import {postGeneratePdf} from './request/pdf/pdf.post';
+import {getOIDAuthUrl} from './request/oidc/getOIDC';
 
-export function postGeneratePdf(request: functions.Request, response: functions.Response < any > ) {
-  // TODO JONATHAN
+export const owlly = functions.region('europe-west6').https.onRequest(getOwlly);
 
-  const corsHandler = cors({
-    origin: true
-  });
+export const mailbox = functions.region('europe-west6').https.onRequest(postMailbox);
 
-  corsHandler(request, response, () => {
+export const generatePDF = functions.region('europe-west6').https.onRequest(postGeneratePdf);
 
-
-    var user = {
-      email: '',
-      name: ''
-    
-    };
-    
-    user.email = request.body.adress;
-    user.name = request.body.vorname;
-    
-    
-    const PDFDocument = require('pdfkit');
-    const fs = require('fs');
-    const doc = new PDFDocument();
-    
-    doc.pipe(fs.createWriteStream('file.pdf'));
-    
-    
-    doc.text('Hello World! This is the first test for Owlly!', 100, 100);
-    doc.text(user.email);
-    doc.text(user.name);
-    
-    doc.end();
-    
-    
-      response.json({result: 'successful'});
-
-
-
-  });
-}
+export const OIDAuthUrl = functions.region('europe-west6').https.onRequest(getOIDAuthUrl);

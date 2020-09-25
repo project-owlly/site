@@ -1,9 +1,10 @@
-# Compiled JavaScript files
+## Compiled JavaScript files
 **/*.js
 **/*.js.map
 
-# TypeScript v1 declaration files
+# Typescript v1 declaration files
 typings/
 
-# Node.js dependency directory
 node_modules/
+
+.runtimeconfig.json
