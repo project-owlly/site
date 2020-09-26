@@ -1,5 +1,6 @@
 {
-    "hosting": {
+  "hosting": [
+    {
       "target": "project-owlly-dev",
       "public": "www",
       "ignore": [
@@ -7,9 +8,90 @@
         "**/.*",
         "**/node_modules/**"
       ],
-      "rewrites": [{
-        "source": "**",
-        "destination": "/index.html"
-      }]
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "app",
+      "public": "www",
+      "ignore": [
+        "**/.*"
+      ],
+      "headers": [
+        {
+          "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=31536000,immutable"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "app",
+      "public": "www",
+      "ignore": [
+        "**/.*"
+      ],
+      "headers": [
+        {
+          "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=31536000,immutable"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "app",
+      "public": "www",
+      "ignore": [
+        "**/.*"
+      ],
+      "headers": [
+        {
+          "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public,max-age=31536000,immutable"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
+  ],
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
   }
+}

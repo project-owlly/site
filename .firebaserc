@@ -5,8 +5,8 @@
   "targets": {
     "project-owlly": {
       "hosting": {
-        "project-owlly-dev": [
-          "project-owlly-dev"
+        "app": [
+          "project-owlly"
         ]
       }
     }
