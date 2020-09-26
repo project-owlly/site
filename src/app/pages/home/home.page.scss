@@ -1,6 +1,9 @@
 ion-content {
   --background: linear-gradient(155deg, rgba(0,166,212,1) 0%, rgba(129,188,79,1) 100%);
 }
+ion-grid {
+  --ion-grid-padding: 10%;
+}
 
 #lpTitle {
   font-weight: bold;
@@ -16,9 +19,6 @@ ion-content {
   width: 250px;
 }
 
-#prototypefundLogo {
-  width: 70px;
-}
 
 @media (max-width: 768px) {
   #lpTitle {
