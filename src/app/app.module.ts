@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireFunctionsModule, FUNCTIONS_REGION } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 
 import { environment } from './../environments/environment'
 
@@ -28,7 +28,7 @@ import { environment } from './../environments/environment'
   providers: [
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: FUNCTIONS_REGION, useValue: 'europe-west6' },
+    { provide: REGION, useValue: 'europe-west6' },
   ],
   bootstrap: [AppComponent]
 })
