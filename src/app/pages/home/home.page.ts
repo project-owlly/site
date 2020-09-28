@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-    doSomething() {
-      console.log('Do something');
-    }
-  
+  doSomething() {
+    console.log('Do something');
+  }
 }

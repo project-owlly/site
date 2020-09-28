@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { PdftestPage } from './pdftest.page';
+import {PdftestPage} from './pdftest.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PdftestPage
-  }
+    component: PdftestPage,
+  },
 ];
 
 @NgModule({
