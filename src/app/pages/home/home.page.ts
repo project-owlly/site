@@ -7,10 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {
-
-  }
-
-
+    doSomething() {
+      console.log('Do something');
+    }
   
 }
