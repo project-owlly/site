@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PdfServiceService } from 'src/app/services/pdf-service.service';
+import {Component, OnInit} from '@angular/core';
+import {PdfServiceService} from 'src/app/services/pdf-service.service';
 
 @Component({
   selector: 'app-infosite',
@@ -7,25 +7,20 @@ import { PdfServiceService } from 'src/app/services/pdf-service.service';
   styleUrls: ['./infosite.page.scss'],
 })
 export class InfositePage implements OnInit {
-
   user: any = {};
 
-  initiative: string = "Veloinitiative";
-  initiativText: string = "Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.";
+  initiative = 'Veloinitiative';
+  initiativText =
+    'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.';
 
   pdfData;
 
-  constructor(private pdfService: PdfServiceService) { }
+  constructor(private pdfService: PdfServiceService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-
-  submit(){
+  submit() {
     console.log(this.user);
     this.pdfService.generate(this.user.email, this.user.name);
   }
-
-  
-
 }
