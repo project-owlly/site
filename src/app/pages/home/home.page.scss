@@ -27,6 +27,12 @@ ion-grid {
   z-index: 10;
 }
 
+#socialMedia {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+}
+
 @media (max-width: 768px) {
   #lpTitle {
     font-weight: bold;

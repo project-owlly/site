@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'infosite',
     loadChildren: () => import('./pages/infosite/infosite.module').then((m) => m.InfositePageModule),
+  },  {
+    path: 'feedback',
+    loadChildren: () => import('./pages/feedback/feedback.module').then( m => m.FeedbackPageModule)
   },
+
 ];
 
 @NgModule({
