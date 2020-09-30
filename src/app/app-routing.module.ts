@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'infosite',
     loadChildren: () => import('./pages/infosite/infosite.module').then((m) => m.InfositePageModule),
+  },  {
+    path: 'return',
+    loadChildren: () => import('./pages/return/return.module').then( m => m.ReturnPageModule)
   },
+
 ];
 
 @NgModule({
