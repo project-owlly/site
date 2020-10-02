@@ -14,10 +14,7 @@ ion-grid {
   color: #000000;
   font-weight: 400;
 }
-#lpLogo {
-  //padding: 30px;
-  width: 250px;
-}
+
 
 #eule {
   width: 300px;
@@ -25,6 +22,12 @@ ion-grid {
   bottom: -50px;
   right: 10%;
   z-index: 10;
+}
+
+#socialMedia {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
@@ -35,5 +38,10 @@ ion-grid {
   }
   #lpButton {
     text-align: center;
+  }
+  #socialMedia {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
