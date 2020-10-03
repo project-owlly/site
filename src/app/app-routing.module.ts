@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'return',
     loadChildren: () => import('./pages/return/return.module').then( m => m.ReturnPageModule)
-
+  },
+  {
     path: 'feedback',
     loadChildren: () => import('./pages/feedback/feedback.module').then( m => m.FeedbackPageModule)
   },
