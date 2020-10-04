@@ -6,12 +6,12 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class NewsletterService {
 
-  collectionName ='nlEmails'
+  collectionName ='newsletter'
 
   constructor(public firestore: AngularFirestore) {}
 
   create_nlUser(record) {
-    return this.firestore.collection(this.collectionName).add(record);
+    return this.firestore.collection(this.collectionName).doc(record.Email).set(record);;
   }
   
 }
