@@ -4,7 +4,7 @@ import {
 
 import { ModalController } from "@ionic/angular";
 import { NewsletterComponent } from "../../components/newsletter/newsletter.component";
-
+import {NewsletterPage} from '../newsletter/newsletter.page'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,7 +16,7 @@ export class HomePage {
 
   async showModal() {
     const modal = await this.modalCtrl.create({
-      component: NewsletterComponent
+      component: NewsletterPage
     })
     await modal.present();
   }
