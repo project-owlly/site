@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "www",
+    "site": "project-owlly",
     "rewrites": [{
       "source": "**",
       "destination": "/index.html"
