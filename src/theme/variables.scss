@@ -4,7 +4,13 @@
 /** Ionic CSS Variables **/
 :root {
   font-size: 20px;
-  color: #000000;
+  
+
+  .owllyLogo {
+    width: 250px;
+    height: 119.1px;
+    content: url(../assets/Logo.png);
+  }
 
   /** owlly white **/
   --ion-color-white: #ffffff;
@@ -199,6 +205,12 @@
    * Dark Colors
    * -------------------------------------------
    */
+
+  .owllyLogo {
+    width: 250px;
+    height: 119.1px;
+    content: url(../assets/Logo_dark.png) !important;
+  }
 
   body {
     --ion-color-primary: #428cff;
