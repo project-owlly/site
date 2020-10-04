@@ -32,7 +32,7 @@ export class NewsletterPage implements OnInit {
   }
   createRecord() {
     console.log(this.newsletterForm.value);
-    this.newsletterService.create_nlUser(this.newsletterForm.value)
+    this.newsletterService.joinNewsletter(this.newsletterForm.value)
     .catch(error => {
       console.log(error);
     })
