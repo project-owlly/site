@@ -19,9 +19,9 @@ ion-grid {
 #eule {
   width: 300px;
   position: relative;
-  bottom: -50px;
+  bottom: 200px;
   right: 10%;
-  z-index: 10;
+  z-index: 0;
 }
 
 #socialMedia {
@@ -43,5 +43,10 @@ ion-grid {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #eule {
+    width: 100px;
+    bottom: 34px;
   }
 }

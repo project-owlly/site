@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
+import {AngularFirestore, AngularFirestoreModule  } from "@angular/fire/firestore";
 
 import {environment} from './../environments/environment';
 
@@ -24,6 +25,7 @@ import {environment} from './../environments/environment';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireFunctionsModule,
+    AngularFirestoreModule
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},

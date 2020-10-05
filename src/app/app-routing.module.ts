@@ -1,3 +1,4 @@
+
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
@@ -20,17 +21,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/infosite/infosite.module').then((m) => m.InfositePageModule),
   },
   {
-    path: 'return',
-    loadChildren: () => import('./pages/return/return.module').then( m => m.ReturnPageModule)
-  },
-  {
     path: 'feedback',
     loadChildren: () => import('./pages/feedback/feedback.module').then( m => m.FeedbackPageModule)
   },
   {
     path: 'impressum',
     loadChildren: () => import('./pages/impressum/impressum.module').then( m => m.ImpressumPageModule)
-
+  },
+  {
+    path: 'newsletter',
+    loadChildren: () => import('./pages/newsletter/newsletter.module').then( m => m.NewsletterPageModule)
   },
 
 ];

@@ -7,8 +7,10 @@ import {HomePage} from './home.page';
 import {HomePageRoutingModule} from './home-routing.module';
 import {ComponentsModule} from 'src/app/components/components.module';
 
+import { ReactiveFormsModule } from "@angular/forms";
+
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule, ComponentsModule],
+  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule, ComponentsModule, ReactiveFormsModule],
   declarations: [HomePage],
 })
 export class HomePageModule {}
