@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {OidcService} from 'src/app/services/oidc.service';
 import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {Plugins} from '@capacitor/core';
+
+const {Browser} = Plugins;
 
 @Component({
   selector: 'app-infosite',
@@ -15,9 +19,24 @@ export class InfositePage implements OnInit {
 
   pdfData;
 
-  constructor(private pdfService: PdfServiceService) {}
+  constructor(private pdfService: PdfServiceService, private oidcService: OidcService) {}
 
   ngOnInit() {}
+
+  sign() {
+    console.log('sign');
+
+    this.oidcService.getAuthUrl().subscribe(
+      (urlData) => {
+        console.log(JSON.stringify(urlData));
+
+        Browser.open({url: urlData.url});
+      },
+      (error) => {
+        console.log(error.message);
+      }
+    );
+  }
 
   submit() {
     console.log(this.user);
