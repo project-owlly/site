@@ -25,9 +25,9 @@ export class NewsletterPage implements OnInit {
   }
   ngOnInit() {
     this.newsletterForm = this.fb.group({
-      Name: ['', [Validators.required]],
-      Email: ['', [Validators.required]],
-      Funnel: ['']
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      funnel: ['']
     })
   }
   createRecord() {
@@ -38,7 +38,7 @@ export class NewsletterPage implements OnInit {
         message: 'Email erfolgreich erfasst.',
         color: 'green',
         duration: 4000,
-        position: 'middle',
+        position: 'bottom',
         animated: true,
         header: 'Newsletter Anmeldung:'
       }).then(toast => {

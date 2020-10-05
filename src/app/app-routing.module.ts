@@ -29,7 +29,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/impressum/impressum.module').then( m => m.ImpressumPageModule)
   },
   {
-    path: 'newsletter/:id',
+    path: 'newsletter',
     loadChildren: () => import('./pages/newsletter/newsletter.module').then( m => m.NewsletterPageModule)
   },
 

@@ -11,7 +11,7 @@ export class NewsletterService {
   constructor(public firestore: AngularFirestore) {}
 
   create_nlUser(record) {
-    return this.firestore.collection(this.collectionName).doc(record.Email).set(record);;
+    return this.firestore.collection(this.collectionName).doc(record.email).set(record);;
   }
   
 }
