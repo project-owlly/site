@@ -13,4 +13,10 @@ export class OidcService {
     const obs = callable({});
     return obs;
   }
+
+  getUserData(token) {
+    const callable = this.functions.httpsCallable('eidData');
+    const obs = callable({authorization_code: token});
+    return obs;
+  }
 }
