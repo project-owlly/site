@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-return',
@@ -7,13 +7,14 @@ import { NavParams } from '@ionic/angular';
   styleUrls: ['./return.page.scss'],
 })
 export class ReturnPage implements OnInit {
-  public return = "";
-  constructor(public navParams: NavParams) { 
-
-    this.return = this.navParams.get('code');
+  public return = '';
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(async (params) => {
+      if (params && params.code) {
+        this.return = params.code;
+      }
+    });
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
