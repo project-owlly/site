@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 import { ModalController } from "@ionic/angular";
-import { NewsletterComponent } from "../../components/newsletter/newsletter.component";
+
 import {NewsletterPage} from '../newsletter/newsletter.page'
 @Component({
   selector: 'app-home',
