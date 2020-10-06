@@ -5,7 +5,7 @@ import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
 
 // Note: loader import location set using "esmLoaderPath" within the output target config
-import {defineCustomElements} from 'node_modules/@owlly/signature/dist/';
+import {defineCustomElements} from 'node_modules/@owlly/signature/dist/loader';
 
 if (environment.production) {
   enableProdMode();
