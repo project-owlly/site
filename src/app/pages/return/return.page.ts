@@ -16,7 +16,7 @@ export class ReturnPage implements OnInit {
         this.return = params.code;
 
         this.oidc.getUserData(params.code).subscribe((userData) => {
-          this.userData = userData.data;
+          this.userData = JSON.stringify(userData.data);
         });
       }
     });
