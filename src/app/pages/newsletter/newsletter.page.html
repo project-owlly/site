@@ -18,18 +18,22 @@
 
           <form [formGroup]="newsletterForm" (ngSubmit)="createRecord()">
               <ion-item>
-                <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="email" type="email"></ion-input>
+                <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required formControlName="vorname" type="text"></ion-input>
+              </ion-item>  
+              <ion-item>
+                <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required formControlName="nachname" type="text"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="name" type="text"></ion-input>
+                <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input required formControlName="email" type="email"></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
                 <ion-textarea type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
               </ion-item>
-              <ion-button block color="blue" type="submit" [disabled]="newsletterForm.invalid" shape="round">
+              <ion-button block color="accent" type="submit" [disabled]="newsletterForm.invalid" shape="round">
                 Anmelden
               </ion-button>
             </form>
