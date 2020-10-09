@@ -19,7 +19,7 @@ import {environment} from './../environments/environment';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
