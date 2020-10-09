@@ -46,6 +46,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
+      initialNavigation: 'enabled',
     }),
   ],
   exports: [RouterModule],
