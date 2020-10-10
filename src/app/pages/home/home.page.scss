@@ -18,10 +18,17 @@
 }
 
 ion-footer {
+  padding: 0px;
+  font-size: small;
+  color: white;
   ion-grid {
     --ion-grid-padding: 0px;
+    background-color: black;
   }
-  font-size: small;
+  ion-col {
+    padding: 10px;
+  }
+
   #prototypefundLogo {
     height: 50px;
   }
@@ -29,8 +36,9 @@ ion-footer {
     text-decoration: none;
   }
 
-  background-color: black;
-  color: white;
+  div .owlly-eule {
+    background-color: transparent;
+  }
 }
 
 ion-content {
@@ -52,8 +60,9 @@ ion-content {
   }
   ion-footer {
     font-size: xx-small;
-    padding-top: 0px;
-    padding-bottom: 0px;
+  }
+  ion-col {
+    padding: 0px;
   }
 
   #socialMedia {
