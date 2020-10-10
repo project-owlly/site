@@ -17,6 +17,29 @@
   flex-direction: column;
 }
 
+ion-footer {
+  ion-grid {
+    --ion-grid-padding: 0px;
+  }
+  font-size: small;
+  #prototypefundLogo {
+    height: 50px;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  background-color: black;
+  color: white;
+}
+
+ion-content {
+  ion-grid {
+    padding-bottom: 200px;
+  }
+}
+
+/****** SMALL SCREENS *******/
 @media (max-width: 768px) {
   //newsletter button
   #lpButton {
@@ -26,6 +49,11 @@
   #eule {
     width: 100px;
     bottom: 34px;
+  }
+  ion-footer {
+    font-size: xx-small;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   #socialMedia {

@@ -41,14 +41,6 @@ h1 {
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-  }
-}
-
 h3 {
   color: #ffffff;
   font-weight: 400; //braucht es das?
@@ -63,7 +55,7 @@ h3 {
 ion-toolbar {
   --padding-start: 10%;
   --padding-end: 10%;
-  //   z-index: 10;
+  background-color: var(--ion-background-color, #fff);
 }
 
 ion-content {
@@ -74,4 +66,19 @@ ion-content {
 
 ion-grid {
   --ion-grid-padding: 10%;
+}
+
+/*** SMALL SCREENS ****/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .owllyLogo {
+    //different color is set in variables.scss
+    max-width: 50px;
+    max-height: 23.82px;
+  }
 }
