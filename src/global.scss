@@ -27,10 +27,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300&family=Permanent+Marker&display=swap");
 
-:host {
+:root {
+  --ion-default-font: "Lato", sans-serif !important;
+  font-family: "Lato", sans-serif !important;
   //General Font Size
   font-size: 20px;
-  font-family: "Lato", sans-serif !important;
 }
 
 //used at HOME Page
@@ -40,7 +41,21 @@ h1 {
   color: #ffffff;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+h3 {
+  color: #ffffff;
+  font-weight: 400; //braucht es das?
+}
+
 .owllyLogo {
+  //different color is set in variables.scss
   width: 250px;
   height: 119.1px;
 }
@@ -48,11 +63,15 @@ h1 {
 ion-toolbar {
   --padding-start: 10%;
   --padding-end: 10%;
-  z-index: 10;
+  //   z-index: 10;
 }
 
 ion-content {
-  --padding-start: 10%;
-  --padding-end: 10%;
-  --background: linear-gradient(155deg, rgba(0, 166, 212, 1) 0%, rgba(129, 188, 79, 1) 100%);
+  //--padding-start: 10%;
+  //--padding-end: 10%;
+  --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary) 100%);
+}
+
+ion-grid {
+  --ion-grid-padding: 10%;
 }

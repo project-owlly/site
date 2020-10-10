@@ -1,6 +1,6 @@
-#lpText {
-  color: #ffffff;
-  font-weight: 400; //braucht es das?
+//Newsletter Button
+#lpButton {
+  text-align: left;
 }
 
 #eule {
@@ -18,6 +18,11 @@
 }
 
 @media (max-width: 768px) {
+  //newsletter button
+  #lpButton {
+    text-align: center;
+  }
+
   #eule {
     width: 100px;
     bottom: 34px;
