@@ -1,23 +1,22 @@
-import {
-  Component
-} from '@angular/core';
+import {Component} from '@angular/core';
 
-import { ModalController } from "@ionic/angular";
+import {IonRouterOutlet, ModalController} from '@ionic/angular';
 
-import {NewsletterPage} from '../newsletter/newsletter.page'
+import {NewsletterPage} from '../newsletter/newsletter.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(private modalCtrl: ModalController){}
+  constructor(private modalCtrl: ModalController, private routerOutlet: IonRouterOutlet) {}
 
   async showModal() {
     const modal = await this.modalCtrl.create({
-      component: NewsletterPage
-    })
+      component: NewsletterPage,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
+    });
     await modal.present();
   }
 
