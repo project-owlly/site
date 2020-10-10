@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {OidcService} from 'src/app/services/oidc.service';
 
 @Component({
   selector: 'app-return',
@@ -7,13 +8,19 @@ import { NavParams } from '@ionic/angular';
   styleUrls: ['./return.page.scss'],
 })
 export class ReturnPage implements OnInit {
-  public return = "";
-  constructor(public navParams: NavParams) { 
+  public return = '';
+  public userData = '';
+  constructor(private route: ActivatedRoute, private oidc: OidcService) {
+    this.route.queryParams.subscribe(async (params) => {
+      if (params && params.code) {
+        this.return = params.code;
 
-    this.return = this.navParams.get('code');
+        this.oidc.getUserData(params.code).subscribe((userData) => {
+          this.userData = userData.data.given_name;
+        });
+      }
+    });
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

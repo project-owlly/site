@@ -1,63 +1,100 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title size="small">
+    <ion-title>
       <div class="owllyLogo"></div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>
+        <div class="owllyLogo"></div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-grid>
     <ion-row>
       <ion-col size="12">
         <h1 id="lpTitle">
-          Willkommen <br />
-          in der Zukunft.
+          enabling <br />
+          digital democracy.
         </h1>
       </ion-col>
     </ion-row>
+    <!-- Leading Text-->
     <ion-row>
       <ion-col size="12" size-md="6">
-        <h3 id="lpText">
-          owlly ermöglicht das sichere und einfache elektronische Unterschreiben, Validieren und Zählen von
-          Volksbegehren für Kampagnen-Plattformen und bietet
+        <h3>
+          owlly ermöglicht das sichere und einfache elektronische Unterschreiben, Validieren und Zählen von Volksbegehren für Kampagnen-Plattformen und bietet
           ein ganzheitliches E-Collecting für die Schweiz.
         </h3>
       </ion-col>
     </ion-row>
+    <!-- Newsletter anmelden-->
     <ion-row id="lpButton">
       <ion-col size="12">
-        <ion-button (click)="showModal()" shape="round" color="accent" strong> für Newsletter anmelden </ion-button>
+        <ion-button (click)="showModal()" shape="round" color="tertiary" strong> für Newsletter anmelden </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12">
         <div id="socialMedia">
-          <ion-row >
-            <ion-col >
-                <a href="https://www.instagram.com/projectowlly/"><img src="../../../assets/icon/instagram.svg" alt="instagram" width="30px"></a>
+          <ion-row>
+            <ion-col>
+              <a href="https://www.instagram.com/projectowlly/"><img src="../../../assets/icon/instagram.svg" alt="instagram" width="30px" /></a>
             </ion-col>
-            <ion-col >
-                <a href="https://twitter.com/projectowlly"><img src="../../../assets/icon/twitter.svg" alt="instagram" width="30px"></a>
+            <ion-col>
+              <a href="https://twitter.com/projectowlly"><img src="../../../assets/icon/twitter.svg" alt="instagram" width="30px" /></a>
             </ion-col>
-            <ion-col >
-                <a href="https://www.facebook.com/projectowlly"><img src="../../../assets/icon/facebook_margin.png" alt="instagram" width="30px"></a>
+            <ion-col>
+              <a href="https://www.facebook.com/projectowlly"><img src="../../../assets/icon/facebook_margin.png" alt="instagram" width="30px" /></a>
             </ion-col>
-          </ion-row> 
-          </div>
+          </ion-row>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="end"  slot="fixed">
-      <ion-fab-button color="blue" href="/feedback" translucent="true">
-        <ion-icon name="chatbubbles-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary" href="/feedback" translucent="true">
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-  <div class="ion-text-right" style="height: 50px;">
-    <img src="../../../assets/eule.png" id="eule" alt="Owlly's Eule"/>
-  </div>
+  <!--
 
-  <app-footer></app-footer>
+
+
+  <owlly-footer>
+  </owlly-footer>
+-->
 </ion-content>
+
+<ion-footer class="ion-no-border ion-padding">
+  <div class="ion-text-right owlly-eule" style="height: 50px">
+    <img src="../../../assets/eule.png" id="eule" alt="Owlly's Eule" />
+  </div>
+  <ion-grid class="landingPage">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="1">
+        <img src="../../../assets/prototypefund.svg" alt="Prototype Fund Logo" id="prototypefundLogo" />
+      </ion-col>
+      <ion-col size="5">
+        <ion-text>
+          <p>
+            Das Projekt owlly wird unterstützt vom Prototype Fund, eine gemeinsame Initiative von Opendata.ch und des Programms „Digitalisierung + Gesellschaft“
+            der Stiftung Mercator Schweiz.
+          </p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="6">
+        <div class="ion-text-right" id="bureaucracy">
+          <a href="/impressum">Impressum</a>
+          <p>© 2020 liitu gmbh</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

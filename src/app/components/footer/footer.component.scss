@@ -2,16 +2,7 @@
   width: 70px;
 }
 
-#eule {
-  width: 300px;
-  position: relative;
-  bottom: -60px;
-}
-
-ion-grid {
-  --ion-grid-padding: 0px;
-}
-ion-toolbar {
-  --padding-top: 25px;
-  --padding-bottom: 25px;
+a {
+  text-decoration: none;
+  color: var(--ion-color-secondary);
 }

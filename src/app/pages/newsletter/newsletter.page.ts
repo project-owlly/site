@@ -25,7 +25,8 @@ export class NewsletterPage implements OnInit {
   }
   ngOnInit() {
     this.newsletterForm = this.fb.group({
-      name: ['', [Validators.required]],
+      vorname: ['', [Validators.required]],
+      nachname: ['', [Validators.required]],
       email: ['', [Validators.required]],
       funnel: ['']
     })

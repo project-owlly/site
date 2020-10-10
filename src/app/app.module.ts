@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
@@ -7,11 +7,11 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
-import {HttpClientModule} from '@angular/common/http';
+//import {HttpClientModule} from '@angular/common/http';
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
-import {AngularFirestore, AngularFirestoreModule  } from "@angular/fire/firestore";
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 
 import {environment} from './../environments/environment';
 
@@ -19,18 +19,19 @@ import {environment} from './../environments/environment';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
+    //HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireFunctionsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     {provide: REGION, useValue: 'europe-west6'},
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

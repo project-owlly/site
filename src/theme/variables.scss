@@ -2,95 +2,36 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
-:root {
-  font-size: 20px;
-  
 
+:root {
+  //Owlly Logo
   .owllyLogo {
-    width: 250px;
-    height: 119.1px;
     content: url(../assets/Logo.png);
   }
 
-  /** owlly white **/
-  --ion-color-white: #ffffff;
-  --ion-color-white-rgb: 255, 255, 255;
-  --ion-color-white-contrast: #000000;
-  --ion-color-white-contrast-rgb: 0, 0, 0;
-  --ion-color-white-shade: #e0e0e0;
-  --ion-color-white-tint: #ffffff;
-
-  /** owlly green **/
-  --ion-color-green: #81bc4f;
-  --ion-color-green-rgb: 129, 188, 79;
-  --ion-color-green-contrast: #000000;
-  --ion-color-green-contrast-rgb: 0, 0, 0;
-  --ion-color-green-shade: #72a546;
-  --ion-color-green-tint: #8ec361;
-
-  /** owlly blue **/
-  --ion-color-blue: #00a6d4;
-  --ion-color-blue-rgb: 0, 166, 212;
-  --ion-color-blue-contrast: #ffffff;
-  --ion-color-blue-contrast-rgb: 255, 255, 255;
-  --ion-color-blue-shade: #0092bb;
-  --ion-color-blue-tint: #1aafd8;
-
-  /** owlly black **/
-  --ion-color-black: #000000;
-  --ion-color-black-rgb: 0, 0, 0;
-  --ion-color-black-contrast: #ffffff;
-  --ion-color-black-contrast-rgb: 255, 255, 255;
-  --ion-color-black-shade: #000000;
-  --ion-color-black-tint: #1a1a1a;
-
-  /** owlly shaded green **/
-  --ion-color-shadedgreen: #00813a;
-  --ion-color-shadedgreen-rgb: 0, 129, 58;
-  --ion-color-shadedgreen-contrast: #ffffff;
-  --ion-color-shadedgreen-contrast-rgb: 255, 255, 255;
-  --ion-color-shadedgreen-shade: #007233;
-  --ion-color-shadedgreen-tint: #1a8e4e;
-
-  /** shaded blue **/
-  --ion-color-shadedblue: #006590;
-  --ion-color-shadedblue-rgb: 0, 101, 144;
-  --ion-color-shadedblue-contrast: #ffffff;
-  --ion-color-shadedblue-contrast-rgb: 255, 255, 255;
-  --ion-color-shadedblue-shade: #00597f;
-  --ion-color-shadedblue-tint: #1a749b;
-
-  /** owlly accent **/
-  --ion-color-accent: #fdc600;
-  --ion-color-accent-rgb: 253, 198, 0;
-  --ion-color-accent-contrast: #000000;
-  --ion-color-accent-contrast-rgb: 0, 0, 0;
-  --ion-color-accent-shade: #dfae00;
-  --ion-color-accent-tint: #fdcc1a;
-
   /** primary **/
   --ion-color-primary: #81bc4f;
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-rgb: 129, 188, 79;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #72a546;
+  --ion-color-primary-tint: #8ec361;
 
   /** secondary **/
   --ion-color-secondary: #00a6d4;
-  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary-rgb: 0, 166, 212;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
-  --ion-color-secondary-tint: #50c8ff;
+  --ion-color-secondary-shade: #0092bb;
+  --ion-color-secondary-tint: #1aafd8;
 
   /** tertiary **/
-  --ion-color-tertiary: #000000;
-  --ion-color-tertiary-rgb: 82, 96, 255;
-  --ion-color-tertiary-contrast: #ffffff;
-  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #4854e0;
-  --ion-color-tertiary-tint: #6370ff;
+  --ion-color-tertiary: #fdc600;
+  --ion-color-tertiary-rgb: 253, 198, 0;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary-shade: #dfae00;
+  --ion-color-tertiary-tint: #fdcc1a;
 
   /** success **/
   --ion-color-success: #2dd36f;
@@ -141,8 +82,7 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-/** Class declaration for custom colors**/
-
+/** Class declaration for custom colors
 .ion-color-white {
   --ion-color-base: var(--ion-color-white);
   --ion-color-base-rgb: var(--ion-color-white-rgb);
@@ -151,6 +91,7 @@
   --ion-color-shade: var(--ion-color-white-shade);
   --ion-color-tint: var(--ion-color-white-tint);
 }
+
 .ion-color-green {
   --ion-color-base: var(--ion-color-green);
   --ion-color-base-rgb: var(--ion-color-green-rgb);
@@ -159,6 +100,7 @@
   --ion-color-shade: var(--ion-color-green-shade);
   --ion-color-tint: var(--ion-color-green-tint);
 }
+
 .ion-color-blue {
   --ion-color-base: var(--ion-color-blue);
   --ion-color-base-rgb: var(--ion-color-blue-rgb);
@@ -167,6 +109,7 @@
   --ion-color-shade: var(--ion-color-blue-shade);
   --ion-color-tint: var(--ion-color-blue-tint);
 }
+
 .ion-color-black {
   --ion-color-base: var(--ion-color-black);
   --ion-color-base-rgb: var(--ion-color-black-rgb);
@@ -175,6 +118,7 @@
   --ion-color-shade: var(--ion-color-black-shade);
   --ion-color-tint: var(--ion-color-black-tint);
 }
+
 .ion-color-shadedgreen {
   --ion-color-base: var(--ion-color-shadedgreen);
   --ion-color-base-rgb: var(--ion-color-shadedgreen-rgb);
@@ -183,6 +127,7 @@
   --ion-color-shade: var(--ion-color-shadedgreen-shade);
   --ion-color-tint: var(--ion-color-shadedgreen-tint);
 }
+
 .ion-color-shadedblue {
   --ion-color-base: var(--ion-color-shadedblue);
   --ion-color-base-rgb: var(--ion-color-shadedblue-rgb);
@@ -191,6 +136,7 @@
   --ion-color-shade: var(--ion-color-shadedblue-shade);
   --ion-color-tint: var(--ion-color-shadedblue-tint);
 }
+
 .ion-color-accent {
   --ion-color-base: var(--ion-color-accent);
   --ion-color-base-rgb: var(--ion-color-accent-rgb);
@@ -199,6 +145,7 @@
   --ion-color-shade: var(--ion-color-accent-shade);
   --ion-color-tint: var(--ion-color-accent-tint);
 }
+ **/
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -207,32 +154,33 @@
    */
 
   .owllyLogo {
-    width: 250px;
-    height: 119.1px;
     content: url(../assets/Logo_dark.png) !important;
   }
 
   body {
-    --ion-color-primary: #428cff;
-    --ion-color-primary-rgb: 66, 140, 255;
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255, 255, 255;
-    --ion-color-primary-shade: #3a7be0;
-    --ion-color-primary-tint: #5598ff;
+    /** primary **/
+    --ion-color-primary: #81bc4f;
+    --ion-color-primary-rgb: 129, 188, 79;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #72a546;
+    --ion-color-primary-tint: #8ec361;
 
-    --ion-color-secondary: #50c8ff;
-    --ion-color-secondary-rgb: 80, 200, 255;
+    /** secondary **/
+    --ion-color-secondary: #00a6d4;
+    --ion-color-secondary-rgb: 0, 166, 212;
     --ion-color-secondary-contrast: #ffffff;
     --ion-color-secondary-contrast-rgb: 255, 255, 255;
-    --ion-color-secondary-shade: #46b0e0;
-    --ion-color-secondary-tint: #62ceff;
+    --ion-color-secondary-shade: #0092bb;
+    --ion-color-secondary-tint: #1aafd8;
 
-    --ion-color-tertiary: #6a64ff;
-    --ion-color-tertiary-rgb: 106, 100, 255;
-    --ion-color-tertiary-contrast: #ffffff;
-    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-    --ion-color-tertiary-shade: #5d58e0;
-    --ion-color-tertiary-tint: #7974ff;
+    /** tertiary **/
+    --ion-color-tertiary: #fdc600;
+    --ion-color-tertiary-rgb: 253, 198, 0;
+    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #dfae00;
+    --ion-color-tertiary-tint: #fdcc1a;
 
     --ion-color-success: #2fdf75;
     --ion-color-success-rgb: 47, 223, 117;
@@ -285,7 +233,6 @@
   .ios body {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0, 0, 0;
-
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255, 255, 255;
 
