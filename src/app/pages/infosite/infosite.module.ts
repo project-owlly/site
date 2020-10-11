@@ -8,8 +8,10 @@ import {InfositePageRoutingModule} from './infosite-routing.module';
 
 import {InfositePage} from './infosite.page';
 
+import {ComponentsModule} from 'src/app/components/components.module';
+
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, InfositePageRoutingModule],
+  imports: [CommonModule, FormsModule, IonicModule, InfositePageRoutingModule, ComponentsModule],
   declarations: [InfositePage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

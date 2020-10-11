@@ -13,9 +13,15 @@ const {Browser} = Plugins;
 export class InfositePage implements OnInit {
   user: any = {};
 
-  initiative = 'Veloinitiative';
-  initiativText =
-    'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.';
+  initiativData = {
+    initiative: 'Veloinitiative',
+    initiativText:
+    'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.',
+    urheber: 'Max Mustermann ist der Urheber.',
+    logo: 'https://www.jfsh.ch/wp-content/uploads/cropped-Webp.net-resizeimage.jpg',
+    kanton: 'Schaffhausen',
+    ziele: ['Velounfälle verhindern', 'Schluss mit Stillstand', 'Sicherheit auf dem Velo und zu Fuss', 'Beitrag zum Klimaschutz']
+  }
 
   pdfData;
 

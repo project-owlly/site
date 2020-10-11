@@ -1,3 +1,7 @@
+ion-content {
+  --background: linear-gradient(155deg, rgba(0, 166, 212, 1) 0%, rgba(129, 188, 79, 1) 100%);
+}
+
 #lpTitle {
   font-weight: bold;
   font-size: 4rem;
@@ -13,7 +17,7 @@
   position: relative;
   bottom: 200px;
   right: 10%;
-  z-index: 0;
+  z-index: 100;
 }
 
 #socialMedia {
