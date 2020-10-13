@@ -30,12 +30,12 @@
             <img src="https://i0.wp.com/www.velofahrer.ch/wp-content/uploads/2015/03/150305_lancierung_veloinitiative_07.jpg?fit=1200%2C800&ssl=1" alt="" >
     </ion-col>
     <ion-col size="12" size-lg="4" id="ziele">
-      <div style="padding: 20px">
+      <div style="margin: 20px">
           <h3 style="color: #fff;">
             Ziele der Initiative
           </h3>
           <ul style="color: #fff">
-            <li ng-repeat="i in initiativData.ziele">{{initiativData.ziele[i]}}</li>
+            <li *ngFor="let entry of initiativData.ziele"><p style="font-weight:200; font-size: 1.2rem">{{entry}}</p></li>
           </ul>
       </div>
     </ion-col>
@@ -50,13 +50,31 @@
       <h3>
         Initiativtext
       </h3>
-      <p>{{initiativData.initiativText}}</p>
+      <div *ngIf="!showMore">
+        <p >{{trimString(initiativData.initiativText,200)}} <span>
+          <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span>
+          </a></span></p> 
+      </div>
+      <div *ngIf="showMore">
+        <p>{{initiativData.initiativText}} <span>
+            <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span></a>
+        </span></p>
+      </div>
       <h3>Hinweis strafbar</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam cumque at, aperiam nemo, animi mollitia obcaecati sit laborum corporis doloremque, doloribus debitis ratione magni numquam eum labore magnam quibusdam!
       </p>
       <h3>Urheber</h3>
-      <p>{{initiativData.urheber}}</p>
+      <div *ngIf="!showMoreU">
+          <p >{{trimString(initiativData.urheber,200)}} <span>
+            <a (click)="showMoreU = !showMoreU"> <span [innerHtml]="showMoreU ? 'weniger' : 'mehr' "></span>
+            </a></span></p> 
+        </div>
+        <div *ngIf="showMoreU">
+          <p>{{initiativData.urheber}} <span>
+              <a (click)="showMoreU = !showMoreU"> <span [innerHtml]="showMoreU ? 'weniger' : 'mehr' "></span></a>
+          </span></p>
+        </div>
     </ion-col>
   </ion-row>
 </ion-grid>
