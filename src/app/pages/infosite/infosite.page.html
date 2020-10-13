@@ -5,15 +5,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-<ion-header collapse="condense">
+  <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title >MICROPAGE - INFOSEITE - Velorouten-Initiative</ion-title>
+      <ion-title>MICROPAGE - INFOSEITE - Velorouten-Initiative</ion-title>
     </ion-toolbar>
   </ion-header>
 
-<ion-grid style="padding-top: 50px;">
-  <ion-row class="ion-align-items-center">
+  <ion-grid style="padding-top: 50px">
+    <ion-row class="ion-align-items-center">
       <ion-col size="12" size-md="2" class="ion-text-right" push-md="10">
           <img src="{{initiativData.logo}}" alt="">
         </ion-col>
@@ -37,11 +36,11 @@
           <ul style="color: #fff">
             <li *ngFor="let entry of initiativData.ziele"><p style="font-weight:200; font-size: 1.2rem">{{entry}}</p></li>
           </ul>
-      </div>
-    </ion-col>
-  </ion-row>
-  <ion-row id="owllyButton">
-    <ion-col size="12">
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row id="owllyButton">
+      <ion-col size="12">
         <owlly-sign></owlly-sign>
     </ion-col>
   </ion-row>
@@ -80,7 +79,6 @@
 </ion-grid>
 <app-footer></app-footer>
 </ion-content>
-
 
 <!-- <ion-content [fullscreen]="true">
 
