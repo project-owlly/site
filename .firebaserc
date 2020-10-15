@@ -6,7 +6,7 @@
     "project-owlly": {
       "hosting": {
         "project-owlly": [
-          "www"
+          "dist/app/browser"
         ]
       }
     }

@@ -9,14 +9,15 @@ import {OidcService} from 'src/app/services/oidc.service';
 })
 export class ReturnPage implements OnInit {
   public return = '';
-  public userData = '';
+  public userData: any = {};
   constructor(private route: ActivatedRoute, private oidc: OidcService) {
     this.route.queryParams.subscribe(async (params) => {
       if (params && params.code) {
         this.return = params.code;
 
         this.oidc.getUserData(params.code).subscribe((userData) => {
-          this.userData = userData.data.given_name;
+          console.log(JSON.stringify(userData));
+          this.userData = userData;
         });
       }
     });
