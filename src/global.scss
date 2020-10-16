@@ -52,18 +52,6 @@ h3 {
   height: 119.1px;
 }
 
-ion-toolbar {
-  --padding-start: 10%;
-  --padding-end: 10%;
-  background-color: var(--ion-background-color, #fff);
-}
-
-ion-content {
-  //--padding-start: 10%;
-  //--padding-end: 10%;
-  --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary) 100%);
-}
-
 ion-grid {
   --ion-grid-padding: 10%;
 }

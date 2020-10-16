@@ -2,7 +2,9 @@ import {Component} from '@angular/core';
 
 import {IonRouterOutlet, ModalController} from '@ionic/angular';
 
+import {FeedbackPage} from '../feedback/feedback.page';
 import {NewsletterPage} from '../newsletter/newsletter.page';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,7 +13,7 @@ import {NewsletterPage} from '../newsletter/newsletter.page';
 export class HomePage {
   constructor(private modalCtrl: ModalController, private routerOutlet: IonRouterOutlet) {}
 
-  async showModal() {
+  async showNewsletter() {
     const modal = await this.modalCtrl.create({
       component: NewsletterPage,
       swipeToClose: true,
@@ -20,7 +22,12 @@ export class HomePage {
     await modal.present();
   }
 
-  doSomething() {
-    console.log('Do something');
+  async showFeedback() {
+    const modal = await this.modalCtrl.create({
+      component: FeedbackPage,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
+    });
+    await modal.present();
   }
 }

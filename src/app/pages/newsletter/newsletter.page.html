@@ -16,37 +16,32 @@
       <ion-title> Für Newsletter anmelden </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
-    <div id="newsletterFormCSS">
-      <ion-grid>
-        <ion-row style="text-align: center">
-          <ion-col size="12" class="ion-align-self-center">
-            <form [formGroup]="newsletterForm" (ngSubmit)="createRecord()">
-              <ion-item>
-                <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="vorname" type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="nachname" type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="email" type="email"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
-                <ion-textarea type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
-              </ion-item>
 
-              <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round">
-                Anmelden
-              </ion-button>
+  <ion-grid>
+    <ion-row style="text-align: center">
+      <ion-col size="12" class="ion-align-self-center">
+        <form [formGroup]="newsletterForm" (ngSubmit)="createRecord()">
+          <ion-item>
+            <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="vorname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="nachname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="email" type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
+            <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
+          </ion-item>
 
-            </form>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </ion-content></ion-content
+          <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round"> Anmelden </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
 >
