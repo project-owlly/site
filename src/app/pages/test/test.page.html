@@ -1,17 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Inbox </ion-title>
+    <ion-title> Test - owlly </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large"> Inbox </ion-title>
+      <ion-title size="large"> Test - owlly </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+    <ion-list-header> Tests </ion-list-header>
+
+    <ion-card button="true" (click)="generatePDF()">
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>Card Title</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

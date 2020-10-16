@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {PdfServiceService} from 'src/app/services/pdf-service.service';
 
 @Component({
   selector: 'app-test',
@@ -6,7 +7,11 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./test.page.scss'],
 })
 export class TestPage implements OnInit {
-  constructor() {}
+  constructor(private pdfService: PdfServiceService) {}
 
   ngOnInit() {}
+
+  async generatePDF() {
+    let pdf = await this.pdfService.generatePDF();
+  }
 }
