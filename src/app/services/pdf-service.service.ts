@@ -16,18 +16,26 @@ export class PdfServiceService {
     private functions: AngularFireFunctions
   ) {}
 
-  generate(email: string, user: string) {
+  generatePDF() {
     const callable = this.functions.httpsCallable('generatePDF');
 
     // Create an Observable and pass any data you want to the function
     // const obs = callable({ coolMsg: this.myInput });
     const obs = callable({
-      adress: email,
-      vorname: name,
+      user: {
+        sub: '0xc9417d602B67b7c29545d4c961Dc0a7a6F0b9844',
+        given_name: 'Sandro Bruno',
+        family_name: 'Scalco',
+        birth_date: '03.06.1988',
+        locality: 'Schaffhausen',
+        postal_code: '8200',
+        street_address: 'Villenstrasse 4',
+        verified_simple: {given_name: true, family_name: true, birth_date: true, locality: false, postal_code: false, street_address: false},
+      },
+      owllyId: '123',
     });
-
     // TODO: unsubscribe or first
-    obs.subscribe(async (res) => {
+    obs.subscribe((res) => {
       this.pdf = res.result;
     });
   }
