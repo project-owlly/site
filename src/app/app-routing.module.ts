@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'return',
     loadChildren: () => import('./pages/return/return.module').then((m) => m.ReturnPageModule),
   },
+  {
+    path: 'test',
+    loadChildren: () => import('./pages/test/test.module').then((m) => m.TestPageModule),
+  },
 ];
 
 @NgModule({
