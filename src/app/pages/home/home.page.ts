@@ -16,7 +16,8 @@ export class HomePage {
 
   async showModal() {
     const modal = await this.modalCtrl.create({
-      component: NewsletterPage
+      component: NewsletterPage,
+      swipeToClose: true
     })
     await modal.present();
   }
