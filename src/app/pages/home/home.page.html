@@ -1,16 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title size="small">
-      <div class="owllyLogo"></div>
+      <a href="/"> <div class="owllyLogo"></div> </a>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!-- Owlly Hero -->
 <ion-content [fullscreen]="true">
+  <div class="owlly-linear-gradient owlly-hero">
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <h1 id="lpTitle">
+        <h1>
           Enabling <br />
           digital democracy.
         </h1>
@@ -18,7 +19,7 @@
     </ion-row>
     <ion-row>
       <ion-col size="12" size-md="6">
-        <h3 id="lpText">
+        <h3>
           owlly ermöglicht das sichere und einfache elektronische Unterschreiben, Validieren und Zählen von Volksbegehren für Kampagnen-Plattformen und bietet
           ein ganzheitliches E-Collecting für die Schweiz.
         </h3>
@@ -47,14 +48,18 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+</div>
+<!-- End Owlly hero -->
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="secondary" href="/feedback" translucent="true">
       <ion-icon name="chatbubbles-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
   <div class="ion-text-right" style="height: 50px">
-    <img src="../../../assets/eule.png" id="eule" alt="Owlly's Eule" />
+    <img src="../../../assets/eule.png" class="owl-footer" alt="Owlly's Eule" />
   </div>
 
   <app-footer></app-footer>

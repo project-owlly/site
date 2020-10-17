@@ -1,25 +1,3 @@
-ion-content {
-  --background: linear-gradient(155deg, rgba(0, 166, 212, 1) 0%, rgba(129, 188, 79, 1) 100%);
-}
-
-#lpTitle {
-  font-weight: bold;
-  font-size: 4rem;
-  color: #ffffff;
-}
-#lpText {
-  color: #000000;
-  font-weight: 400;
-}
-
-#eule {
-  width: 300px;
-  position: relative;
-  bottom: 200px;
-  right: 10%;
-  z-index: 100;
-}
-
 #socialMedia {
   display: flex;
   width: 150px;
@@ -27,11 +5,6 @@ ion-content {
 }
 
 @media (max-width: 768px) {
-  #lpTitle {
-    font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
-  }
   #lpButton {
     text-align: center;
   }
@@ -39,10 +12,5 @@ ion-content {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  #eule {
-    width: 100px;
-    bottom: 34px;
   }
 }

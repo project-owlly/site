@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
 import {PdfServiceService} from 'src/app/services/pdf-service.service';
 import {Plugins} from '@capacitor/core';
+import { HttpClient } from "@angular/common/http";
 
 const {Browser} = Plugins;
 
@@ -25,9 +26,12 @@ export class InfositePage implements OnInit {
 
   pdfData;
 
-  constructor(private pdfService: PdfServiceService, private oidcService: OidcService) {}
+  constructor(private pdfService: PdfServiceService, private oidcService: OidcService, private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = this.http.get('https://europe-west6-project-owlly.cloudfunctions.net/owlly');
+    console.log(this.user.title);
+  }
 
   sign() {
     console.log('sign');
