@@ -16,11 +16,12 @@ export class InfositePage implements OnInit {
   initiativData = {
     initiative: 'Veloinitiative',
     initiativText:
-    'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.',
-    urheber: 'Max Mustermann ist der Urheber. Villenstrasse 4, 8200 Schaffhausen, Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia',
+      'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.',
+    urheber:
+      'Max Mustermann ist der Urheber. Villenstrasse 4, 8200 Schaffhausen, Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia',
     logo: 'https://www.jfsh.ch/wp-content/uploads/cropped-Webp.net-resizeimage.jpg',
     kanton: 'Schaffhausen',
-    ziele: ['Velounfälle verhindern', 'Schluss mit Stillstand', 'Sicherheit auf dem Velo und zu Fuss', 'Beitrag zum Klimaschutz']
+    ziele: ['Velounfälle verhindern', 'Schluss mit Stillstand', 'Sicherheit auf dem Velo und zu Fuss', 'Beitrag zum Klimaschutz'],
   };
 
   pdfData;
@@ -46,13 +47,11 @@ export class InfositePage implements OnInit {
 
   submit() {
     console.log(this.user);
-    this.pdfService.generate(this.user.email, this.user.name);
+    this.pdfService.generatePDF();
   }
 
   trimString(string, length) {
-    return string.length > length
-      ? string.substring(0, length) + "..."
-      : string;
+    return string.length > length ? string.substring(0, length) + '...' : string;
   }
 
   showMore = false;
