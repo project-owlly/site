@@ -27,7 +27,7 @@
               </ion-item>
               <ion-item>
                 <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
-                <ion-input required formControlName="email" type="email"></ion-input>
+                <ion-input required formControlName="email" type="email" email="true"></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
@@ -39,7 +39,7 @@
                 <span style="font-size: 10px;"> <br> Wir sind interessiert an deiner Meinung! <br> Als Testperson erhältst du Einblick<br>in unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte
                   <br> und prägst damit E-Collecting in der Schweiz mit.</span>
                 </div></ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle formControlName="testuser" type="boolean"></ion-toggle>
                 
               
               </ion-item>                

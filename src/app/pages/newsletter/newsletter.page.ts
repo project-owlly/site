@@ -28,7 +28,8 @@ export class NewsletterPage implements OnInit {
       vorname: ['', [Validators.required]],
       nachname: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      funnel: ['']
+      funnel: [''],
+      testuser: ''
     })
   }
   createRecord() {
@@ -37,7 +38,7 @@ export class NewsletterPage implements OnInit {
     .then(() => {
       this.toastcontroller.create({
         message: 'Email erfolgreich erfasst.',
-        color: 'green',
+        color: 'primary',
         duration: 4000,
         position: 'bottom',
         animated: true,
