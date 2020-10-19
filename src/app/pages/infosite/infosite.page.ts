@@ -12,25 +12,20 @@ const {Browser} = Plugins;
   styleUrls: ['./infosite.page.scss'],
 })
 export class InfositePage implements OnInit {
-  user: any = {};
 
-  initiativData = {
-    initiative: 'Veloinitiative',
-    initiativText:
-    'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.',
-    urheber: 'Max Mustermann ist der Urheber. Villenstrasse 4, 8200 Schaffhausen, Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia',
-    logo: 'https://www.jfsh.ch/wp-content/uploads/cropped-Webp.net-resizeimage.jpg',
-    kanton: 'Schaffhausen',
-    ziele: ['Velounfälle verhindern', 'Schluss mit Stillstand', 'Sicherheit auf dem Velo und zu Fuss', 'Beitrag zum Klimaschutz']
-  };
+  user: any = {}
+
+  initiativData: any = {};
 
   pdfData;
 
   constructor(private pdfService: PdfServiceService, private oidcService: OidcService, private http: HttpClient) {}
 
   ngOnInit() {
-    this.user = this.http.get('https://europe-west6-project-owlly.cloudfunctions.net/owlly');
-    console.log(this.user.title);
+    this.http.get('https://europe-west6-project-owlly.cloudfunctions.net/owlly').subscribe((response) => {
+      this.initiativData = response;
+    });
+    console.log(this.initiativData);
   }
 
   sign() {
