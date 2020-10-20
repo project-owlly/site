@@ -53,7 +53,9 @@ ion-toolbar {
 
 .owlly-linear-gradient {
   background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
+  --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
 }
+
 
 a {
   text-decoration: none;
