@@ -31,7 +31,7 @@
     "@ionic/angular": "^5.3.5",
     "@ionic/angular-server": "^5.4.0-rc.1",
     "@nguniversal/express-engine": "^10.1.0",
-    "@owlly/signature": "0.0.3",
+    "@owlly/signature": "0.0.5",
     "express": "^4.15.2",
     "firebase": "^7.22.1",
     "rxjs": "^6.6.3",

@@ -44,12 +44,12 @@ export class FeedbackPage implements OnInit {
       () => {
         this.toastcontroller
           .create({
-            message: 'Feedback erfolgreich erfasst.',
-            color: 'green',
+            message: 'Dein Feedback wurde erfolgreich erfasst.',
+            color: 'success',
             duration: 4000,
             position: 'bottom',
             animated: true,
-            header: 'Feedback:',
+            header: 'Vielen Dank!',
           })
           .then((toast) => {
             toast.present();
@@ -60,7 +60,7 @@ export class FeedbackPage implements OnInit {
         console.log(error);
         this.toastcontroller
           .create({
-            message: 'Fehler',
+            message: 'Fehler: ' + error.text,
             color: 'danger',
             duration: 4000,
           })

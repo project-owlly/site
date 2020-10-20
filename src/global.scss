@@ -38,12 +38,17 @@
   //different color is set in variables.scss
   width: 250px;
   height: 119.1px;
+  @media (max-width: 768px) {
+    width: 125px;
+    height: 59.55px;
+  }
 }
 
 ion-grid {
   --ion-grid-padding: 10%;
-  padding-top: 50px !important;
+  //  padding-top: 50px !important; // für was ist das? -> wenn dann nicht überall
 }
+
 ion-toolbar {
   padding-left: 10%;
   padding-right: 10%;
@@ -56,26 +61,24 @@ ion-toolbar {
   --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
 }
 
-
-a {
-  text-decoration: none;
-  color: var(--ion-color-primary);
-}
-
 .owlly-footer {
   width: 300px;
   position: relative;
-  bottom: 180px;
+  bottom: -25px; //damit eule auf der linie sitzt
   right: 10%;
   z-index: 100;
 
   @media (max-width: 768px) {
     width: 100px;
-    bottom: 25px;
+    bottom: -10px; //damit eule auf der linie sitzt
   }
 }
 
 // Font specifications
+a {
+  text-decoration: none;
+  color: var(--ion-color-tertiary);
+}
 
 h1 {
   font-size: 4rem;
@@ -83,6 +86,10 @@ h1 {
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
   }
 }
 
@@ -91,7 +98,8 @@ h2 {
 }
 
 h3 {
-  font-weight: bold;
+  //font-weight: bold;
+  font-weight: 400;
 }
 
 // miscellaneous classes
