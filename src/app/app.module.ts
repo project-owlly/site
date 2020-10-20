@@ -7,7 +7,7 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
-import {HttpClientModule} from '@angular/common/http';
+//import {HttpClientModule} from '@angular/common/http';
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
@@ -19,10 +19,10 @@ import {environment} from './../environments/environment';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
+    //HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireFunctionsModule,
     AngularFirestoreModule,

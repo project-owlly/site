@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from "@angular/fire/firestore";
+import {Injectable} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NewsletterService {
-
-  collectionName ='newsletter'
+  collectionName = 'newsletter';
 
   constructor(public firestore: AngularFirestore) {}
 
-  create_nlUser(record) {
-    return this.firestore.collection(this.collectionName).doc(record.email).set(record);;
+  createNewsletterRecord(record) {
+    return this.firestore.collection('newsletter').doc(record.email).set(record);
   }
-  
+  createFeedbackRecord(record) {
+    return this.firestore.collection('feedback').add(record);
+  }
 }

@@ -1,28 +1,33 @@
-import {
-  Component
-} from '@angular/core';
+import {Component} from '@angular/core';
 
-import { ModalController } from "@ionic/angular";
+import {IonRouterOutlet, ModalController} from '@ionic/angular';
 
-import {NewsletterPage} from '../newsletter/newsletter.page'
+import {FeedbackPage} from '../feedback/feedback.page';
+import {NewsletterPage} from '../newsletter/newsletter.page';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(private modalCtrl: ModalController, private routerOutlet: IonRouterOutlet) {}
 
-  constructor(private modalCtrl: ModalController){}
-
-  async showModal() {
+  async showNewsletter() {
     const modal = await this.modalCtrl.create({
       component: NewsletterPage,
-      swipeToClose: true
-    })
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
+    });
     await modal.present();
   }
 
-  doSomething() {
-    console.log('Do something');
+  async showFeedback() {
+    const modal = await this.modalCtrl.create({
+      component: FeedbackPage,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
+    });
+    await modal.present();
   }
 }

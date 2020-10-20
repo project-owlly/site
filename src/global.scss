@@ -27,23 +27,29 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,300&family=Permanent+Marker&display=swap");
 
-:host {
+:root {
+  --ion-default-font: "Lato", sans-serif !important;
+  font-family: "Lato", sans-serif !important;
   //General Font Size
   font-size: 20px;
 }
 
-* {
-  font-family: "Lato", sans-serif !important;
+//used at HOME Page
+h1 {
+  font-weight: bold;
+  font-size: 4rem;
+  color: #ffffff;
 }
 
-ion-toolbar {
-  --padding-start: 10%;
-  --padding-end: 10%;
-  z-index: 10;
+h3 {
+  color: #ffffff;
+  font-weight: 400; //braucht es das?
 }
 
-ion-title {
-  padding: 0px;
+.owllyLogo {
+  //different color is set in variables.scss
+  width: 250px;
+  height: 119.1px;
 }
 
 ion-grid {

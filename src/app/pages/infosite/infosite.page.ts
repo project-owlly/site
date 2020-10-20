@@ -45,13 +45,11 @@ export class InfositePage implements OnInit {
 
   submit() {
     console.log(this.user);
-    this.pdfService.generate(this.user.email, this.user.name);
+    this.pdfService.generatePDF();
   }
 
   trimString(string, length) {
-    return string.length > length
-      ? string.substring(0, length) + "..."
-      : string;
+    return string.length > length ? string.substring(0, length) + '...' : string;
   }
 
   showMore = false;
