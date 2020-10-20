@@ -53,7 +53,7 @@ export class InfositePage implements OnInit {
   constructor(private pdfService: PdfServiceService, private oidcService: OidcService, private owllyService: OwllyService) {}
 
   ngOnInit() {
-    this.owllyService.callOwlly().subscribe(
+    /*this.owllyService.callOwlly().subscribe(
       (data) => {
         console.log('OWLLY: ' + JSON.stringify(data));
         this.initiativData = data;
@@ -61,8 +61,7 @@ export class InfositePage implements OnInit {
       (error) => {
         console.log(JSON.stringify(error));
       }
-    );
-
+    );*/
     /*this.http.get('https://europe-west6-project-owlly.cloudfunctions.net/owlly').subscribe((response) => {
       this.initiativData = response;
     });*/
