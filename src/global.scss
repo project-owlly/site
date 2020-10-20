@@ -34,7 +34,6 @@
   font-size: 20px;
 }
 
-
 .owllyLogo {
   //different color is set in variables.scss
   width: 250px;
@@ -53,7 +52,7 @@ ion-toolbar {
 // Owlly specific SCSS
 
 .owlly-linear-gradient {
-  background: linear-gradient(155deg, var(--ion-color-primary) 0%, var(--ion-color-secondary));
+  background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
 }
 
 .owlly-hero {
@@ -68,8 +67,8 @@ ion-toolbar {
 
   @media (max-width: 768px) {
     h1 {
-    font-size: 2rem;
-    text-align: center;
+      font-size: 2rem;
+      text-align: center;
     }
   }
 }
@@ -105,7 +104,6 @@ h2 {
 h3 {
   font-weight: bold;
 }
-
 
 // miscellaneous classes
 
