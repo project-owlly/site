@@ -8,6 +8,7 @@ import { NewsletterPageRoutingModule } from './newsletter-routing.module';
 
 import { NewsletterPage } from './newsletter.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

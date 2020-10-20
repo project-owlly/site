@@ -12,11 +12,15 @@ export class OwllyService {
 
     // Create an Observable and pass any data you want to the function
     // const obs = callable({ coolMsg: this.myInput });
-    const obs = callable({});
+    const observer = callable({});
+    observer.subscribe((data) => {
+      console.log('OWLLY ' + JSON.stringify(data));
+    });
+    return observer;
 
     // TODO: bad practice, no subscribe in services or take care of detroying the subscription
-    obs.subscribe(async (res) => {
+    /*obs.subscribe(async (res) => {
       console.log(JSON.stringify(res));
-    });
+    });*/
   }
 }

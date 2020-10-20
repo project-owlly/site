@@ -1,18 +1,21 @@
-ion-content {
-  --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary) 100%);
+ion-grid {
+  padding-bottom: 300px;
 }
 
-//Newsletter Button
-#lpButton {
-  text-align: left;
+h1 {
+  font-weight: bold;
+  color: #ffffff;
+}
+h3 {
+  color: #000000;
+  font-weight: 400;
 }
 
-#eule {
-  width: 300px;
-  bottom: 200px;
-  position: relative;
-  right: 10%;
-  z-index: 100;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 #socialMedia {
@@ -21,57 +24,14 @@ ion-content {
   flex-direction: column;
 }
 
-ion-footer {
-  padding: 0px;
-  font-size: small;
-  color: white;
-  ion-grid {
-    --ion-grid-padding: 0px;
-    background-color: black;
-  }
-  ion-col {
-    padding: 10px;
-  }
-
-  #prototypefundLogo {
-    height: 50px;
-  }
-  a {
-    text-decoration: none;
-  }
-
-  div .owlly-eule {
-    background-color: transparent;
-  }
-}
-
-ion-content {
-  ion-grid {
-    padding-bottom: 200px;
-  }
-}
-
-/****** SMALL SCREENS *******/
 @media (max-width: 768px) {
-  //newsletter button
   #lpButton {
     text-align: center;
   }
-
-  #eule {
-    width: 100px;
-    bottom: 34px;
-  }
-  ion-footer {
-    font-size: xx-small;
-  }
-  ion-col {
-    padding: 0px;
-  }
-
   #socialMedia {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
 }
+

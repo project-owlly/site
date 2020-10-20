@@ -1,25 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      <div class="owllyLogo"></div>
+    <ion-title size="small">
+      <a href="/">
+        <div class="owllyLogo"></div>
+      </a>
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title>
-        <div class="owllyLogo"></div>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<!-- Owlly Hero -->
+<ion-content [fullscreen]="true" class="owlly-linear-gradient">
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <h1 id="lpTitle">
-          enabling <br />
+        <h1>
+          Enabling <br />
           digital democracy.
         </h1>
       </ion-col>
@@ -57,41 +51,18 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <!-- End Owlly hero -->
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="secondary" (click)="showFeedback()" translucent="true">
       <ion-icon name="chatbubbles-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <!--
-  <owlly-footer>
-  </owlly-footer>
--->
-</ion-content>
-
-<ion-footer class="ion-no-border ion-padding">
   <div class="ion-text-right owlly-eule" style="height: 50px">
-    <img src="../../../assets/eule.png" id="eule" alt="Owlly's Eule" />
+    <img src="../../../assets/eule.png" class="owlly-footer" alt="Owlly's Eule" />
   </div>
-  <ion-grid class="landingPage">
-    <ion-row class="ion-align-items-center">
-      <ion-col size="1">
-        <img src="../../../assets/prototypefund.svg" alt="Prototype Fund Logo" id="prototypefundLogo" />
-      </ion-col>
-      <ion-col size="5">
-        <ion-text>
-          <p>
-            Das Projekt owlly wird unterstützt vom Prototype Fund, eine gemeinsame Initiative von Opendata.ch und des Programms „Digitalisierung + Gesellschaft“
-            der Stiftung Mercator Schweiz.
-          </p>
-        </ion-text>
-      </ion-col>
-      <ion-col size="6">
-        <div class="ion-text-right" id="bureaucracy">
-          <a href="/impressum">Impressum</a>
-          <p>© 2020 liitu gmbh</p>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
+
+  <owlly-footer></owlly-footer>
+</ion-content>

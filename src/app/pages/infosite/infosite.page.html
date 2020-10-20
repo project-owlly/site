@@ -7,29 +7,34 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">MICROPAGE - INFOSEITE - Velorouten-Initiative</ion-title>
+      <ion-title>MICROPAGE - INFOSEITE - {{initiativData.title}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid style="padding-top: 50px">
+  <ion-grid >
     <ion-row class="ion-align-items-center">
       <ion-col size="12" size-md="2" class="ion-text-right" push-md="10">
-        <img src="{{initiativData.logo}}" alt="" />
-      </ion-col>
-      <ion-col size="12" size-md="10" pull-md="2">
-        <h1>{{initiativData.initiative}}</h1>
-        <h2 style="font-weight: 200">Kantonale Volksinitiative {{initiativData.kanton}}</h2>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12" size-lg="8" id="initiativHero">
-        <img src="https://i0.wp.com/www.velofahrer.ch/wp-content/uploads/2015/03/150305_lancierung_veloinitiative_07.jpg?fit=1200%2C800&ssl=1" alt="" />
-      </ion-col>
-      <ion-col size="12" size-lg="4" id="ziele">
-        <div style="margin: 20px">
-          <h3 style="color: #fff">Ziele der Initiative</h3>
-          <ul style="color: #fff">
-            <li *ngFor="let entry of initiativData.ziele"><p style="font-weight: 200; font-size: 1.2rem">{{entry}}</p></li>
+          <img src="{{initiativData.logo}}" alt="">
+        </ion-col>
+    <ion-col size="12" size-md="10" pull-md="2">
+      <h1>
+        {{initiativData.title}}
+      </h1>
+      <h2>Kantonale Volksinitiative {{initiativData.ruleValue}}</h2>
+    </ion-col>
+    
+  </ion-row>
+  <ion-row >
+        <ion-col size="12" size-lg="8" id="initiativHero">
+            <img src="https://i0.wp.com/www.velofahrer.ch/wp-content/uploads/2015/03/150305_lancierung_veloinitiative_07.jpg?fit=1200%2C800&ssl=1" alt="" >
+    </ion-col>
+    <ion-col size="12" size-lg="4" class="owlly-linear-gradient transition">
+      <div class="goals">
+          <h3>
+            Ziele der Initiative
+          </h3>
+          <ul *ngIf="initiativData">
+            <li *ngFor="let entry of initiativData.goals"><p>{{entry}}</p></li>
           </ul>
         </div>
       </ion-col>
@@ -37,45 +42,35 @@
     <ion-row id="owllyButton">
       <ion-col size="12">
         <owlly-sign></owlly-sign>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <h3>Initiativtext</h3>
-        <div *ngIf="!showMore">
-          <p>
-            {{trimString(initiativData.initiativText,200)}}
-            <span>
-              <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span> </a
-            ></span>
-          </p>
-        </div>
-        <div *ngIf="showMore">
-          <p>
-            {{initiativData.initiativText}}
-            <span>
-              <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span></a>
-            </span>
-          </p>
-        </div>
-        <h3>Hinweis strafbar</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam cumque at, aperiam nemo, animi mollitia obcaecati sit laborum corporis
-          doloremque, doloribus debitis ratione magni numquam eum labore magnam quibusdam!
-        </p>
-        <h3>Urheber</h3>
-        <div *ngIf="!showMoreU">
-          <p>
-            {{trimString(initiativData.urheber,200)}}
-            <span>
-              <a (click)="showMoreU = !showMoreU"> <span [innerHtml]="showMoreU ? 'weniger' : 'mehr' "></span> </a
-            ></span>
-          </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <h3>
+        Initiativtext
+      </h3>
+      <div *ngIf="!showMore">
+        <p >{{trimString(initiativData.text,200)}} <span>
+          <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span>
+          </a></span></p> 
+      </div>
+      <div *ngIf="showMore">
+        <p>{{initiativData.text}} <span>
+            <a (click)="showMore = !showMore"> <span [innerHtml]="showMore ? 'weniger' : 'mehr' "></span></a>
+        </span></p>
+      </div>
+      <h3>Hinweis strafbar</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam cumque at, aperiam nemo, animi mollitia obcaecati sit laborum corporis doloremque, doloribus debitis ratione magni numquam eum labore magnam quibusdam!
+      </p>
+      <h3>Urheber</h3>
+      <div *ngIf="!showMoreU">
+          <p >{{trimString(initiativData.organisation,200)}} <span>
+            <a (click)="showMoreU = !showMoreU"> <span [innerHtml]="showMoreU ? 'weniger' : 'mehr' "></span>
+            </a></span></p> 
         </div>
         <div *ngIf="showMoreU">
-          <p>
-            {{initiativData.urheber}}
-            <span>
+          <p>{{initiativData.organisation}} <span>
               <a (click)="showMoreU = !showMoreU"> <span [innerHtml]="showMoreU ? 'weniger' : 'mehr' "></span></a>
             </span>
           </p>
@@ -83,7 +78,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-footer></app-footer>
+  <owlly-footer></owlly-footer>
 </ion-content>
 
 <!-- <ion-content [fullscreen]="true">

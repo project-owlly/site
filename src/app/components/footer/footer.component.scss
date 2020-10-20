@@ -2,7 +2,22 @@
   width: 70px;
 }
 
-a {
-  text-decoration: none;
-  color: var(--ion-color-secondary);
+#eule {
+  width: 300px;
+  position: relative;
+  bottom: -60px;
+}
+
+#bureaucracy {
+  z-index: 1000;
+}
+
+ion-grid {
+  --ion-grid-padding: 0px;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+ion-toolbar {
+  --padding-top: 0px;
+  --padding-bottom: 0px;
 }

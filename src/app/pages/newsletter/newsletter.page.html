@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title> Newsletter </ion-title>
     <ion-buttons slot="primary">
@@ -38,8 +38,22 @@
             <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
           </ion-item>
 
-          <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round"> Anmelden </ion-button>
-        </form>
+              <ion-item>
+                  
+                <ion-label><div class="tooltip"> Ich möchte Testperson sein.
+                <span style="font-size: 10px;"> <br> Wir sind interessiert an deiner Meinung! <br> Als Testperson erhältst du Einblick<br>in unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte
+                  <br> und prägst damit E-Collecting in der Schweiz mit.</span>
+                </div></ion-label>
+                <ion-toggle formControlName="testuser" type="boolean"></ion-toggle>
+                
+              
+              </ion-item>                
+              
+              <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round">
+                Anmelden
+              </ion-button>
+            </form>
+
       </ion-col>
     </ion-row>
   </ion-grid>
