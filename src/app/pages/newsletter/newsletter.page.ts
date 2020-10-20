@@ -41,8 +41,8 @@ export class NewsletterPage implements OnInit {
       () => {
         this.toastcontroller
           .create({
-            message: 'Email erfolgreich erfasst.',
-            color: 'green',
+            message: 'E-Mail-Adresse erfolgreich erfasst.',
+            color: 'success',
             duration: 4000,
             position: 'bottom',
             animated: true,
@@ -57,7 +57,7 @@ export class NewsletterPage implements OnInit {
         console.log(error);
         this.toastcontroller
           .create({
-            message: 'Fehler',
+            message: 'Fehler: ' + error.text,
             color: 'danger',
             duration: 4000,
           })

@@ -1,21 +1,16 @@
 ion-grid {
-  padding-bottom: 300px;
+  padding-bottom: 200px;
 }
 
 h1 {
-  font-weight: bold;
   color: #ffffff;
 }
 h3 {
-  color: #000000;
-  font-weight: 400;
+  color: #ffffff;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
+.btn-owlly-newsletter {
+  --border-radius: 5px;
 }
 
 #socialMedia {
@@ -34,4 +29,3 @@ h3 {
     margin-right: auto;
   }
 }
-

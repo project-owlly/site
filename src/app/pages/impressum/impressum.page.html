@@ -1,24 +1,19 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Impressum
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Impressum</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-          </ion-buttons>
-      <ion-title size="large">Impressum
-        </ion-title>
+      <ion-title size="large">Impressum</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
-
+  <ion-grid class="ion-padding">
     <ion-row>
       <ion-col size="12">
         <h3>Kontakt-Adresse</h3>
@@ -80,6 +75,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 </ion-content>
-

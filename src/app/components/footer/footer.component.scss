@@ -1,15 +1,24 @@
 p {
   font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 a {
   font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 #prototypefundLogo {
   width: 70px;
+  @media (max-width: 768px) {
+    width: 35px;
+  }
 }
 
-#eule {
+/*#eule {
   width: 300px;
   position: relative;
   bottom: -60px;
@@ -17,7 +26,7 @@ a {
 
 #bureaucracy {
   z-index: 1000;
-}
+}*/
 
 ion-grid {
   --ion-grid-padding: 0px;

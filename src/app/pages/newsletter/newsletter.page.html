@@ -1,11 +1,8 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title> Newsletter </ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="close()" fill="clear" color="tertiary">
-        <!--<ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>-->
-        schliessen
-      </ion-button>
+      <ion-button (click)="close()" fill="clear" color="tertiary"> schliessen </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -38,22 +35,23 @@
             <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
           </ion-item>
 
-              <ion-item>
-                  
-                <ion-label><div class="tooltip"> Ich möchte Testperson sein.
-                <span style="font-size: 10px;"> <br> Wir sind interessiert an deiner Meinung! <br> Als Testperson erhältst du Einblick<br>in unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte
-                  <br> und prägst damit E-Collecting in der Schweiz mit.</span>
-                </div></ion-label>
-                <ion-toggle formControlName="testuser" type="boolean"></ion-toggle>
-                
-              
-              </ion-item>                
-              
-              <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round">
-                Anmelden
-              </ion-button>
-            </form>
+          <ion-item>
+            <ion-label>
+              <div class="tooltip">
+                Ich möchte Testperson sein.
+                <span style="font-size: 10px">
+                  <br />
+                  Wir sind interessiert an deiner Meinung! <br />
+                  Als Testperson erhältst du Einblick<br />in unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte <br />
+                  und prägst damit E-Collecting in der Schweiz mit.</span
+                >
+              </div>
+            </ion-label>
+            <ion-toggle color="tertiary" formControlName="testuser" type="boolean"></ion-toggle>
+          </ion-item>
 
+          <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round"> Anmelden </ion-button>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>
