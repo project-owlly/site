@@ -52,28 +52,14 @@ ion-toolbar {
 // Owlly specific SCSS
 
 .owlly-linear-gradient {
-  background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
+  --background: linear-gradient(155deg, var(--ion-color-secondary) 0%, var(--ion-color-primary));
+}
+a {
+  text-decoration: none;
+  color: var(--ion-color-primary);
 }
 
-.owlly-hero {
-  h1 {
-    font-weight: bold;
-    color: #ffffff;
-  }
-  h3 {
-    color: #000000;
-    font-weight: 400;
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-      text-align: center;
-    }
-  }
-}
-
-.owl-footer {
+.owlly-footer {
   width: 300px;
   position: relative;
   bottom: 180px;

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
 
 @Component({
