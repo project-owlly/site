@@ -34,17 +34,6 @@
   font-size: 20px;
 }
 
-//used at HOME Page
-h1 {
-  font-weight: bold;
-  font-size: 4rem;
-  color: #ffffff;
-}
-
-h3 {
-  color: #ffffff;
-  font-weight: 400; //braucht es das?
-}
 
 .owllyLogo {
   //different color is set in variables.scss
@@ -55,6 +44,10 @@ h3 {
 ion-grid {
   --ion-grid-padding: 10%;
   padding-top: 50px !important;
+}
+ion-toolbar {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 // Owlly specific SCSS
