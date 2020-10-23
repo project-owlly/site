@@ -36,3 +36,9 @@ span {
   text-decoration: underline;
   color: var(--ion-color-tertiary);
 }
+
+owlly-sign {
+  &:active {
+    outline-color: transparent;
+  }
+}
