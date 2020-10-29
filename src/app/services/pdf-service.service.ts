@@ -16,7 +16,7 @@ export class PdfServiceService {
     private functions: AngularFireFunctions
   ) {}
 
-  generatePDF() {
+  generatePDF(testData) {
     const callable = this.functions.httpsCallable('generatePDF');
 
     // Create an Observable and pass any data you want to the function

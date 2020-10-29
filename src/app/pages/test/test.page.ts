@@ -30,6 +30,7 @@ export class TestPage implements OnInit {
   }
 
   async generatePDF() {
-    let pdf = await this.pdfService.generatePDF();
+    let pdf = await this.pdfService.generatePDF(this.testForm.value);
+    
   }
 }
