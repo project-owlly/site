@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {PdfServiceService} from '../../services/pdf-service.service';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,26 @@ import {PdfServiceService} from 'src/app/services/pdf-service.service';
   styleUrls: ['./test.page.scss'],
 })
 export class TestPage implements OnInit {
-  constructor(private pdfService: PdfServiceService) {}
+  
+  testForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(
+    private pdfService: PdfServiceService,
+    public fb: FormBuilder,
+    ) {}
+
+  ngOnInit() {
+    this.testForm = this.fb.group({
+      title: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      iText: ['', [Validators.required]],
+      urheber: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      birthday: ['', [Validators.required]],
+      adress: ['', [Validators.required]],
+    });
+  }
 
   async generatePDF() {
     let pdf = await this.pdfService.generatePDF();
