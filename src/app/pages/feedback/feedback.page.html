@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title> Feedback </ion-title>
+  <ion-toolbar mode="md">
+    <ion-title>Feedback</ion-title>
     <ion-buttons slot="primary">
       <ion-button (click)="close()" fill="clear" color="tertiary">
         <!--<ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>-->
@@ -10,37 +10,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> Feedback </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="feedbackForm" (ngSubmit)="createRecord()">
+    <ion-item>
+      <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="vorname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="nachname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Feedback</ion-label>
+      <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
+    </ion-item>
 
-  <ion-grid>
-    <ion-row style="text-align: center">
-      <ion-col size="12" class="ion-align-self-center">
-        <form [formGroup]="feedbackForm" (ngSubmit)="createRecord()">
-          <ion-item>
-            <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="vorname" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="nachname" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="email" type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Feedback</ion-label>
-            <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
-          </ion-item>
-
-          <ion-button block color="tertiary" type="submit" [disabled]="feedbackForm.invalid" shape="round"> Absenden </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-button class="ion-margin" color="tertiary" type="submit" [disabled]="feedbackForm.invalid" shape="round"> Absenden </ion-button>
+  </form>
 </ion-content>
