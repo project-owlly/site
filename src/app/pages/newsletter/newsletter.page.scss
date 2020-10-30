@@ -1,6 +1,11 @@
-ion-grid {
-    --ion-grid-padding: 0;
+ion-header {
+  ion-toolbar {
+    padding: 0 8px;
+  }
 }
-ion-toolbar {
-    padding: 0;
+
+p.tooltip {
+  padding: 0 16px 16px;
+  margin: 0;
+  font-size: 14px;
 }

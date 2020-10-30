@@ -1,59 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Newsletter </ion-title>
-    <ion-buttons slot="primary">
-      <ion-button (click)="close()" fill="clear" color="tertiary"> schliessen </ion-button>
+<ion-header>
+  <ion-toolbar mode="md">
+    <ion-title>Newsletter</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" fill="clear" color="tertiary">schliessen</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> Für Newsletter anmelden </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="newsletterForm" (ngSubmit)="createRecord()">
+    <ion-item>
+      <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input required formControlName="vorname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input required formControlName="nachname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text> </ion-label>
+      <ion-input required formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
+      <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
+    </ion-item>
 
-  <ion-grid>
-    <ion-row style="text-align: center">
-      <ion-col size="12" class="ion-align-self-center">
-        <form [formGroup]="newsletterForm" (ngSubmit)="createRecord()">
-          <ion-item>
-            <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text> </ion-label>
-            <ion-input required formControlName="vorname" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text> </ion-label>
-            <ion-input required formControlName="nachname" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text> </ion-label>
-            <ion-input required formControlName="email" type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Wie hast du uns gefunden?</ion-label>
-            <ion-textarea rows="3" type="text" formControlName="funnel" auto-grow="true"></ion-textarea>
-          </ion-item>
+    <ion-item>
+      <ion-label>Ich möchte Testperson sein*</ion-label>
+      <ion-toggle color="tertiary" formControlName="testuser" type="boolean" checked></ion-toggle>
+    </ion-item>
 
-          <ion-item>
-            <ion-label>
-              <div class="tooltip">
-                Ich möchte Testperson sein.
-                <span style="font-size: 10px">
-                  <br />
-                  Wir sind interessiert an deiner Meinung! <br />
-                  Als Testperson erhältst du Einblick<br />in unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte <br />
-                  und prägst damit E-Collecting in der Schweiz mit.</span
-                >
-              </div>
-            </ion-label>
-            <ion-toggle color="tertiary" formControlName="testuser" type="boolean"></ion-toggle>
-          </ion-item>
+    <ion-button class="ion-margin" color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round"> Anmelden </ion-button>
 
-          <ion-button block color="tertiary" type="submit" [disabled]="newsletterForm.invalid" shape="round"> Anmelden </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <p class="tooltip">
+      * Wir sind interessiert an deiner Meinung! Als Testperson erhältst du Einblickin unsere aktuellen und meist noch unveröffentlichten Entwicklungsschritte
+      und prägst damit E-Collecting in der Schweiz mit.
+    </p>
+  </form>
 </ion-content>
->
