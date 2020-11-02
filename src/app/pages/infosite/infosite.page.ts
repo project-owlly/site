@@ -71,7 +71,7 @@ export class InfositePage implements OnInit {
   sign() {
     console.log('sign');
 
-    this.oidcService.getAuthUrl(this.initiativData.id).subscribe(
+    this.oidcService.getAuthUrl().subscribe(
       (urlData) => {
         console.log(JSON.stringify(urlData));
 

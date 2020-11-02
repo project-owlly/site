@@ -8,9 +8,9 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 export class OidcService {
   constructor(private functions: AngularFireFunctions) {}
 
-  getAuthUrl(state) {
+  getAuthUrl() {
     const callable = this.functions.httpsCallable('OIDAuthUrl');
-    const obs = callable({state: state});
+    const obs = callable({});
     return obs;
   }
 
