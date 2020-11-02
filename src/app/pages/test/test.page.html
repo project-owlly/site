@@ -11,84 +11,56 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <ion-list-header> Tests </ion-list-header>
+  <ion-grid>
+    <ion-row style="text-align: center">
+      <ion-col size="12" class="ion-align-self-center">
+        <form [formGroup]="testForm" (ngSubmit)="generatePDF()">
+          <ion-list-header >
+              <h3>Initiativdaten</h3>
+            </ion-list-header>
+          <ion-item>
+            <ion-label position="floating">Titel <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="title" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Veröffentlichungsdatum <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="date" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Initiativtext <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-textarea required rows="3" type="text" formControlName="iText" auto-grow="true"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Urheber <ion-text color="danger">*</ion-text></ion-label>
+            <ion-textarea required rows="3" type="text" formControlName="urheber" auto-grow="true"></ion-textarea>
+          </ion-item>
 
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
+          
+          <ion-list-header >
+              <h3>Userdaten</h3>
+            </ion-list-header>
+          <ion-item>
+            <ion-label position="floating">Vorname <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="surname" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nachname <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="name" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Geburtstag <ion-text color="danger">*</ion-text> </ion-label>
+            <ion-input required formControlName="birthday" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Vollständige Adresse <ion-text color="danger">*</ion-text></ion-label>
+            <ion-textarea required rows="1" type="text" formControlName="adress" auto-grow="true"></ion-textarea>
+          </ion-item>
 
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
+          <ion-button block color="tertiary" type="submit" [disabled]="testForm.invalid" shape="round"> PDF Generieren </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
 
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card button="true" (click)="generatePDF()">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
 </ion-content>
