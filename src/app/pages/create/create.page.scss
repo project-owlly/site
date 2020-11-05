@@ -1,0 +1,36 @@
+
+ion-slides {
+    height: 80Vh;
+}
+#navToolbar {
+    position: fixed;
+    bottom: 0;
+}
+
+.navButtonLeft {
+    position: absolute;
+    bottom: 50vh;
+    left: 20px;
+    z-index: 10;
+    transition: 0.5s;
+}
+.navButtonRight {
+    position: absolute;
+    bottom: 50vh;
+    right: 20px;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+@media (max-width: 768px) {
+    .navButtonLeft {
+        bottom: 0;
+    }
+    .navButtonRight {
+        bottom: 0;
+    }
+    ion-slides {
+        height: 90Vh;
+    }
+
+}
