@@ -55,11 +55,6 @@ export class TestPage implements OnInit {
       birthday: ['', [Validators.required]],
       adress: ['', [Validators.required]],
     });
-
-    
-
-    
-    
   }
 
   async generatePDF() {
