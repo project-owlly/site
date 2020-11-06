@@ -17,7 +17,7 @@ export class ReturnPage implements OnInit {
     //todo: start spinner
 
     this.route.queryParams.subscribe(async (params) => {
-      if (params && params.code) {
+      if (params && params.code && params.state) {
         this.code = params.code;
         this.state = params.state;
 
