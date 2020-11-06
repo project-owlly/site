@@ -1,11 +1,11 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <app-header></app-header>
 
   <main>
-    Hello
-
     <ng-container *ngIf="(owlly$ | async) as owlly">
-      <p>{{owlly.data.title}}</p>
+      <h1>{{owlly.data.title}}</h1>
+
+      <app-signature [owllyId]="owlly.id"></app-signature>
     </ng-container>
   </main>
 </ion-content>
