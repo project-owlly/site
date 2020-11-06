@@ -48,6 +48,7 @@ export class PdfServiceService {
     const obs = callable(data);
 
     return obs;
+
     // TODO: unsubscribe or first
     /*
     obs.subscribe(
