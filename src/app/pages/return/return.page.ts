@@ -55,9 +55,9 @@ export class ReturnPage implements OnInit {
     }
   }
 
-  async fileRead() {
+  async fileRead(filename) {
     let contents = await Filesystem.readFile({
-      path: 'secrets/text.txt',
+      path: 'owlly/' + filename,
       directory: FilesystemDirectory.Documents,
       encoding: FilesystemEncoding.UTF8,
     });

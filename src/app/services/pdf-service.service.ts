@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-//import {HttpClient} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 import {AngularFireFunctions} from '@angular/fire/functions';
+import {response} from 'express';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +10,7 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 export class PdfServiceService {
   pdf: any;
 
-  constructor(
-    //private http: HttpClient,
-    private functions: AngularFireFunctions
-  ) {}
+  constructor(private http: HttpClient, private functions: AngularFireFunctions) {}
 
   generatePDF(data) {
     const demoData: any = {
@@ -41,6 +39,9 @@ export class PdfServiceService {
       },
     };
 
+    const request = this.http.post('https://europe-west6-project-owlly.cloudfunctions.net/generatePDF', data);
+    return request;
+    /*
     const callable = this.functions.httpsCallable('generatePDF');
 
     // Create an Observable and pass any data you want to the function
@@ -48,7 +49,7 @@ export class PdfServiceService {
     const obs = callable(data);
 
     return obs;
-
+    */
     // TODO: unsubscribe or first
     /*
     obs.subscribe(
