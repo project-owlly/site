@@ -1,7 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>start</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> Start </ion-content>
+<ion-content class="ion-padding">
+  <main>
+    Hello
+
+    <ng-container *ngIf="(owlly$ | async) as owlly">
+      <p>{{owlly.data.title}}</p>
+    </ng-container>
+  </main>
+</ion-content>

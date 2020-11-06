@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {AngularFireFunctions} from '@angular/fire/functions';
-import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -12,7 +12,11 @@ import {Owlly, OwllyData} from '../types/owlly';
   providedIn: 'root',
 })
 export class OwllyService {
-  constructor(private firestore: AngularFirestore, private functions: AngularFireFunctions) {}
+  private readonly collection: AngularFirestoreCollection<OwllyData>;
+
+  constructor(private firestore: AngularFirestore, private functions: AngularFireFunctions) {
+    this.collection = this.firestore.collection<OwllyData>('owlly');
+  }
 
   callOwlly() {
     const callable = this.functions.httpsCallable('owlly');
@@ -32,7 +36,7 @@ export class OwllyService {
   }
 
   owlly(owllyId: string): Observable<Owlly | undefined> {
-    const doc: AngularFirestoreDocument<OwllyData | undefined> = this.firestore.doc<OwllyData | undefined>(owllyId);
+    const doc: AngularFirestoreDocument<OwllyData | undefined> = this.collection.doc<OwllyData | undefined>(owllyId);
 
     return doc.valueChanges().pipe(
       map((data: OwllyData | undefined) => {

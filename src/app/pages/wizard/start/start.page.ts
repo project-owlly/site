@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 
 import {Observable} from 'rxjs';
-import {filter, first, map, switchMap} from 'rxjs/operators';
+import {filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
 
 import {Owlly} from '../../../types/owlly';
 
@@ -19,7 +19,8 @@ export class StartPage {
     map((snapshop: ParamMap) => snapshop.get('owllyId')),
     filter((owllyId: string | undefined) => owllyId && owllyId !== ''),
     switchMap((owllyId: string) => this.owllyService.owlly(owllyId)),
-    first()
+    first(),
+    shareReplay(1)
   );
 
   constructor(private activatedRoute: ActivatedRoute, private owllyService: OwllyService) {}
