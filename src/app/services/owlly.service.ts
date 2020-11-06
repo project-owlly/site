@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-
 import {AngularFireFunctions} from '@angular/fire/functions';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 
