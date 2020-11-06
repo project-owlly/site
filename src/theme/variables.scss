@@ -4,11 +4,6 @@
 /** Ionic CSS Variables **/
 
 :root {
-  //Owlly Logo
-  .owllyLogo {
-    content: url(../assets/Logo.png);
-  }
-
   /** primary **/
   --ion-color-primary: #81bc4f;
   --ion-color-primary-rgb: 129, 188, 79;
@@ -152,10 +147,6 @@
    * Dark Colors
    * -------------------------------------------
    */
-
-  .owllyLogo {
-    content: url(../assets/Logo_dark.png) !important;
-  }
 
   body {
     /** primary **/
