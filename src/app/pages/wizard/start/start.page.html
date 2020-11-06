@@ -1,0 +1,11 @@
+<ion-content [fullscreen]="true">
+  <app-header></app-header>
+
+  <main>
+    Hello
+
+    <ng-container *ngIf="(owlly$ | async) as owlly">
+      <p>{{owlly.data.title}}</p>
+    </ng-container>
+  </main>
+</ion-content>
