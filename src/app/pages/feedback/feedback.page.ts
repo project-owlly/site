@@ -29,10 +29,7 @@ export class FeedbackPage implements OnInit {
     this.feedbackForm = this.fb.group({
       vorname: ['', [Validators.required]],
       nachname: ['', [Validators.required]],
-      email: ['', [Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])]],
+      email: ['', [Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])]],
       funnel: [''],
     });
   }
@@ -41,36 +38,29 @@ export class FeedbackPage implements OnInit {
     await this.modalCtrl.dismiss();
   }
 
-  createRecord() {
-    //console.log(this.feedbackForm.value);
-    this.newsletterService.createFeedbackRecord(this.feedbackForm.value).then(
-      () => {
-        this.toastcontroller
-          .create({
-            message: 'Dein Feedback wurde erfolgreich erfasst.',
-            color: 'success',
-            duration: 4000,
-            position: 'bottom',
-            animated: true,
-            header: 'Vielen Dank!',
-          })
-          .then((toast) => {
-            toast.present();
-            this.modalCtrl.dismiss();
-          });
-      },
-      (error) => {
-        console.log(error);
-        this.toastcontroller
-          .create({
-            message: 'Fehler: ' + error.text,
-            color: 'danger',
-            duration: 4000,
-          })
-          .then((toast) => {
-            toast.present();
-          });
-      }
-    );
+  async createRecord() {
+    try {
+      await this.newsletterService.createFeedbackRecord(this.feedbackForm.value);
+
+      const toast: HTMLIonToastElement = await this.toastcontroller.create({
+        message: 'Dein Feedback wurde erfolgreich erfasst.',
+        color: 'success',
+        duration: 4000,
+        position: 'bottom',
+        animated: true,
+        header: 'Vielen Dank!',
+      });
+
+      await toast.present();
+      await this.modalCtrl.dismiss();
+    } catch (err) {
+      const toast: HTMLIonToastElement = await this.toastcontroller.create({
+        message: 'Fehler: ' + err.text,
+        color: 'danger',
+        duration: 4000,
+      });
+
+      await toast.present();
+    }
   }
 }
