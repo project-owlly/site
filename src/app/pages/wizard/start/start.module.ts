@@ -7,9 +7,10 @@ import {IonicModule} from '@ionic/angular';
 import {StartPageRoutingModule} from './start-routing.module';
 
 import {StartPage} from './start.page';
+import {ComponentsModule} from '../../../components/components.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, StartPageRoutingModule],
+  imports: [CommonModule, FormsModule, IonicModule, StartPageRoutingModule, ComponentsModule],
   declarations: [StartPage],
 })
 export class StartPageModule {}
