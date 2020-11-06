@@ -33,9 +33,7 @@ export class SignatureComponent {
         })
       )
       .subscribe((auth: OidAuth) => {
-        // TODO Navigate
-
-        console.log(auth);
+        window.location.href = auth.url;
 
         this.inProgress = false;
       });
