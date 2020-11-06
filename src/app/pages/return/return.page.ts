@@ -30,7 +30,9 @@ export class ReturnPage implements OnInit {
           this.userData = userData;
 
           this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe((data) => {
-            this.fileWrite(data, userData.sub + '-' + params.state + '.pdf');
+            console.log(data);
+
+            //this.fileWrite(data, userData.sub + '-' + params.state + '.pdf');
           });
         });
       } else {
