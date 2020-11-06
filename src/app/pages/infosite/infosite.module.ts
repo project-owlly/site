@@ -1,4 +1,4 @@
-import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
@@ -9,10 +9,10 @@ import {InfositePageRoutingModule} from './infosite-routing.module';
 import {InfositePage} from './infosite.page';
 
 import {ComponentsModule} from 'src/app/components/core/components.module';
+import {SignatureModule} from '../../components/signature/signature.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, InfositePageRoutingModule, ComponentsModule],
+  imports: [CommonModule, FormsModule, IonicModule, InfositePageRoutingModule, ComponentsModule, SignatureModule],
   declarations: [InfositePage],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InfositePageModule {}
