@@ -25,16 +25,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/infosite/infosite.module').then((m) => m.InfositePageModule),
   },
   {
-    path: 'feedback',
-    loadChildren: () => import('./pages/feedback/feedback.module').then((m) => m.FeedbackPageModule),
-  },
-  {
     path: 'impressum',
     loadChildren: () => import('./pages/impressum/impressum.module').then((m) => m.ImpressumPageModule),
-  },
-  {
-    path: 'newsletter',
-    loadChildren: () => import('./pages/newsletter/newsletter.module').then((m) => m.NewsletterPageModule),
   },
   {
     path: 'return',

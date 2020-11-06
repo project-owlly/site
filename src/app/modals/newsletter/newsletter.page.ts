@@ -1,57 +1,52 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
-import {ToastController} from '@ionic/angular';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {NewsletterService} from '../../services/data/newsletter.service';
-
-interface userData {
-  Name: string;
-  Email: string;
-  Funnel: string;
-}
+import {ToastController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-feedback',
-  templateUrl: './feedback.page.html',
-  styleUrls: ['./feedback.page.scss'],
+  selector: 'app-newsletter',
+  templateUrl: './newsletter.page.html',
+  styleUrls: ['./newsletter.page.scss'],
 })
-export class FeedbackPage implements OnInit {
-  feedbackForm: FormGroup;
+export class NewsletterPage implements OnInit {
+  newsletterForm: FormGroup;
 
   constructor(
     private modalCtrl: ModalController,
+    private newsletterService: NewsletterService,
     public fb: FormBuilder,
-    public toastcontroller: ToastController,
-    private newsletterService: NewsletterService
+    public toastcontroller: ToastController
   ) {}
-
-  ngOnInit() {
-    this.feedbackForm = this.fb.group({
-      vorname: ['', [Validators.required]],
-      nachname: ['', [Validators.required]],
-      email: ['', [Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])]],
-      funnel: [''],
-    });
-  }
 
   async close() {
     await this.modalCtrl.dismiss();
   }
+  ngOnInit() {
+    this.newsletterForm = this.fb.group({
+      vorname: ['', [Validators.required]],
+      nachname: ['', [Validators.required]],
+      email: ['', [Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])]],
+      funnel: [''],
+      testuser: [true],
+    });
+  }
 
   async createRecord() {
     try {
-      await this.newsletterService.createFeedbackRecord(this.feedbackForm.value);
+      await this.newsletterService.createNewsletterRecord(this.newsletterForm.value);
 
       const toast: HTMLIonToastElement = await this.toastcontroller.create({
-        message: 'Dein Feedback wurde erfolgreich erfasst.',
+        message: 'E-Mail-Adresse erfolgreich erfasst.',
         color: 'success',
         duration: 4000,
         position: 'bottom',
         animated: true,
-        header: 'Vielen Dank!',
+        header: 'Newsletter Anmeldung:',
       });
 
       await toast.present();
+
       await this.modalCtrl.dismiss();
     } catch (err) {
       const toast: HTMLIonToastElement = await this.toastcontroller.create({

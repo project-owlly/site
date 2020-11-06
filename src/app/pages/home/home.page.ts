@@ -2,9 +2,6 @@ import {Component} from '@angular/core';
 
 import {IonRouterOutlet, ModalController} from '@ionic/angular';
 
-import {FeedbackPage} from '../feedback/feedback.page';
-import {NewsletterPage} from '../newsletter/newsletter.page';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,6 +11,8 @@ export class HomePage {
   constructor(private modalCtrl: ModalController, private routerOutlet: IonRouterOutlet) {}
 
   async showNewsletter() {
+    const {NewsletterPage} = await import('../../modals/newsletter/newsletter.page');
+
     const modal = await this.modalCtrl.create({
       component: NewsletterPage,
       swipeToClose: true,
@@ -23,6 +22,8 @@ export class HomePage {
   }
 
   async showFeedback() {
+    const {FeedbackPage} = await import('../../modals/feedback/feedback.page');
+
     const modal = await this.modalCtrl.create({
       component: FeedbackPage,
       swipeToClose: true,
