@@ -5,7 +5,7 @@
     <ng-container *ngIf="(owlly$ | async) as owlly">
       <h1>{{owlly.data.title}}</h1>
 
-      <ion-button class="ion-margin" color="tertiary" type="submit" shape="round">Jetzt unterschreiben</ion-button>
+      <app-signature [owllyId]="owlly.id"></app-signature>
     </ng-container>
   </main>
 </ion-content>
