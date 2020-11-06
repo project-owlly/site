@@ -46,7 +46,10 @@ export class PdfServiceService {
     // Create an Observable and pass any data you want to the function
     // const obs = callable({ coolMsg: this.myInput });
     const obs = callable(data);
+
+    return obs;
     // TODO: unsubscribe or first
+    /*
     obs.subscribe(
       (res) => {
         this.pdf = res.result;
@@ -54,6 +57,6 @@ export class PdfServiceService {
       (error) => {
         console.log(JSON.stringify(error));
       }
-    );
+    );*/
   }
 }

@@ -6,17 +6,15 @@
 
 <ion-content>
   <main>
-    <app-signature owllyId="{{this.state}}"></app-signature>
+    <ion-text>
+      <h1>DEBUG:</h1>
+      <h2>Code: {{code}}</h2>
+      <h2>State=owllyID: {{state}}</h2>
+      <h2>{{userData.given_name}}</h2>
+      <h2>{{userData.family_name}}</h2>
+      <h2>{{userData.birth_date}}</h2>
+      <h2>{{userData.street_address}}</h2>
+      <h2>{{userData.postal_code}} {{userData.locality}}</h2>
+    </ion-text>
   </main>
-
-  <ion-text>
-    <h1>DEBUG:</h1>
-    <h2>Code: {{code}}</h2>
-    <h2>State=owllyID: {{state}}</h2>
-    <h2>{{userData.given_name}}</h2>
-    <h2>{{userData.family_name}}</h2>
-    <h2>{{userData.birth_date}}</h2>
-    <h2>{{userData.street_address}}</h2>
-    <h2>{{userData.postal_code}} {{userData.locality}}</h2>
-  </ion-text>
 </ion-content>

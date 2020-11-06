@@ -2,6 +2,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
 import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-return',
@@ -24,8 +25,9 @@ export class ReturnPage implements OnInit {
           console.log(JSON.stringify(userData));
           this.userData = userData;
 
-          //todo: wait for jonathan
-          //this.pdfService.generatePDF({user: userdata.user, owllyId: params.state});
+          this.pdfService.generatePDF({userData: userData.user, owllyId: params.state}).subscribe((data) => {
+            console.log(data);
+          });
         });
       } else {
         // todo: terminate spinner:
