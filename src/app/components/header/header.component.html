@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-router-link href="/" aria-label="Owlly">
+      <a href="/" aria-label="Owlly">
         <ng-container *ngIf="theme$ | async as theme">
           <img [src]="'./assets/logo/owlly-' + theme + '.png'" loading="lazy" aria-label="hidden" />
         </ng-container>
-      </ion-router-link>
+      </a>
     </ion-title>
   </ion-toolbar>
 </ion-header>
