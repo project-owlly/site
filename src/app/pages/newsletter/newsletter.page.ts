@@ -36,36 +36,31 @@ export class NewsletterPage implements OnInit {
       testuser: [true],
     });
   }
-  createRecord() {
-    //console.log(this.newsletterForm.value);
-    this.newsletterService.createNewsletterRecord(this.newsletterForm.value).then(
-      () => {
-        this.toastcontroller
-          .create({
-            message: 'E-Mail-Adresse erfolgreich erfasst.',
-            color: 'success',
-            duration: 4000,
-            position: 'bottom',
-            animated: true,
-            header: 'Newsletter Anmeldung:',
-          })
-          .then((toast) => {
-            toast.present();
-            this.modalCtrl.dismiss();
-          });
-      },
-      (error) => {
-        console.log(error);
-        this.toastcontroller
-          .create({
-            message: 'Fehler: ' + error.text,
-            color: 'danger',
-            duration: 4000,
-          })
-          .then((toast) => {
-            toast.present();
-          });
-      }
-    );
+
+  async createRecord() {
+    try {
+      await this.newsletterService.createNewsletterRecord(this.newsletterForm.value);
+
+      const toast: HTMLIonToastElement = await this.toastcontroller.create({
+        message: 'E-Mail-Adresse erfolgreich erfasst.',
+        color: 'success',
+        duration: 4000,
+        position: 'bottom',
+        animated: true,
+        header: 'Newsletter Anmeldung:',
+      });
+
+      await toast.present();
+
+      await this.modalCtrl.dismiss();
+    } catch (err) {
+      const toast: HTMLIonToastElement = await this.toastcontroller.create({
+        message: 'Fehler: ' + err.text,
+        color: 'danger',
+        duration: 4000,
+      });
+
+      await toast.present();
+    }
   }
 }
