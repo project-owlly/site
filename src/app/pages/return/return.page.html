@@ -1,13 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>return</ion-title>
+    <ion-title>Return from eID+</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <main>
+    <app-signature owllyId="{{this.state}}"></app-signature>
+  </main>
+
   <ion-text>
-    <h1>Code: {{code}}</h1>
-    <h1>State=owllyID: {{state}}</h1>
+    <h1>DEBUG:</h1>
+    <h2>Code: {{code}}</h2>
+    <h2>State=owllyID: {{state}}</h2>
     <h2>{{userData.given_name}}</h2>
     <h2>{{userData.family_name}}</h2>
     <h2>{{userData.birth_date}}</h2>
