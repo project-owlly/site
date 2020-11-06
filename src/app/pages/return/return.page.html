@@ -6,17 +6,24 @@
 
 <ion-content>
   <main>
-    <app-signature owllyId="{{this.state}}"></app-signature>
-  </main>
+    <ion-text>
+      <h1 *ngIf="userData && userData.given_name">Hi {{userData.given_name}}!</h1>
 
-  <ion-text>
-    <h1>DEBUG:</h1>
-    <h2>Code: {{code}}</h2>
-    <h2>State=owllyID: {{state}}</h2>
-    <h2>{{userData.given_name}}</h2>
-    <h2>{{userData.family_name}}</h2>
-    <h2>{{userData.birth_date}}</h2>
-    <h2>{{userData.street_address}}</h2>
-    <h2>{{userData.postal_code}} {{userData.locality}}</h2>
-  </ion-text>
+      <p *ngIf="!pdfGenerated">wir erstellen gerade dein PDF!</p>
+
+      <div *ngIf="pdfGenerated">
+        <p>wir haben es geschafft!</p>
+
+        <ion-button>weiter geht's!</ion-button>
+      </div>
+
+      <!--<h2>Code: {{code}}</h2>
+      <h2>State=owllyID: {{state}}</h2>
+      <h2>{{userData.given_name}}</h2>
+      <h2>{{userData.family_name}}</h2>
+      <h2>{{userData.birth_date}}</h2>
+      <h2>{{userData.street_address}}</h2>
+      <h2>{{userData.postal_code}} {{userData.locality}}</h2>-->
+    </ion-text>
+  </main>
 </ion-content>
