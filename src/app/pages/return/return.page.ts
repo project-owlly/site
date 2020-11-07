@@ -5,7 +5,7 @@ import {PdfServiceService} from 'src/app/services/pdf-service.service';
 import {filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
 
 import {Plugins, FilesystemDirectory, FilesystemEncoding} from '@capacitor/core';
-const {Filesystem} = Plugins;
+const {Filesystem, Browser} = Plugins;
 
 @Component({
   selector: 'app-return',
@@ -29,8 +29,10 @@ export class ReturnPage implements OnInit {
           console.log(JSON.stringify(userData));
           this.userData = userData;
 
-          this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe((data) => {
+          this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe(async (data) => {
             console.log(data);
+
+            await Browser.open({url: data.result.url});
 
             //this.fileWrite(data, userData.sub + '-' + params.state + '.pdf');
           });
