@@ -26,11 +26,11 @@ export class ReturnPage implements OnInit {
         this.state = params.state;
 
         this.oidc.getUserData(params.code).subscribe((userData) => {
-          console.log(JSON.stringify(userData));
+          //console.log(JSON.stringify(userData));
           this.userData = userData;
 
           this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe(async (data) => {
-            console.log(data);
+            //console.log(data);
 
             Browser.open({url: data.url}).then((done) => {});
 
