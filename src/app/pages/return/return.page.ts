@@ -32,7 +32,7 @@ export class ReturnPage implements OnInit {
           this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe(async (data) => {
             console.log(data);
 
-            await Browser.open({url: data.result.url});
+            Browser.open({url: data.url}).then((done) => {});
 
             //this.fileWrite(data, userData.sub + '-' + params.state + '.pdf');
           });
