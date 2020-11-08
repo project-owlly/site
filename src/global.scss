@@ -26,22 +26,13 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @import "./theme/fonts";
+@import "./theme/content";
 
 :root {
   --ion-default-font: "Lato", sans-serif !important;
   font-family: "Lato", sans-serif !important;
   //General Font Size
   font-size: 20px;
-}
-
-.owllyLogo {
-  //different color is set in variables.scss
-  width: 250px;
-  height: 119.1px;
-  @media (max-width: 768px) {
-    width: 125px;
-    height: 59.55px;
-  }
 }
 
 ion-grid {

@@ -25,16 +25,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/infosite/infosite.module').then((m) => m.InfositePageModule),
   },
   {
-    path: 'feedback',
-    loadChildren: () => import('./pages/feedback/feedback.module').then((m) => m.FeedbackPageModule),
-  },
-  {
     path: 'impressum',
     loadChildren: () => import('./pages/impressum/impressum.module').then((m) => m.ImpressumPageModule),
-  },
-  {
-    path: 'newsletter',
-    loadChildren: () => import('./pages/newsletter/newsletter.module').then((m) => m.NewsletterPageModule),
   },
   {
     path: 'return',
@@ -43,10 +35,20 @@ const routes: Routes = [
   {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then((m) => m.TestPageModule),
-  },  {
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'start',
+    loadChildren: () => import('./pages/wizard/start/start.module').then((m) => m.StartPageModule),
+  },
+  {
     path: 'create',
     loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
   },
+];
 
 ];
 

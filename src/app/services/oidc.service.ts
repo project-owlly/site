@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
-
 import {AngularFireFunctions} from '@angular/fire/functions';
+
+import {Observable} from 'rxjs';
+
+import {OidAuth, OidAuthDataRequest} from '../types/oidc';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +11,9 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 export class OidcService {
   constructor(private functions: AngularFireFunctions) {}
 
-  getAuthUrl(state) {
-    const callable = this.functions.httpsCallable('OIDAuthUrl');
-    const obs = callable({state: state});
-    return obs;
+  getAuthUrl(owllyId: string): Observable<OidAuth> {
+    const callable: (data: OidAuthDataRequest) => Observable<OidAuth> = this.functions.httpsCallable<OidAuthDataRequest, OidAuth>('OIDAuthUrl');
+    return callable({state: owllyId} as OidAuthDataRequest);
   }
 
   getUserData(token) {
