@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Return from eID+</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
     <ion-text>
       <h1 *ngIf="userData && userData.given_name">Hi {{userData.given_name}}!</h1>
 
-      <p *ngIf="!pdfGenerated">wir erstellen gerade dein PDF!</p>
+      <p *ngIf="!pdfGenerated && state!=='login'">wir erstellen gerade dein PDF!</p>
 
       <div *ngIf="pdfGenerated">
         <p>wir haben es geschafft!</p>

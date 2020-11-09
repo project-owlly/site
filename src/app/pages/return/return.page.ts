@@ -15,7 +15,7 @@ const {Filesystem, Browser} = Plugins;
 })
 export class ReturnPage implements OnInit {
   public code: string = '';
-  public state: string = '';
+  public state: string = 'login';
   public userData: any = {};
   public pdfGenerated: boolean = false;
   constructor(private route: ActivatedRoute, private oidc: OidcService, private pdfService: PdfServiceService, private auth: AuthService) {
@@ -28,23 +28,24 @@ export class ReturnPage implements OnInit {
 
         if (params.state !== 'login') {
           this.oidc.getUserData(params.code).subscribe((userData) => {
-            //console.log(JSON.stringify(userData));
             this.userData = userData;
 
             this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe(async (data) => {
-              //console.log(data);
-
+              this.pdfGenerated = true;
               Browser.open({url: data.url}).then((done) => {});
-
-              //this.fileWrite(data, userData.sub + '-' + params.state + '.pdf');
             });
           });
         } else {
           let token = await this.oidc.getEidLogin().pipe(first()).toPromise();
           //Login ->
-          this.auth.login(token).then((user) => {
-            console.log(user);
-          });
+          this.auth
+            .login(token)
+            .then((user) => {
+              console.log(user);
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
         }
       } else {
         // todo: terminate spinner:
