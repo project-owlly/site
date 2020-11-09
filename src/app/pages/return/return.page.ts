@@ -36,7 +36,7 @@ export class ReturnPage implements OnInit {
             });
           });
         } else {
-          let token = await this.oidc.getEidLogin().pipe(first()).toPromise();
+          let token = await this.oidc.getEidLogin(params.code).pipe(first()).toPromise();
           //Login ->
           this.auth
             .login(token)
