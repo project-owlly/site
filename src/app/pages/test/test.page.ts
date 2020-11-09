@@ -79,6 +79,6 @@ export class TestPage implements OnInit {
 
     console.log(this.testInterface);
 
-    let pdf = await this.pdfService.generatePDF(this.testInterface); //habe dir die datenstruktur der felder in dieser methode definiert. das sind die felder, welche vom Formular erwartet werden.
+    this.pdfService.generatePDF(this.testInterface).subscribe(async (data) => {Browser.open({url: data.url}).then((done) => {}); });
   }
 }
