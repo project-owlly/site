@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 //import {HttpClient} from '@angular/common/http';
 
 import {AngularFireFunctions} from '@angular/fire/functions';
+//import {response} from 'express';
 
 @Injectable({
   providedIn: 'root',
@@ -40,13 +41,18 @@ export class PdfServiceService {
         street_address: 'Villenstrasse 4',
       },
     };
+    delete data.userData.verified_simple;
+    //const request = this.http.post('https://europe-west6-project-owlly.cloudfunctions.net/generatePDF', data);
+    //return request;
 
     const callable = this.functions.httpsCallable('generatePDF');
 
     // Create an Observable and pass any data you want to the function
     // const obs = callable({ coolMsg: this.myInput });
     const obs = callable(data);
+    return obs;
     // TODO: unsubscribe or first
+    /*
     obs.subscribe(
       (res) => {
         this.pdf = res.result;
@@ -54,6 +60,6 @@ export class PdfServiceService {
       (error) => {
         console.log(JSON.stringify(error));
       }
-    );
+    );*/
   }
 }
