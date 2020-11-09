@@ -16,9 +16,9 @@ export class OidcService {
     return callable({state: owllyId} as OidAuthDataRequest);
   }
 
-  getEidLogin(): Observable<OidAuth> {
-    const callable: (data: OidAuthDataRequest) => Observable<OidAuth> = this.functions.httpsCallable<OidAuthDataRequest, OidAuth>('eidLogin');
-    return callable({} as OidAuthDataRequest);
+  getEidLogin(token): Observable<OidAuth> {
+    const callable: (data: any) => Observable<OidAuth> = this.functions.httpsCallable<OidAuthDataRequest, OidAuth>('eidLogin');
+    return callable({authorization_code: token});
   }
 
   getUserData(token) {
