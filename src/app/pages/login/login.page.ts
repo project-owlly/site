@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   async login() {
-    this.oidc.getAuthUrl('login').subscribe((data) => {
+    this.oidc.getAuthUrlLogin().subscribe((data) => {
       console.log(data.url);
       Browser.open({
         url: data.url,
