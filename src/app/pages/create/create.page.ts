@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {IonSlides, IonSelect, IonSelectOption} from '@ionic/angular'
+import { promise } from 'selenium-webdriver';
+import { resolve } from 'url';
 //import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-create',
@@ -7,13 +9,16 @@ import {IonSlides, IonSelect, IonSelectOption} from '@ionic/angular'
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
-
+//Variables to read user input  
+ebene;
+begehren;
  // createForm: FormGroup;
 
   @ViewChild('mySlider') slides: IonSlides
 
 
   //Slider Controls
+
   nextSlide() {
     this.slides.slideNext();
     this.progress += 0.1;
@@ -31,13 +36,7 @@ export class CreatePage implements OnInit {
   previousSlideSwipe() {
     this.progress -= 0.1;
   }
-
-  public volksmotion: boolean = true;
-  testVar: any;
-
-  test() {
-    console.log("test")
-  }
+  
 
   constructor(/*public fb: FormBuilder*/) { }
 

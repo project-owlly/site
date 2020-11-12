@@ -20,7 +20,7 @@
     <form >
       
     
-<ion-slides scrollbar="true" #mySlider (ionSlideNextStart)="nextSlideSwipe()" (ionSlidePrevStart)="previousSlideSwipe()">
+<ion-slides #mySlider (ionSlideNextStart)="nextSlideSwipe()" (ionSlidePrevStart)="previousSlideSwipe()">
     <ion-slide>
         <ion-grid fixed>
           <ion-row>
@@ -62,8 +62,8 @@
                   <h2>Wo findet dein Vorhaben statt?</h2>
               </ion-col>
               <ion-col size="12">
-                  <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet" value="{{testVar}}">
-                    <ion-select-option value="national" (click)="test()">National</ion-select-option>
+                  <ion-select name="ebene" [(ngModel)]="ebene" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
+                    <ion-select-option value="national">National</ion-select-option>
                     <ion-select-option value="SH">Schaffhausen</ion-select-option>
                   </ion-select>
               </ion-col>
@@ -75,13 +75,13 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="12">
-                  <h2>Handelt es sich um eine Initiative oder ein Referendum?</h2>
+                  <h2>Worum handelt es sich bei deinem Begehren?</h2>
               </ion-col>
               <ion-col size="12">
-                  <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
+                  <ion-select name="begehren" [(ngModel)]="begehren" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
                     <ion-select-option value="initiative">Initiative</ion-select-option>
-                    <ion-select-option value="referendum">Referendum</ion-select-option>
-                    <ion-select-option *ngIf="volksmotion" value="volksmotion">Volksmotion</ion-select-option>
+                    <ion-select-option value="referendum">Referendum</ion-select-option>        
+                      <ion-select-option *ngIf="ebene != 'national'" value="volksmotion">Volksmotion</ion-select-option>
                   </ion-select>
               </ion-col>
             </ion-row>
@@ -92,7 +92,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="12">
-                  <h2>Wie lautet der Titel der Initiative?</h2>
+                  <h2>Wie lautet der Titel des Begehrens?</h2>
               </ion-col>
               <ion-col size="12">
                 <ion-input required type="text" placeholder="Meine Begehren"></ion-input>
@@ -115,7 +115,7 @@
         </ion-slide>
 
         <!-- If Bundesinitiative -->
-        <ion-slide>
+        <ion-slide *ngIf="ebene == 'national' && begehren=='initiative'">
             <ion-grid fixed>
               <ion-row>
                 <ion-col size="12">
@@ -129,7 +129,7 @@
           </ion-slide>
 
         <!-- If Bundesreferendum -->
-        <ion-slide>
+        <ion-slide *ngIf="ebene == 'national' && begehren=='referendum'">
             <ion-grid fixed>
               <ion-row>
                 <ion-col size="12">
@@ -143,7 +143,7 @@
           </ion-slide>
 
         <!-- If initiative -->
-        <ion-slide class="slide-textarea">
+        <ion-slide class="slide-textarea" *ngIf="begehren=='initiative'">
             <ion-grid>
               <ion-row>
                 <ion-col size="12">
@@ -151,6 +151,22 @@
                 </ion-col>
                 <ion-col size="12">
                   <ion-textarea required placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="12">
+                  <h2>Nur noch einschicken...</h2>
+                </ion-col>
+                <ion-col size="12">
+                    <h3>Wir haben nun alle benötigten Daten. Klicke auf den Knopf unten, um dein Begehren einzuschicken.</h3>
+                    <ion-button (click)="onClick()" shape="round">
+                      Begehren senden
+                    </ion-button>
                 </ion-col>
               </ion-row>
             </ion-grid>
