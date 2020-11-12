@@ -38,7 +38,7 @@
 ion-grid {
   //--ion-grid-padding: 10%;
   padding-top: 50px !important; // für was ist das? -> Damit es nicht zu viel Whitespace in der oberen Hälfte der Seite hat. Generell sollten Titel nicht erst in der Hälfte der Seite anfangen.
-  --ion-grid-width-xl: 1140px;
+  --ion-grid-width-xl: 1140px !important;
 }
 
 ion-toolbar {

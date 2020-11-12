@@ -1,11 +1,6 @@
 <app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> create - owlly </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
 
   <ion-progress-bar value="{{progress}}"></ion-progress-bar>
 
@@ -17,140 +12,54 @@
     </ion-button>
 
   
-    <form >
-      
+<form [formGroup]="createForm" (ngSubmit)="sendInitiative()">  
     
-<ion-slides #mySlider (ionSlideWillChange)="currentProgress($event)">
-    <ion-slide>
-        <ion-grid fixed>
-          <ion-row>
-            <ion-col size="12">
-              <h2>Der Start deiner digitalen Kampagne</h2>
-            </ion-col>
-            <ion-col size="12">
-                <h3>Um dein Vorhaben digital zu erfassen brauchen wir folgende Informationen von dir:</h3>
-                <ion-list>
-                    <ion-item>
-                      <ion-label>Art des Begehrens (Initiative, Referendum oder Volksmotion)</ion-label>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label>Titel</ion-label>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label>Vollständiger Text des Begehrens</ion-label>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label>4 Ziele des Begehrens</ion-label>
-                      </ion-item>
-                    <ion-item>
-                      <ion-label>Deine Email</ion-label>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label>Informationen über das Komitee</ion-label>
-                    </ion-item>
-                  </ion-list>
-                  <p>Klicke auf den Pfeil nach rechts um fortzufahren</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-slide>
-
+  <ion-slides #mySlider (ionSlideWillChange)="currentProgress($event)">
       <ion-slide>
           <ion-grid fixed>
             <ion-row>
               <ion-col size="12">
-                  <h2>Wo findet dein Vorhaben statt?</h2>
+                <h2>Der Start deiner digitalen Kampagne</h2>
               </ion-col>
               <ion-col size="12">
-                  <ion-select name="ebene" [(ngModel)]="ebene" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
-                    <ion-select-option value="national">National</ion-select-option>
-                    <ion-select-option value="SH">Schaffhausen</ion-select-option>
-                  </ion-select>
+                  <h3>Um dein Vorhaben digital zu erfassen brauchen wir folgende Informationen von dir:</h3>
+                  <ion-list>
+                      <ion-item>
+                        <ion-label>Art des Begehrens</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Titel</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Vollständiger Text des Begehrens</ion-label>
+                      </ion-item>
+                      <ion-item>
+                          <ion-label>4 Ziele des Begehrens</ion-label>
+                        </ion-item>
+                      <ion-item>
+                        <ion-label>Deine Email</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Informationen über das Komitee</ion-label>
+                      </ion-item>
+                    </ion-list>
+                    <p>Klicke auf den Pfeil nach rechts um fortzufahren</p>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-slide>
 
         <ion-slide>
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="12">
-                  <h2>Worum handelt es sich bei deinem Begehren?</h2>
-              </ion-col>
-              <ion-col size="12">
-                  <ion-select name="begehren" [(ngModel)]="begehren" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
-                    <ion-select-option value="initiative">Initiative</ion-select-option>
-                    <ion-select-option value="referendum">Referendum</ion-select-option>        
-                      <ion-select-option *ngIf="ebene != 'national'" value="volksmotion">Volksmotion</ion-select-option>
-                  </ion-select>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-
-        <ion-slide>
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="12">
-                  <h2>Wie lautet der Titel des Begehrens?</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-input required type="text" placeholder="Meine Begehren"></ion-input>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-
-        <ion-slide class="slide-textarea">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="12">
-                  <h2>Schreibe hier den vollständigen Wortlaut deines Begehrens:</h2>
-              </ion-col>
-              <ion-col size="12">
-                <ion-textarea required placeholder="Mein Text..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-
-        <!-- If Bundesinitiative -->
-        <ion-slide *ngIf="ebene == 'national' && begehren=='initiative'">
             <ion-grid fixed>
               <ion-row>
                 <ion-col size="12">
-                    <h2>Wann wurde deine Initiative veröffentlicht?</h2>
+                    <h2>Wo findet dein Vorhaben statt?</h2>
                 </ion-col>
                 <ion-col size="12">
-                    <ion-datetime displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-slide>
-
-        <!-- If Bundesreferendum -->
-        <ion-slide *ngIf="ebene == 'national' && begehren=='referendum'">
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="12">
-                    <h2>Wann ist die Schlussabstimmung in der Bundesversammlung?</h2>
-                </ion-col>
-                <ion-col size="12">
-                    <ion-datetime displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-slide>
-
-        <!-- If initiative -->
-        <ion-slide class="slide-textarea" *ngIf="begehren=='initiative'">
-            <ion-grid>
-              <ion-row>
-                <ion-col size="12">
-                    <h2>Zum Schluss brauchen wir noch Name und Adresse des Urhebers der Initiative (Initiativkomitee)</h2>
-                </ion-col>
-                <ion-col size="12">
-                  <ion-textarea required placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                    <ion-select required formControlName="ruleValue" name="ebene" [(ngModel)]="ebene" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
+                      <ion-select-option value="national">National</ion-select-option>
+                      <ion-select-option value="SH">Schaffhausen</ion-select-option>
+                    </ion-select>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -160,18 +69,132 @@
             <ion-grid fixed>
               <ion-row>
                 <ion-col size="12">
-                  <h2>Nur noch einschicken...</h2>
+                    <h2>Worum handelt es sich bei deinem Begehren?</h2>
                 </ion-col>
                 <ion-col size="12">
-                    <h3>Wir haben nun alle benötigten Daten. Klicke auf den Knopf unten, um dein Begehren einzuschicken.</h3>
-                    <ion-button (click)="onClick()" shape="round">
-                      Begehren senden
-                    </ion-button>
+                    <ion-select required formControlName="type" name="begehren" [(ngModel)]="begehren" multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
+                      <ion-select-option value="initiative">Initiative</ion-select-option>
+                      <ion-select-option value="referendum">Referendum</ion-select-option>        
+                        <ion-select-option *ngIf="ebene != 'national'" value="volksmotion">Volksmotion</ion-select-option>
+                    </ion-select>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </ion-slide>
-</ion-slides>
+
+          <ion-slide>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Wie lautet der Titel des Begehrens?</h2>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-input required formControlName="title" type="text" placeholder="Meine Begehren"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+          <ion-slide class="slide-textarea">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Schreibe hier den vollständigen Wortlaut deines Begehrens:</h2>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-textarea required formControlName="text" placeholder="Mein Text..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+          <ion-slide class="slide-textarea">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Nenne 4 Ziele deines Begehrens:</h2>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-item>
+                      <ion-label position="floating">Ziel 1</ion-label>
+                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Ziel 2</ion-label>
+                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Ziel 3</ion-label>
+                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Ziel 4</ion-label>
+                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                  </ion-item>
+                  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+          <!-- If Bundesinitiative -->
+          <ion-slide *ngIf="ebene == 'national' && begehren=='initiative'">
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="12">
+                      <h2>Wann wurde deine Initiative veröffentlicht?</h2>
+                  </ion-col>
+                  <ion-col size="12">
+                      <ion-datetime formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+
+          <!-- If Bundesreferendum -->
+          <ion-slide *ngIf="ebene == 'national' && begehren=='referendum'">
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="12">
+                      <h2>Wann ist die Schlussabstimmung in der Bundesversammlung?</h2>
+                  </ion-col>
+                  <ion-col size="12">
+                      <ion-datetime formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+
+          <!-- If initiative -->
+          <ion-slide class="slide-textarea" *ngIf="begehren=='initiative'">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12">
+                      <h2>Zum Schluss brauchen wir noch Name und Adresse des Urhebers der Initiative (Initiativkomitee)</h2>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-textarea formControlName="author" placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="12">
+                    <h2>Nur noch einschicken...</h2>
+                  </ion-col>
+                  <ion-col size="12">
+                      <h3>Wir haben nun alle benötigten Daten. Klicke auf den Knopf unten, um dein Begehren einzuschicken.</h3>
+                      <ion-button type="submit" [disabled]="createForm.invalid" shape="round">
+                        Begehren senden
+                      </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+  </ion-slides>
 </form>
 
 

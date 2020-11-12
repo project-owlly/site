@@ -1,4 +1,4 @@
-
+//general
 ion-slides {
     height: 80Vh;
 }
@@ -6,7 +6,7 @@ ion-slides {
     position: fixed;
     bottom: 0;
 }
-
+//navButtons
 .navButtonLeft {
     position: absolute;
     bottom: 50vh;
@@ -22,10 +22,20 @@ ion-slides {
     transition: 0.5s;
 }
 
+//grid
+ion-grid {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 //input CSS
 ion-input {
     font-size: 2rem;
     font-weight: bold;
+}
+.goalInput {
+    font-size: 1rem;
+    font-weight: normal;
 }
 ion-select {
     font-size: 1.5rem;
@@ -44,6 +54,9 @@ ion-datetime {
     font-weight: bold;
     
 }
+form {
+    overflow-y: hidden;
+}
 
 @media (max-width: 768px) {
     .navButtonLeft {
@@ -61,5 +74,8 @@ ion-datetime {
     }
     ion-datetime {
         font-size: 1rem;
+    }
+    ion-grid {
+        padding: 20px;
     }
 }
