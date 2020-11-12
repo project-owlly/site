@@ -3,7 +3,7 @@ import {PdfServiceService} from '../../services/pdf-service.service';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {testData} from './testInterface';
 import { Plugins } from '@capacitor/core';
-
+import {LoadingController} from '@ionic/angular'
 const { Browser } = Plugins;
 
 @Component({
@@ -42,7 +42,7 @@ export class TestPage implements OnInit {
     },
   };
   
-  constructor(private pdfService: PdfServiceService, public fb: FormBuilder) {}
+  constructor(private pdfService: PdfServiceService, public fb: FormBuilder, public loadingController: LoadingController) {}
 
   ngOnInit() {
     this.testForm = this.fb.group({
@@ -57,7 +57,25 @@ export class TestPage implements OnInit {
     });
   }
 
+  //Loading Animation
+  // TODO: Make the loading disappear only when generatePDF is finished
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 3000
+    });
+    await loading.present();
+    
+  }
+
+  readableDate(date: Date) {
+    
+    return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+  }
+
+
   async generatePDF() {
+    this.presentLoading();
 
     this.testInterface.owllyId = 'test';
     this.testInterface.owllyData.level = 'canton';
@@ -65,7 +83,7 @@ export class TestPage implements OnInit {
     this.testInterface.owllyData.text = this.testForm.value.iText;
     this.testInterface.owllyData.title = this.testForm.value.title;
     this.testInterface.owllyData.type = 'initiative';
-    this.testInterface.owllyData.published = new Date().toISOString();
+    this.testInterface.owllyData.published = this.testForm.value.date;
     this.testInterface.owllyData.author = this.testForm.value.urheber;
     this.testInterface.owllyData.ruleName = 'canton';
     this.testInterface.owllyData.ruleValue = 'sh';
@@ -75,7 +93,7 @@ export class TestPage implements OnInit {
     this.testInterface.userData.birth_date = this.testForm.value.birthday;
     this.testInterface.userData.locality = 'Schaffhausen';
     this.testInterface.userData.postal_code = '8200';
-    this.testInterface.userData.street_address = 'Villenstrasse 4';
+    this.testInterface.userData.street_address = this.testForm.value.adress;
 
     console.log(this.testInterface);
 

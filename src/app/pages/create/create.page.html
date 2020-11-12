@@ -17,7 +17,7 @@
     </ion-button>
 
   
-    <form>
+    <form >
       
     
 <ion-slides scrollbar="true" #mySlider (ionSlideNextStart)="nextSlideSwipe()" (ionSlidePrevStart)="previousSlideSwipe()">
@@ -31,13 +31,13 @@
                 <h3>Um dein Vorhaben digital zu erfassen brauchen wir folgende Informationen von dir:</h3>
                 <ion-list>
                     <ion-item>
-                      <ion-label>Art des Begehrens (Initiative oder Referendum)</ion-label>
+                      <ion-label>Art des Begehrens (Initiative, Referendum oder Volksmotion)</ion-label>
                     </ion-item>
                     <ion-item>
                       <ion-label>Titel</ion-label>
                     </ion-item>
                     <ion-item>
-                      <ion-label>Initiativ- oder Referendumstext</ion-label>
+                      <ion-label>Vollständiger Text des Begehrens</ion-label>
                     </ion-item>
                     <ion-item>
                         <ion-label>4 Ziele des Begehrens</ion-label>
@@ -54,21 +54,7 @@
           </ion-row>
         </ion-grid>
       </ion-slide>
-    <ion-slide>
-        <ion-grid fixed>
-          <ion-row>
-            <ion-col size="12">
-                <h2>Handelt es sich um eine Initiative oder ein Referendum?</h2>
-            </ion-col>
-            <ion-col size="12">
-                <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
-                  <ion-select-option value="peperoni">Initiative</ion-select-option>
-                  <ion-select-option value="hawaii">Referendum</ion-select-option>
-                </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-slide>
+
       <ion-slide>
           <ion-grid fixed>
             <ion-row>
@@ -76,29 +62,99 @@
                   <h2>Wo findet dein Vorhaben statt?</h2>
               </ion-col>
               <ion-col size="12">
-                  <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
-                    <ion-select-option value="peperoni">National</ion-select-option>
-                    <ion-select-option value="hawaii">Schaffhausen</ion-select-option>
+                  <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet" value="{{testVar}}">
+                    <ion-select-option value="national" (click)="test()">National</ion-select-option>
+                    <ion-select-option value="SH">Schaffhausen</ion-select-option>
                   </ion-select>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-slide>
-  <ion-slide>
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col size="12">
-            <h2>Wie lautet der Name der Initiative?</h2>
-        </ion-col>
-        <ion-col size="12">
-          <ion-input required type="text" placeholder="Meine Initiative"></ion-input>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-slide>
-  <ion-slide>
-    <h1>2323</h1>
-  </ion-slide>
+
+        <ion-slide>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                  <h2>Handelt es sich um eine Initiative oder ein Referendum?</h2>
+              </ion-col>
+              <ion-col size="12">
+                  <ion-select multiple="false" placeholder="Wähle eine Option" cancelText="Abbrechen" interface="action-sheet">
+                    <ion-select-option value="initiative">Initiative</ion-select-option>
+                    <ion-select-option value="referendum">Referendum</ion-select-option>
+                    <ion-select-option *ngIf="volksmotion" value="volksmotion">Volksmotion</ion-select-option>
+                  </ion-select>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                  <h2>Wie lautet der Titel der Initiative?</h2>
+              </ion-col>
+              <ion-col size="12">
+                <ion-input required type="text" placeholder="Meine Begehren"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+
+        <ion-slide class="slide-textarea">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                  <h2>Schreibe hier den vollständigen Wortlaut deines Begehrens:</h2>
+              </ion-col>
+              <ion-col size="12">
+                <ion-textarea required placeholder="Mein Text..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+
+        <!-- If Bundesinitiative -->
+        <ion-slide>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Wann wurde deine Initiative veröffentlicht?</h2>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-datetime displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+        <!-- If Bundesreferendum -->
+        <ion-slide>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Wann ist die Schlussabstimmung in der Bundesversammlung?</h2>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-datetime displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+
+        <!-- If initiative -->
+        <ion-slide class="slide-textarea">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                    <h2>Zum Schluss brauchen wir noch Name und Adresse des Urhebers der Initiative (Initiativkomitee)</h2>
+                </ion-col>
+                <ion-col size="12">
+                  <ion-textarea required placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
 </ion-slides>
 </form>
 

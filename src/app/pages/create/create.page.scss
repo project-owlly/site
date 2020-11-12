@@ -22,6 +22,29 @@ ion-slides {
     transition: 0.5s;
 }
 
+//input CSS
+ion-input {
+    font-size: 2rem;
+    font-weight: bold;
+}
+ion-select {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+ion-textarea {
+    --background: #E7E7E8;
+    text-align: left;
+    padding: 10px;
+}
+.slide-textarea {
+    overflow-y: scroll; display: block;
+}
+ion-datetime {
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
 @media (max-width: 768px) {
     .navButtonLeft {
         bottom: 0;
@@ -33,4 +56,7 @@ ion-slides {
         height: 90Vh;
     }
 
+    ion-input {
+        font-size: 1rem;
+    }
 }

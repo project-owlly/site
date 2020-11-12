@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {IonSlides} from '@ionic/angular'
+import {IonSlides, IonSelect, IonSelectOption} from '@ionic/angular'
 //import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-create',
@@ -8,8 +8,12 @@ import {IonSlides} from '@ionic/angular'
 })
 export class CreatePage implements OnInit {
 
+ // createForm: FormGroup;
+
   @ViewChild('mySlider') slides: IonSlides
 
+
+  //Slider Controls
   nextSlide() {
     this.slides.slideNext();
     this.progress += 0.1;
@@ -28,9 +32,23 @@ export class CreatePage implements OnInit {
     this.progress -= 0.1;
   }
 
-  constructor() { }
+  public volksmotion: boolean = true;
+  testVar: any;
 
-  ngOnInit() {
+  test() {
+    console.log("test")
   }
 
+  constructor(/*public fb: FormBuilder*/) { }
+
+  ngOnInit() {
+    /*
+    this.createForm = this.fb.group({
+      level: ['', [Validators.required]],
+      
+    });
+    */
+  }
+
+  
 }
