@@ -19,22 +19,22 @@ begehren;
 
   //Slider Controls
 
-  nextSlide() {
+  async nextSlide() {
     this.slides.slideNext();
-    this.progress += 0.1;
   }
   previousSlide() {
     this.slides.slidePrev();
-    this.progress -= 0.1;
   }
-
   progress = 0;
-  
-  nextSlideSwipe() {
-    this.progress += 0.1;
-  }
-  previousSlideSwipe() {
-    this.progress -= 0.1;
+  async currentProgress() {
+    const current = await this.slides.getActiveIndex();
+    const length = await this.slides.length();
+    if (current == 0) {
+      this.progress = 0;
+    }
+    else {
+      this.progress = (current+1)/length;
+    }
   }
   
 

@@ -20,7 +20,7 @@
     <form >
       
     
-<ion-slides #mySlider (ionSlideNextStart)="nextSlideSwipe()" (ionSlidePrevStart)="previousSlideSwipe()">
+<ion-slides #mySlider (ionSlideWillChange)="currentProgress($event)">
     <ion-slide>
         <ion-grid fixed>
           <ion-row>
