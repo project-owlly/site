@@ -19,12 +19,13 @@ begehren;
 
   //Slider Controls
 
-  async nextSlide() {
+  nextSlide() {
     this.slides.slideNext();
   }
   previousSlide() {
     this.slides.slidePrev();
   }
+  //state of page stuff
   progress = 0;
   async currentProgress() {
     const current = await this.slides.getActiveIndex();
