@@ -10,6 +10,6 @@ import {map} from 'rxjs/operators';
 })
 export class HeaderComponent {
   readonly theme$: Observable<'dark' | 'light'> = of(window.matchMedia('(prefers-color-scheme: dark)')).pipe(
-    map((dark: MediaQueryList) => (dark ? 'dark' : 'light'))
+    map((media: MediaQueryList) => (media.matches ? 'dark' : 'light'))
   );
 }

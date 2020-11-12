@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
+import {Plugins} from '@capacitor/core';
+const {Browser} = Plugins;
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   async login() {
-    let url = await this.oidc.getAuthUrl('login');
+    this.oidc.getAuthUrlLogin().subscribe((data) => {
+      console.log(data.url);
+      Browser.open({
+        url: data.url,
+      });
+    });
   }
 }
