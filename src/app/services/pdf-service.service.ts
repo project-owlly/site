@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 //import {HttpClient} from '@angular/common/http';
 
 import {AngularFireFunctions} from '@angular/fire/functions';
+import {Observable} from 'rxjs';
+import {Pdf} from '../types/pdf';
 //import {response} from 'express';
 
 @Injectable({
@@ -15,7 +17,7 @@ export class PdfServiceService {
     private functions: AngularFireFunctions
   ) {}
 
-  generatePDF(data) {
+  generatePDF(data): Observable<Pdf> {
     const demoData: any = {
       owllyId: 'test', //vrrYZoolx2XSy23RW63f für echtdaten von datenbank / test für demodaten via post
       owllyData: {
@@ -49,8 +51,7 @@ export class PdfServiceService {
 
     // Create an Observable and pass any data you want to the function
     // const obs = callable({ coolMsg: this.myInput });
-    const obs = callable(data);
-    return obs;
+    return callable(data);
     // TODO: unsubscribe or first
     /*
     obs.subscribe(

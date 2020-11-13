@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
+import {EidGuard} from './guards/eid.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -29,20 +31,29 @@ const routes: Routes = [
     loadChildren: () => import('./pages/impressum/impressum.module').then((m) => m.ImpressumPageModule),
   },
   {
-    path: 'return',
-    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
-  },
-  {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then((m) => m.TestPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
+    loadChildren: () => import('./pages/auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'start',
     loadChildren: () => import('./pages/wizard/start/start.module').then((m) => m.StartPageModule),
+  },
+  {
+    path: 'return',
+    canActivate: [EidGuard],
+    redirectTo: '/',
+  },
+  {
+    path: 'pdf',
+    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
+  },
+  {
+    path: 'success',
+    loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
   },
 ];
 
