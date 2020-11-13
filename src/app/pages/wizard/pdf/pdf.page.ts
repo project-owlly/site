@@ -36,16 +36,6 @@ export class PdfPage implements OnInit {
             });
           });
         } else {
-          let token = await this.oidc.getEidLogin(params.code).pipe(first()).toPromise();
-          //Login ->
-          this.auth
-            .login(token)
-            .then((user) => {
-              console.log(user);
-            })
-            .catch((error) => {
-              console.log(error.message);
-            });
         }
       } else {
         // todo: terminate spinner:
