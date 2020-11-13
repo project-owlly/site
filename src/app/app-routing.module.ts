@@ -31,15 +31,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/impressum/impressum.module').then((m) => m.ImpressumPageModule),
   },
   {
-    path: 'return',
-    canActivate: [EidGuard],
-    redirectTo: '/',
-  },
-  {
-    path: 'pdf',
-    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
-  },
-  {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then((m) => m.TestPageModule),
   },
@@ -50,6 +41,19 @@ const routes: Routes = [
   {
     path: 'start',
     loadChildren: () => import('./pages/wizard/start/start.module').then((m) => m.StartPageModule),
+  },
+  {
+    path: 'return',
+    canActivate: [EidGuard],
+    redirectTo: '/',
+  },
+  {
+    path: 'pdf',
+    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
+  },
+  {
+    path: 'success',
+    loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
   },
 ];
 

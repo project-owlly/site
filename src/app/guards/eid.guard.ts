@@ -13,7 +13,7 @@ export class EidGuard implements CanActivate {
     const stateParam: string | null = next.paramMap.get('state'); // If provided = owllyId
     const code: string | null = next.paramMap.get('code');
 
-    return this.router.createUrlTree([!stateParam ? '/login' : '/pdf'], {
+    return this.router.createUrlTree([!stateParam ? '/success' : '/pdf'], {
       queryParams: {
         code,
       },
