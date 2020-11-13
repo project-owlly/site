@@ -30,8 +30,8 @@ export class PdfPage implements OnInit {
   pdf$: Observable<Pdf> = combineLatest([
     this.route.queryParams.pipe(
       first(),
-      filter((params: Params) => params.state !== null),
-      map((params: Params) => params.state)
+      filter((params: Params) => params.owllyId !== null),
+      map((params: Params) => params.owllyId)
     ),
     this.useData$.pipe(filter((userData: EidUserData | undefined) => userData !== undefined)),
   ]).pipe(

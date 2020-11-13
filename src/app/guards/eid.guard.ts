@@ -24,6 +24,7 @@ export class EidGuard implements CanActivate {
       return this.router.createUrlTree([oidcState.type === 'login' ? '/success' : '/pdf'], {
         queryParams: {
           code,
+          ...(oidcState.owllyId && {owllyId: oidcState.owllyId}),
         },
       });
     } catch (err) {
