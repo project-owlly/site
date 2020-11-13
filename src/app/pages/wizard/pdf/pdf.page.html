@@ -2,12 +2,20 @@
   <app-header></app-header>
 
   <main>
-    <ng-container *ngIf="(useData$ | async) as userData else loading">
+    <ng-container *ngIf="(useData$ | async) as userData else loadingUser">
       <h1>Hi {{userData?.given_name}}</h1>
+
+      <ng-container *ngIf="(pdf$ | async) as pdf else loadingPdf">
+        <p>Pdf is ready.</p>
+      </ng-container>
     </ng-container>
   </main>
 </ion-content>
 
-<ng-template #loading>
+<ng-template #loadingUser>
   <div>Loading user...</div>
+</ng-template>
+
+<ng-template #loadingPdf>
+  <div>Loading pdf...</div>
 </ng-template>

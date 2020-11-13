@@ -27,22 +27,27 @@ export class PdfPage implements OnInit {
     switchMap((code: string) => this.oidcService.getEidUserData(code))
   );
 
+  pdf$: Observable<Pdf> = combineLatest([
+    this.route.paramMap.pipe(
+      first(),
+      filter((params: Params) => params.state !== null),
+      map((params: Params) => params.state)
+    ),
+    this.useData$.pipe(filter((userData: EidUserData | undefined) => userData !== undefined)),
+  ]).pipe(
+    first(),
+    switchMap(([owllyId, userData]: [string, EidUserData]) => this.pdfService.generatePDF({userData, owllyId})),
+    first()
+  );
+
   constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfServiceService, private auth: AuthService) {
     // TODO: start spinner
   }
 
   ngOnInit() {
-    combineLatest([
-      this.route.paramMap.pipe(
-        first(),
-        filter((params: Params) => params.state !== null),
-        map((params: Params) => params.state)
-      ),
-      this.useData$.pipe(filter((userData: EidUserData | undefined) => userData !== undefined)),
-    ])
+    this.pdf$
       .pipe(
-        first(),
-        switchMap(([owllyId, userData]: [string, EidUserData]) => this.pdfService.generatePDF({userData, owllyId})),
+        filter((pdf: Pdf | undefined) => pdf !== undefined),
         first()
       )
       .subscribe(async (pdf: Pdf) => await Browser.open({url: pdf.url}));
