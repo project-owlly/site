@@ -27,7 +27,7 @@ export class PdfPage implements OnInit {
         this.state = params.state;
 
         if (params.state !== 'login') {
-          this.oidc.getUserData(params.code).subscribe((userData) => {
+          this.oidc.getEidUserData(params.code).subscribe((userData) => {
             this.userData = userData;
 
             this.pdfService.generatePDF({userData: userData, owllyId: params.state}).subscribe(async (data) => {
