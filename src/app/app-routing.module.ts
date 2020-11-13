@@ -45,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
+    loadChildren: () => import('./pages/auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'start',
