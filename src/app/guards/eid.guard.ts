@@ -19,7 +19,7 @@ export class EidGuard implements CanActivate {
     }
 
     try {
-      const oidcState: OidcState = JSON.parse(stateParam);
+      const oidcState: OidcState = JSON.parse(window.decodeURI(stateParam));
 
       return this.router.createUrlTree([oidcState.type === 'login' ? '/success' : '/pdf'], {
         queryParams: {
