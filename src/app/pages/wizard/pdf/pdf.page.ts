@@ -9,11 +9,11 @@ import {AuthService} from 'src/app/services/auth.service';
 const {Filesystem, Browser} = Plugins;
 
 @Component({
-  selector: 'app-return',
-  templateUrl: './return.page.html',
-  styleUrls: ['./return.page.scss'],
+  selector: 'app-pdf',
+  templateUrl: './pdf.page.html',
+  styleUrls: ['./pdf.page.scss'],
 })
-export class ReturnPage implements OnInit {
+export class PdfPage implements OnInit {
   public code: string = '';
   public state: string = 'login';
   public userData: any = {};
