@@ -2,7 +2,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 
 import {combineLatest, Observable, of} from 'rxjs';
-import {catchError, filter, first, map, switchMap} from 'rxjs/operators';
+import {catchError, filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
 
 import {EidUserData} from '../../../types/eid';
 import {Pdf} from '../../../types/pdf';
@@ -24,7 +24,9 @@ export class PdfPage implements OnInit {
     first(),
     filter((params: Params) => params.code !== null),
     map((params: Params) => params.code),
-    switchMap((code: string) => this.oidcService.getEidUserData(code))
+    switchMap((code: string) => this.oidcService.getEidUserData(code)),
+    first(),
+    shareReplay(1)
   );
 
   pdf$: Observable<Pdf> = combineLatest([
@@ -41,7 +43,8 @@ export class PdfPage implements OnInit {
       console.error(err);
       return of({url: undefined} as Pdf);
     }),
-    first()
+    first(),
+    shareReplay(1)
   );
 
   constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfServiceService, private auth: AuthService) {
