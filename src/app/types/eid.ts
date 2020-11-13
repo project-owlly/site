@@ -3,4 +3,6 @@ export interface EidDataRequest {
 }
 
 // TODO: Sandro add type definition details
-export interface EidUserData {}
+export interface EidUserData {
+  given_name?: string;
+}

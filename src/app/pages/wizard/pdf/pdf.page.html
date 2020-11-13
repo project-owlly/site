@@ -1,29 +1,13 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-header></app-header>
 
-<ion-content>
   <main>
-    <ion-text>
-      <h1 *ngIf="userData && userData.given_name">Hi {{userData.given_name}}!</h1>
-
-      <p *ngIf="!pdfGenerated && state!=='login'">wir erstellen gerade dein PDF!</p>
-
-      <div *ngIf="pdfGenerated">
-        <p>wir haben es geschafft!</p>
-
-        <ion-button>weiter geht's!</ion-button>
-      </div>
-
-      <!--<h2>Code: {{code}}</h2>
-      <h2>State=owllyID: {{state}}</h2>
-      <h2>{{userData.given_name}}</h2>
-      <h2>{{userData.family_name}}</h2>
-      <h2>{{userData.birth_date}}</h2>
-      <h2>{{userData.street_address}}</h2>
-      <h2>{{userData.postal_code}} {{userData.locality}}</h2>-->
-    </ion-text>
+    <ng-container *ngIf="(useData$ | async) as userData else loading">
+      <h1>Hi {{userData?.given_name}}</h1>
+    </ng-container>
   </main>
 </ion-content>
+
+<ng-template #loading>
+  <div>Loading user...</div>
+</ng-template>
