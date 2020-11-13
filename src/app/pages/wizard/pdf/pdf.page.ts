@@ -1,8 +1,8 @@
 import {ActivatedRoute, Params} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 
-import {combineLatest, Observable} from 'rxjs';
-import {filter, first, map, switchMap} from 'rxjs/operators';
+import {combineLatest, Observable, of} from 'rxjs';
+import {catchError, filter, first, map, switchMap} from 'rxjs/operators';
 
 import {EidUserData} from '../../../types/eid';
 import {Pdf} from '../../../types/pdf';
@@ -37,6 +37,10 @@ export class PdfPage implements OnInit {
   ]).pipe(
     first(),
     switchMap(([owllyId, userData]: [string, EidUserData]) => this.pdfService.generatePDF({userData, owllyId})),
+    catchError((err) => {
+      console.error(err);
+      return of({url: undefined} as Pdf);
+    }),
     first()
   );
 
@@ -47,7 +51,7 @@ export class PdfPage implements OnInit {
   ngOnInit() {
     this.pdf$
       .pipe(
-        filter((pdf: Pdf | undefined) => pdf !== undefined),
+        filter((pdf: Pdf | undefined) => pdf !== undefined && pdf.url !== undefined),
         first()
       )
       .subscribe(async (pdf: Pdf) => await Browser.open({url: pdf.url}));

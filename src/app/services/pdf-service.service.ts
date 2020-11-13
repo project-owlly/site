@@ -43,7 +43,7 @@ export class PdfServiceService {
         street_address: 'Villenstrasse 4',
       },
     };
-    delete data.userData.verified_simple;
+    // delete data.userData.verified_simple;
     //const request = this.http.post('https://europe-west6-project-owlly.cloudfunctions.net/generatePDF', data);
     //return request;
 

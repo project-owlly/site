@@ -1,3 +1,3 @@
 export interface Pdf {
-  url: string;
+  url: string | undefined;
 }
