@@ -3,7 +3,7 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 
 import {Observable} from 'rxjs';
 
-import {OidAuth, OidAuthDataRequest, OidAuthLoginDataRequest} from '../types/oidc';
+import {OidcAuth, OidcAuthDataRequest, OidcAuthLoginDataRequest} from '../types/oidc';
 import {EidDataRequest, EidUserData} from '../types/eid';
 
 @Injectable({
@@ -12,17 +12,18 @@ import {EidDataRequest, EidUserData} from '../types/eid';
 export class OidcService {
   constructor(private functions: AngularFireFunctions) {}
 
-  getAuthUrl(owllyId: string): Observable<OidAuth | undefined> {
-    const callable: (data: OidAuthDataRequest) => Observable<OidAuth | undefined> = this.functions.httpsCallable<OidAuthDataRequest, OidAuth | undefined>(
+  getAuthUrl(owllyId: string): Observable<OidcAuth | undefined> {
+    const callable: (data: OidcAuthDataRequest) => Observable<OidcAuth | undefined> = this.functions.httpsCallable<OidcAuthDataRequest, OidcAuth | undefined>(
       'OIDAuthUrl'
     );
-    return callable({owllyId} as OidAuthDataRequest);
+    return callable({owllyId} as OidcAuthDataRequest);
   }
 
-  getAuthUrlLogin(): Observable<OidAuth | undefined> {
-    const callable: (data: OidAuthLoginDataRequest) => Observable<OidAuth | undefined> = this.functions.httpsCallable<OidAuthDataRequest, OidAuth | undefined>(
-      'OIDAuthUrlLogin'
-    );
+  getAuthUrlLogin(): Observable<OidcAuth | undefined> {
+    const callable: (data: OidcAuthLoginDataRequest) => Observable<OidcAuth | undefined> = this.functions.httpsCallable<
+      OidcAuthDataRequest,
+      OidcAuth | undefined
+    >('OIDAuthUrlLogin');
     return callable({});
   }
 

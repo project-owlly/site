@@ -1,11 +1,17 @@
-export interface OidAuthDataRequest {
+export interface OidcAuthDataRequest {
   owllyId: string;
 }
 
 // tslint:disable-next-line:no-empty-interface
-export interface OidAuthLoginDataRequest {}
+export interface OidcAuthLoginDataRequest {}
 
-export interface OidAuth {
+export interface OidcAuth {
   url: string;
+  type: 'login' | 'wizard';
+  owllyId?: string;
+}
+
+export interface OidcState {
+  type: 'login' | 'wizard';
   owllyId?: string;
 }
