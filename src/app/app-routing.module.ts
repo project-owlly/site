@@ -45,7 +45,7 @@ const routes: Routes = [
   {
     path: 'return',
     canActivate: [EidGuard],
-    redirectTo: '/',
+    children: [],
   },
   {
     path: 'pdf',
