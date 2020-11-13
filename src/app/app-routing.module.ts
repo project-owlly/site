@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'return',
-    loadChildren: () => import('./pages/return/return.module').then((m) => m.ReturnPageModule),
+    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
   },
   {
     path: 'test',
