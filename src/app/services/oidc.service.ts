@@ -4,7 +4,7 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 import {Observable} from 'rxjs';
 
 import {OidAuth, OidAuthDataRequest} from '../types/oidc';
-import {EidDataRequest} from '../types/eid';
+import {EidDataRequest, EidUserData} from '../types/eid';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +31,8 @@ export class OidcService {
     return callable({authorization_code: token} as EidDataRequest);
   }
 
-  getEidUserData(token) {
-    const callable = this.functions.httpsCallable('eidData');
-    return callable({authorization_code: token});
+  getEidUserData(token: string): Observable<EidUserData | undefined> {
+    const callable: (data: EidDataRequest) => Observable<EidUserData | undefined> = this.functions.httpsCallable<EidUserData | undefined>('eidData');
+    return callable({authorization_code: token} as EidDataRequest);
   }
 }
