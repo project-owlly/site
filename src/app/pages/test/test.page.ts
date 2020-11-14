@@ -57,13 +57,6 @@ export class TestPage implements OnInit {
     });
   }
 
-  //Loading Animation
-  // TODO: Make the loading disappear only when generatePDF is finished
-  async presentLoading() {
-    
-    
-  }
-
   readableDate(date: Date) {
     
     return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
@@ -71,12 +64,12 @@ export class TestPage implements OnInit {
 
 
   async generatePDF() {
+    //Loading Animation
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
-      //duration: 3000
+      message: 'Dein PDF wird generiert...',
     });
     await loading.present();
-
+    //pdf stuff
     this.testData.owllyId = 'test';
     this.testData.owllyData.level = 'canton';
     this.testData.owllyData.supporters = 'Darum unterstützen SP, Grüne, GLP, AL, EVP, Pro Velo, VCS, Greenpeace und Pro Velo die Velorouten-Initiative.';
@@ -95,7 +88,7 @@ export class TestPage implements OnInit {
     this.testData.userData.postal_code = '8200';
     this.testData.userData.street_address = this.testForm.value.adress;
 
-    console.log(this.testData);
+    //console.log(this.testData);
 
     this.pdfService.generatePDF(this.testData).subscribe(async (data) => {Browser.open({url: data.url}).then( () => {loading.dismiss()}); });
   }
