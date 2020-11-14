@@ -4,6 +4,10 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./pages/landing/landing.module').then((m) => m.LandingPageModule),
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   /*
@@ -48,6 +52,11 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
   },
+  /*{
+    path: 'landing',
+    loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)
+  },
+  */
 ];
 
 
