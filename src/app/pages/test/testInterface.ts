@@ -1,4 +1,4 @@
-export interface testData {
+export interface TestData {
     owllyId: string; //vrrYZoolx2XSy23RW63f für echtdaten von datenbank / "test" für demodaten via post
     owllyData: {
       //optional owllydata -> wird anhand owllyId im backend gelesen.
