@@ -19,8 +19,7 @@ createData: createData = {
   published: '',
   author: '',
   ruleValue: '',
-  goals: ['']
-
+  goals: []
 } 
 //Variables to read user input  
 ebene;
@@ -50,6 +49,19 @@ createForm: FormGroup;
     else {
       this.progress = (current+1)/length;
     }
+
+    if((this.ebene == 'national' && this.begehren=='initiative') || (this.ebene == 'national' && this.begehren=='referendum') ) {
+      this.createForm.get('published').setValidators(Validators.required);
+    }
+    else {
+      this.createForm.get('published').clearValidators();
+    }
+    if(this.begehren=='initiative') {
+      this.createForm.get('author').setValidators(Validators.required);
+    }
+    else {
+      this.createForm.get('author').clearValidators();
+    }
   }
   
 
@@ -64,10 +76,15 @@ createForm: FormGroup;
       published: [''],
       author: [''],
       ruleValue: ['', [Validators.required]],
-      goals: [''],
+      goals1: [''],
+      goals2: [''],
+      goals3: [''],
+      goals4: [''],
     });
     
   }
+
+  
 
   sendInitiative() {
     this.createData.text = this.createForm.value.text;
@@ -76,9 +93,13 @@ createForm: FormGroup;
     this.createData.published = this.createForm.value.published;
     this.createData.author = this.createForm.value.author;
     this.createData.ruleValue = this.createForm.value.ruleValue;
-    this.createData.goals = this.createForm.value.goals;
-
+    this.createData.goals.push(this.createForm.value.goals1);
+    this.createData.goals.push(this.createForm.value.goals2);
+    this.createData.goals.push(this.createForm.value.goals3);
+    this.createData.goals.push(this.createForm.value.goals4);
     console.log(this.createData);
+
+    
   }
   
 }

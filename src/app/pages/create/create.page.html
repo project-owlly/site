@@ -117,19 +117,19 @@
                 <ion-col size="12">
                   <ion-item>
                       <ion-label position="floating">Ziel 1</ion-label>
-                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                      <ion-input formControlName="goals1" class="goalInput" type="text" ></ion-input>
                   </ion-item>
                   <ion-item>
                       <ion-label position="floating">Ziel 2</ion-label>
-                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                      <ion-input formControlName="goals2" class="goalInput" type="text" ></ion-input>
                   </ion-item>
                   <ion-item>
                       <ion-label position="floating">Ziel 3</ion-label>
-                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                      <ion-input formControlName="goals3" class="goalInput" type="text" ></ion-input>
                   </ion-item>
                   <ion-item>
                       <ion-label position="floating">Ziel 4</ion-label>
-                      <ion-input formControlName="goals" class="goalInput" type="text" required ></ion-input>
+                      <ion-input formControlName="goals4" class="goalInput" type="text" ></ion-input>
                   </ion-item>
                   
                 </ion-col>
@@ -145,7 +145,7 @@
                       <h2>Wann wurde deine Initiative veröffentlicht?</h2>
                   </ion-col>
                   <ion-col size="12">
-                      <ion-datetime formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                      <ion-datetime required formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -159,7 +159,7 @@
                       <h2>Wann ist die Schlussabstimmung in der Bundesversammlung?</h2>
                   </ion-col>
                   <ion-col size="12">
-                      <ion-datetime formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
+                      <ion-datetime required formControlName="published" displayFormat="DD. MMMM YYYY" required placeholder ="Datum hier eingeben" cancelText="Abbrechen" doneText="Ok" monthNames="[Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]"></ion-datetime>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -173,7 +173,7 @@
                       <h2>Zum Schluss brauchen wir noch Name und Adresse des Urhebers der Initiative (Initiativkomitee)</h2>
                   </ion-col>
                   <ion-col size="12">
-                    <ion-textarea formControlName="author" placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
+                    <ion-textarea required formControlName="author" placeholder="Meine Adresse..." autoGrow="true" inputmode="text" rows="3"></ion-textarea>
                   </ion-col>
                 </ion-row>
               </ion-grid>
