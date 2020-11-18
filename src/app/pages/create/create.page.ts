@@ -1,34 +1,32 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {IonSlides, IonSelect, IonSelectOption} from '@ionic/angular'
-import { promise } from 'selenium-webdriver';
-import { resolve } from 'url';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {IonSlides, IonSelect, IonSelectOption} from '@ionic/angular';
+import {promise} from 'selenium-webdriver';
+import {resolve} from 'url';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 
-import { createData } from "./createInterface";
+import {createData} from './createInterface';
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage implements OnInit {
+  createData: createData = {
+    text: '',
+    title: '',
+    type: '',
+    published: '',
+    author: '',
+    ruleValue: '',
+    goals: [],
+  };
+  //Variables to read user input
+  ebene;
+  begehren;
+  //form init
+  createForm: FormGroup;
 
-createData: createData = {
-  text: '',
-  title: '',
-  type: '',
-  published: '',
-  author: '',
-  ruleValue: '',
-  goals: []
-} 
-//Variables to read user input  
-ebene;
-begehren;
-//form init
-createForm: FormGroup;
-
-  @ViewChild('mySlider') slides: IonSlides
-
+  @ViewChild('mySlider') slides: IonSlides;
 
   //Slider Controls
 
@@ -40,32 +38,28 @@ createForm: FormGroup;
   }
   //state of page stuff
   progress = 0;
-  async currentProgress() {
+  async currentProgress(event) {
     const current = await this.slides.getActiveIndex();
     const length = await this.slides.length();
     if (current == 0) {
       this.progress = 0;
-    }
-    else {
-      this.progress = (current+1)/length;
+    } else {
+      this.progress = (current + 1) / length;
     }
 
-    if((this.ebene == 'national' && this.begehren=='initiative') || (this.ebene == 'national' && this.begehren=='referendum') ) {
+    if ((this.ebene == 'national' && this.begehren == 'initiative') || (this.ebene == 'national' && this.begehren == 'referendum')) {
       this.createForm.get('published').setValidators(Validators.required);
-    }
-    else {
+    } else {
       this.createForm.get('published').clearValidators();
     }
-    if(this.begehren=='initiative') {
+    if (this.begehren == 'initiative') {
       this.createForm.get('author').setValidators(Validators.required);
-    }
-    else {
+    } else {
       this.createForm.get('author').clearValidators();
     }
   }
-  
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder) {}
 
   ngOnInit() {
     //TODO: send every goal, not only last one
@@ -81,10 +75,7 @@ createForm: FormGroup;
       goals3: [''],
       goals4: [''],
     });
-    
   }
-
-  
 
   sendInitiative() {
     this.createData.text = this.createForm.value.text;
@@ -98,8 +89,5 @@ createForm: FormGroup;
     this.createData.goals.push(this.createForm.value.goals3);
     this.createData.goals.push(this.createForm.value.goals4);
     console.log(this.createData);
-
-    
   }
-  
 }
