@@ -49,8 +49,9 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
+    loadChildren: () => import('./pages/create/create.module').then((m) => m.CreatePageModule),
   },
+  {
     path: 'return',
     canActivate: [EidGuard],
     children: [],
@@ -64,8 +65,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
   },
 ];
-
-
 
 @NgModule({
   imports: [
