@@ -1,7 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>newsletter</ion-title>
+    <ion-title>Send owlly-Newsletter</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="deselect()">
+        <ion-icon slot="icon-only" name="square-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="select()">
+        <ion-icon slot="icon-only" name="checkbox-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="send()">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let sub of subscriberList">
+      <ion-icon slot="start" name="star" *ngIf="sub.testuser"></ion-icon>
+      <ion-icon slot="start" name="ban-outline" *ngIf="!sub.testuser"></ion-icon>
+      <ion-label>{{sub.vorname}} {{sub.nachname}}</ion-label>
+      <ion-note slot="end">{{sub.email}}</ion-note>
+      <ion-checkbox slot="end" checked="false" [(ngModel)]="sub.isChecked" value="sub.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -69,7 +69,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/dashboard/dashboard.module').then((m) => m.DashboardPageModule),
   },
   {
-    path: 'newsletter',
+    path: 'admin/newsletter',
     loadChildren: () => import('./pages/admin/newsletter/newsletter.module').then((m) => m.NewsletterPageModule),
   },
   {
