@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
+import {EidGuard} from './guards/eid.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +21,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },*/
+  },
+  */
   {
     path: 'pdftest',
     loadChildren: () => import('./pages/pdftest/pdftest.module').then((m) => m.PdftestPageModule),
@@ -33,16 +36,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/impressum/impressum.module').then((m) => m.ImpressumPageModule),
   },
   {
-    path: 'return',
-    loadChildren: () => import('./pages/return/return.module').then((m) => m.ReturnPageModule),
-  },
-  {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then((m) => m.TestPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
+    loadChildren: () => import('./pages/auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'start',
@@ -52,11 +51,18 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
   },
-  /*{
-    path: 'landing',
-    loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)
+    path: 'return',
+    canActivate: [EidGuard],
+    children: [],
   },
-  */
+  {
+    path: 'pdf',
+    loadChildren: () => import('./pages/wizard/pdf/pdf.module').then((m) => m.PdfPageModule),
+  },
+  {
+    path: 'success',
+    loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
+  },
 ];
 
 
@@ -66,6 +72,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: 'enabled',
+      relativeLinkResolution: 'legacy',
     }),
   ],
   exports: [RouterModule],

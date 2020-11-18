@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 import {EMPTY} from 'rxjs';
 import {catchError, filter, first, tap} from 'rxjs/operators';
 
-import {OidAuth} from '../../types/oidc';
+import {OidcAuth} from '../../types/oidc';
 
 import {OidcService} from '../../services/oidc.service';
 
@@ -24,7 +24,7 @@ export class SignatureComponent {
       .getAuthUrl(this.owllyId)
       .pipe(
         tap(() => (this.inProgress = true)),
-        filter((auth: OidAuth | undefined) => auth !== undefined),
+        filter((auth: OidcAuth | undefined) => auth !== undefined),
         first(),
         catchError((err) => {
           // TODO display an error to user?
@@ -32,7 +32,7 @@ export class SignatureComponent {
           return EMPTY;
         })
       )
-      .subscribe((auth: OidAuth) => {
+      .subscribe((auth: OidcAuth) => {
         window.location.href = auth.url;
 
         this.inProgress = false;

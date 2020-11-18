@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-header></app-header>
+
+  <main>
+    <ng-container *ngIf="(useData$ | async) as userData else loadingUser">
+      <h1>Hi {{userData?.given_name}}</h1>
+    </ng-container>
+
+    <ng-container *ngIf="(pdf$ | async) as pdf else loadingPdf">
+      <p *ngIf="pdf.url !== undefined">Pdf is ready.</p>
+      <p *ngIf="pdf.url === undefined">Pdf unavailable.</p>
+    </ng-container>
+  </main>
+</ion-content>
+
+<ng-template #loadingUser>
+  <div>Loading user...</div>
+</ng-template>
+
+<ng-template #loadingPdf>
+  <div>Loading pdf...</div>
+</ng-template>
