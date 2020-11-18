@@ -64,6 +64,18 @@ const routes: Routes = [
     path: 'success',
     loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/admin/dashboard/dashboard.module').then((m) => m.DashboardPageModule),
+  },
+  {
+    path: 'newsletter',
+    loadChildren: () => import('./pages/admin/newsletter/newsletter.module').then((m) => m.NewsletterPageModule),
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./pages/admin/create/create.module').then((m) => m.CreatePageModule),
+  },
 ];
 
 @NgModule({
