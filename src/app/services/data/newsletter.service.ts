@@ -24,7 +24,7 @@ export class NewsletterService {
 
   sendNewsletter(recipients) {
     for (let mail of recipients) {
-      this.firestore.collection('sendEmail').add({
+      /*  this.firestore.collection('sendEmail').add({
         to: mail.email,
         template: {
           data: {
@@ -32,7 +32,8 @@ export class NewsletterService {
           },
           name: 'newsletterWelcomeMail',
         },
-      });
+      });*/
+      console.log(mail.email);
     }
   }
 }
