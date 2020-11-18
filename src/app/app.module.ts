@@ -14,7 +14,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
-
+import { FormsModule } from "@angular/forms";
 import {environment} from './../environments/environment';
 
 @NgModule({
@@ -24,6 +24,7 @@ import {environment} from './../environments/environment';
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     IonicModule.forRoot(),
     AppRoutingModule,
+    FormsModule,
     //HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireFunctionsModule,

@@ -6,6 +6,10 @@ import {EidGuard} from './guards/eid.guard';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./pages/landing/landing.module').then((m) => m.LandingPageModule),
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   /*
@@ -17,7 +21,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },*/
+  },
+  */
   {
     path: 'pdftest',
     loadChildren: () => import('./pages/pdftest/pdftest.module').then((m) => m.PdftestPageModule),
@@ -43,6 +48,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/wizard/start/start.module').then((m) => m.StartPageModule),
   },
   {
+    path: 'create',
+    loadChildren: () => import('./pages/create/create.module').then( m => m.CreatePageModule)
+  },
     path: 'return',
     canActivate: [EidGuard],
     children: [],
@@ -56,6 +64,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
   },
 ];
+
+
 
 @NgModule({
   imports: [

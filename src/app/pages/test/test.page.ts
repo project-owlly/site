@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {PdfServiceService} from '../../services/pdf-service.service';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
-import {testData} from './testInterface';
+import {TestData} from './testInterface';
 import { Plugins } from '@capacitor/core';
-
+import {LoadingController} from '@ionic/angular'
 const { Browser } = Plugins;
 
 @Component({
@@ -15,7 +15,7 @@ export class TestPage implements OnInit {
   testForm: FormGroup;
   
   //you can use this data to initialize the form!
-  testInterface: testData = {
+  testData: TestData = {
     owllyId: 'test', //vrrYZoolx2XSy23RW63f für echtdaten von datenbank / "test" für demodaten via post
     owllyData: {
       //optional owllydata -> wird anhand owllyId im backend gelesen.
@@ -42,7 +42,7 @@ export class TestPage implements OnInit {
     },
   };
   
-  constructor(private pdfService: PdfServiceService, public fb: FormBuilder) {}
+  constructor(private pdfService: PdfServiceService, public fb: FormBuilder, public loadingController: LoadingController) {}
 
   ngOnInit() {
     this.testForm = this.fb.group({
@@ -57,28 +57,39 @@ export class TestPage implements OnInit {
     });
   }
 
+  readableDate(date: Date) {
+    
+    return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+  }
+
+
   async generatePDF() {
-
-    this.testInterface.owllyId = 'test';
-    this.testInterface.owllyData.level = 'canton';
-    this.testInterface.owllyData.supporters = 'Darum unterstützen SP, Grüne, GLP, AL, EVP, Pro Velo, VCS, Greenpeace und Pro Velo die Velorouten-Initiative.';
-    this.testInterface.owllyData.text = this.testForm.value.iText;
-    this.testInterface.owllyData.title = this.testForm.value.title;
-    this.testInterface.owllyData.type = 'initiative';
-    this.testInterface.owllyData.published = new Date().toISOString();
-    this.testInterface.owllyData.author = this.testForm.value.urheber;
-    this.testInterface.owllyData.ruleName = 'canton';
-    this.testInterface.owllyData.ruleValue = 'sh';
+    //Loading Animation
+    const loading = await this.loadingController.create({
+      message: 'Dein PDF wird generiert...',
+    });
+    await loading.present();
+    //pdf stuff
+    this.testData.owllyId = 'test';
+    this.testData.owllyData.level = 'canton';
+    this.testData.owllyData.supporters = 'Darum unterstützen SP, Grüne, GLP, AL, EVP, Pro Velo, VCS, Greenpeace und Pro Velo die Velorouten-Initiative.';
+    this.testData.owllyData.text = this.testForm.value.iText;
+    this.testData.owllyData.title = this.testForm.value.title;
+    this.testData.owllyData.type = 'initiative';
+    this.testData.owllyData.published = this.testForm.value.date;
+    this.testData.owllyData.author = this.testForm.value.urheber;
+    this.testData.owllyData.ruleName = 'canton';
+    this.testData.owllyData.ruleValue = 'sh';
     //this.testInterface.userData.sub = this.demoData.userData.sub;
-    this.testInterface.userData.given_name = this.testForm.value.surname;
-    this.testInterface.userData.family_name = this.testForm.value.name;
-    this.testInterface.userData.birth_date = this.testForm.value.birthday;
-    this.testInterface.userData.locality = 'Schaffhausen';
-    this.testInterface.userData.postal_code = '8200';
-    this.testInterface.userData.street_address = 'Villenstrasse 4';
+    this.testData.userData.given_name = this.testForm.value.surname;
+    this.testData.userData.family_name = this.testForm.value.name;
+    this.testData.userData.birth_date = this.testForm.value.birthday;
+    this.testData.userData.locality = 'Schaffhausen';
+    this.testData.userData.postal_code = '8200';
+    this.testData.userData.street_address = this.testForm.value.adress;
 
-    console.log(this.testInterface);
+    //console.log(this.testData);
 
-    let pdf = await this.pdfService.generatePDF(this.testInterface); //habe dir die datenstruktur der felder in dieser methode definiert. das sind die felder, welche vom Formular erwartet werden.
+    this.pdfService.generatePDF(this.testData).subscribe(async (data) => {Browser.open({url: data.url}).then( () => {loading.dismiss()}); });
   }
 }
