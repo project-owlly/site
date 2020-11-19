@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from './guards/auth.guard';
 
 import {EidGuard} from './guards/eid.guard';
 
@@ -63,6 +64,21 @@ const routes: Routes = [
   {
     path: 'success',
     loadChildren: () => import('./pages/auth/success/success.module').then((m) => m.SuccessPageModule),
+  },
+  {
+    path: 'admin/dashboard',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/auth/dashboard/dashboard.module').then((m) => m.DashboardPageModule),
+  },
+  {
+    path: 'admin/newsletter',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/auth/newsletter/newsletter.module').then((m) => m.NewsletterPageModule),
+  },
+  {
+    path: 'admin/create',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/auth/create/create.module').then((m) => m.CreatePageModule),
   },
 ];
 
