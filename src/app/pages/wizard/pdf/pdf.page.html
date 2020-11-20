@@ -12,7 +12,7 @@
       <ng-container *ngIf="pdf.url !== undefined">
         <p>Pdf is ready.</p>
 
-        <ion-button [routerLink]="['/sign']" class="ion-margin" color="tertiary" type="button" shape="round">Weiter</ion-button>
+        <ion-button [routerLink]="['/sign', (owllyId$ | async)]" class="ion-margin" color="tertiary" type="button" shape="round">Weiter</ion-button>
       </ng-container>
     </ng-container>
   </main>

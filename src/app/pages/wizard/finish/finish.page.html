@@ -5,5 +5,9 @@
     <h1>Vielen Dank!</h1>
 
     <p>Du erhälst von uns eine Bestätigung per E-Mail wenn wir deinen Unterschriftbogen erhlaten haben.</p>
+
+    <ng-container *ngIf="(owlly$ | async) as owlly">
+      <h2>{{owlly.data.title}}</h2>
+    </ng-container>
   </main>
 </ion-content>

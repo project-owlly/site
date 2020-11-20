@@ -7,9 +7,11 @@
     <p>Reiche deine signierten Unterschriftbogen ein!</p>
 
     <ng-container *ngIf="(pdf$ | async) as pdf">
-      <ion-button (click)="openEID()" class="ion-margin" color="tertiary" type="button" shape="round" [disabled]="!pdf || pdf.url === undefined"
-        >Weiter</ion-button
-      >
+      <ng-container *ngIf="pdf.url !== undefined">
+        <ion-button (click)="openEID()" class="ion-margin" color="tertiary" type="button" shape="round" [disabled]="!pdf || pdf.url === undefined"
+          >Weiter</ion-button
+        >
+      </ng-container>
     </ng-container>
   </main>
 </ion-content>

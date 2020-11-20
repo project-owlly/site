@@ -20,7 +20,7 @@ import {AuthService} from 'src/app/services/auth.service';
   styleUrls: ['./pdf.page.scss'],
 })
 export class PdfPage implements OnInit {
-  useData$: Observable<EidUserData | undefined> = this.route.queryParams.pipe(
+  readonly useData$: Observable<EidUserData | undefined> = this.route.queryParams.pipe(
     first(),
     filter((params: Params) => params.code !== null),
     map((params: Params) => params.code),
@@ -29,7 +29,14 @@ export class PdfPage implements OnInit {
     shareReplay({bufferSize: 1, refCount: true})
   );
 
-  pdf$: Observable<Pdf | undefined> = this.pdfService.pdf$;
+  readonly pdf$: Observable<Pdf | undefined> = this.pdfService.pdf$;
+
+  readonly owllyId$: Observable<string | undefined> = this.route.queryParams.pipe(
+    first(),
+    filter((params: Params) => params.owllyId !== null),
+    map((params: Params) => params.owllyId),
+    shareReplay({bufferSize: 1, refCount: true})
+  );
 
   constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfService, private auth: AuthService) {
     // TODO: start spinner
