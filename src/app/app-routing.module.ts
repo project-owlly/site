@@ -84,6 +84,10 @@ const routes: Routes = [
     path: 'finish',
     loadChildren: () => import('./pages/wizard/finish/finish.module').then((m) => m.FinishPageModule),
   },
+  {
+    path: 'sign',
+    loadChildren: () => import('./pages/wizard/sign/sign.module').then((m) => m.SignPageModule),
+  },
 ];
 
 @NgModule({
