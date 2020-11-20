@@ -11,7 +11,7 @@ import {Plugins} from '@capacitor/core';
 const {Browser} = Plugins;
 
 import {OidcService} from 'src/app/services/oidc.service';
-import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {PdfService} from 'src/app/services/pdf.service';
 import {AuthService} from 'src/app/services/auth.service';
 
 @Component({
@@ -20,7 +20,7 @@ import {AuthService} from 'src/app/services/auth.service';
   styleUrls: ['./pdf.page.scss'],
 })
 export class PdfPage implements OnInit {
-  useData$: Observable<EidUserData | undefined> = this.route.queryParams.pipe(
+  readonly useData$: Observable<EidUserData | undefined> = this.route.queryParams.pipe(
     first(),
     filter((params: Params) => params.code !== null),
     map((params: Params) => params.code),
@@ -29,35 +29,55 @@ export class PdfPage implements OnInit {
     shareReplay({bufferSize: 1, refCount: true})
   );
 
-  pdf$: Observable<Pdf> = combineLatest([
-    this.route.queryParams.pipe(
-      first(),
-      filter((params: Params) => params.owllyId !== null),
-      map((params: Params) => params.owllyId)
-    ),
-    this.useData$.pipe(filter((userData: EidUserData | undefined) => userData !== undefined)),
-  ]).pipe(
+  readonly pdf$: Observable<Pdf | undefined> = this.pdfService.pdf$;
+
+  readonly owllyId$: Observable<string | undefined> = this.route.queryParams.pipe(
     first(),
-    switchMap(([owllyId, userData]: [string, EidUserData]) => this.pdfService.generatePDF({userData, owllyId})),
-    catchError((err) => {
-      console.error(err);
-      return of({url: undefined} as Pdf);
-    }),
-    first(),
+    filter((params: Params) => params.owllyId !== null),
+    map((params: Params) => params.owllyId),
     shareReplay({bufferSize: 1, refCount: true})
   );
 
-  constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfServiceService, private auth: AuthService) {
+  constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfService, private auth: AuthService) {
     // TODO: start spinner
   }
 
   ngOnInit() {
+    this.openPdf();
+
+    this.loadPdf();
+  }
+
+  private openPdf() {
     this.pdf$
       .pipe(
         filter((pdf: Pdf | undefined) => pdf !== undefined && pdf.url !== undefined),
         first()
       )
       .subscribe(async (pdf: Pdf) => await Browser.open({url: pdf.url}));
+  }
+
+  private loadPdf() {
+    combineLatest([
+      this.route.queryParams.pipe(
+        first(),
+        filter((params: Params) => params.owllyId !== null),
+        map((params: Params) => params.owllyId)
+      ),
+      this.useData$.pipe(filter((userData: EidUserData | undefined) => userData !== undefined)),
+    ])
+      .pipe(
+        first(),
+        switchMap(([owllyId, userData]: [string, EidUserData]) => this.pdfService.generatePDF({userData, owllyId})),
+        catchError((err) => {
+          console.error(err);
+          return of({url: undefined} as Pdf);
+        }),
+        first()
+      )
+      .subscribe((pdf: Pdf) => {
+        this.pdfService.next(pdf);
+      });
   }
 
   // async fileWrite(data, filename) {

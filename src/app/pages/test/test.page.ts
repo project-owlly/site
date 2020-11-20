@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {PdfServiceService} from '../../services/pdf-service.service';
+import {PdfService} from '../../services/pdf.service';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {TestData} from './testInterface';
-import { Plugins } from '@capacitor/core';
-import {LoadingController} from '@ionic/angular'
-const { Browser } = Plugins;
+import {Plugins} from '@capacitor/core';
+import {LoadingController} from '@ionic/angular';
+const {Browser} = Plugins;
 
 @Component({
   selector: 'app-test',
@@ -13,7 +13,7 @@ const { Browser } = Plugins;
 })
 export class TestPage implements OnInit {
   testForm: FormGroup;
-  
+
   //you can use this data to initialize the form!
   testData: TestData = {
     owllyId: 'test', //vrrYZoolx2XSy23RW63f für echtdaten von datenbank / "test" für demodaten via post
@@ -41,8 +41,8 @@ export class TestPage implements OnInit {
       street_address: 'Villenstrasse 4',
     },
   };
-  
-  constructor(private pdfService: PdfServiceService, public fb: FormBuilder, public loadingController: LoadingController) {}
+
+  constructor(private pdfService: PdfService, public fb: FormBuilder, public loadingController: LoadingController) {}
 
   ngOnInit() {
     this.testForm = this.fb.group({
@@ -58,10 +58,8 @@ export class TestPage implements OnInit {
   }
 
   readableDate(date: Date) {
-    
-    return date.getDay() + "." + date.getMonth() + "." + date.getFullYear();
+    return date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear();
   }
-
 
   async generatePDF() {
     //Loading Animation
@@ -90,6 +88,10 @@ export class TestPage implements OnInit {
 
     //console.log(this.testData);
 
-    this.pdfService.generatePDF(this.testData).subscribe(async (data) => {Browser.open({url: data.url}).then( () => {loading.dismiss()}); });
+    this.pdfService.generatePDF(this.testData).subscribe(async (data) => {
+      Browser.open({url: data.url}).then(() => {
+        loading.dismiss();
+      });
+    });
   }
 }

@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 import {Observable} from 'rxjs';
-import {filter, first, map, shareReplay, switchMap} from 'rxjs/operators';
+import {first} from 'rxjs/operators';
 
 import {Owlly} from '../../../types/owlly';
 
-import {OwllyService} from '../../../services/owlly.service';
+import {OwllyRoutingService} from '../../../services/routing/owlly/owlly-routing.service';
 
 @Component({
   selector: 'app-start',
@@ -14,14 +14,7 @@ import {OwllyService} from '../../../services/owlly.service';
   styleUrls: ['./start.page.scss'],
 })
 export class StartPage {
-  readonly owlly$: Observable<Owlly | undefined> = this.activatedRoute.paramMap.pipe(
-    first(),
-    map((snapshop: ParamMap) => snapshop.get('owllyId')),
-    filter((owllyId: string | undefined) => owllyId && owllyId !== ''),
-    switchMap((owllyId: string) => this.owllyService.owlly(owllyId)),
-    first(),
-    shareReplay(1)
-  );
+  readonly owlly$: Observable<Owlly | undefined> = this.owllyRoutingService.owlly(this.activatedRoute.paramMap).pipe(first());
 
-  constructor(private activatedRoute: ActivatedRoute, private owllyService: OwllyService) {}
+  constructor(private activatedRoute: ActivatedRoute, private owllyRoutingService: OwllyRoutingService) {}
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {NewsletterService} from '../../services/data/newsletter.service';
+import {NewsletterService} from '../../services/data/newsletter/newsletter.service';
 import {ToastController} from '@ionic/angular';
 
 @Component({

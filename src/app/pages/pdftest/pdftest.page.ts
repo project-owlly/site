@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {PdfService} from 'src/app/services/pdf.service';
 
 @Component({
   selector: 'app-pdftest',
@@ -13,7 +13,7 @@ export class PdftestPage implements OnInit {
   initiativText =
     'Cillum ut ea aliqua id laboris ad ullamco nisi enim magna. Id ad cupidatat laborum officia veniam cillum cillum aliqua tempor commodo sunt. Minim in officia labore magna officia et dolor in velit sunt ea nostrud consectetur.';
 
-  constructor(private pdfService: PdfServiceService) {}
+  constructor(private pdfService: PdfService) {}
 
   ngOnInit() {}
 

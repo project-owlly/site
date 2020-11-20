@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NewsletterService} from 'src/app/services/data/newsletter.service';
+import {NewsletterService} from 'src/app/services/data/newsletter/newsletter.service';
 
 @Component({
   selector: 'app-newsletter',

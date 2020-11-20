@@ -5,7 +5,7 @@ import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} 
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {Owlly, OwllyData} from '../types/owlly';
+import {Owlly, OwllyData} from '../../../types/owlly';
 
 @Injectable({
   providedIn: 'root',

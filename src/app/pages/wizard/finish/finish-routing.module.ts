@@ -3,10 +3,18 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {FinishPage} from './finish.page';
 
+import {OwllyIdGuard} from '../../../guards/owlly-id.guard';
+
 const routes: Routes = [
   {
     path: '',
     component: FinishPage,
+    canActivate: [OwllyIdGuard],
+  },
+  {
+    path: ':owllyId',
+    component: FinishPage,
+    canActivate: [OwllyIdGuard],
   },
 ];
 
