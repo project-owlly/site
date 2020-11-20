@@ -9,6 +9,12 @@
     <ng-container *ngIf="(pdf$ | async) as pdf else loadingPdf">
       <p *ngIf="pdf.url !== undefined">Pdf is ready.</p>
       <p *ngIf="pdf.url === undefined">Pdf unavailable.</p>
+
+      <ng-container *ngIf="pdf.url !== undefined">
+        <p>Pdf is ready.</p>
+
+        <ion-button [routerLink]="['/finish']" class="ion-margin" color="tertiary" type="button" shape="round">Weiter</ion-button>
+      </ng-container>
     </ng-container>
   </main>
 </ion-content>

@@ -26,7 +26,7 @@ export class PdfPage implements OnInit {
     map((params: Params) => params.code),
     switchMap((code: string) => this.oidcService.getEidUserData(code)),
     first(),
-    shareReplay(1)
+    shareReplay({bufferSize: 1, refCount: true})
   );
 
   pdf$: Observable<Pdf> = combineLatest([
@@ -44,7 +44,7 @@ export class PdfPage implements OnInit {
       return of({url: undefined} as Pdf);
     }),
     first(),
-    shareReplay(1)
+    shareReplay({bufferSize: 1, refCount: true})
   );
 
   constructor(private route: ActivatedRoute, private oidcService: OidcService, private pdfService: PdfServiceService, private auth: AuthService) {
