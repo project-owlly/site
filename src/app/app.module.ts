@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 import {ServiceWorkerModule} from '@angular/service-worker';
 
@@ -9,23 +10,20 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
-//import {HttpClientModule} from '@angular/common/http';
-
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
-import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
-import { FormsModule } from "@angular/forms";
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+
 import {environment} from './../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule.withServerTransition({appId: 'serverApp'}),
+    BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    //HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireFunctionsModule,
     AngularFirestoreModule,

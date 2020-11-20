@@ -11,9 +11,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch((err) => console.log(err));
-});
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.log(err));
+
 defineCustomElements();
