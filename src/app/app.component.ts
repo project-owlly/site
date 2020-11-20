@@ -1,18 +1,49 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {Platform} from '@ionic/angular';
+import {SwUpdate} from '@angular/service-worker';
+
+import {first} from 'rxjs/operators';
+
+import {Platform, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-  constructor(private platform: Platform) {
-    this.initializeApp();
+export class AppComponent implements OnInit {
+  constructor(private platform: Platform, private swUpdate: SwUpdate, private toastController: ToastController) {}
+
+  async ngOnInit() {
+    await this.platform.ready();
+
+    await this.checkSwUpdate();
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {});
+  private async checkSwUpdate() {
+    if (!this.swUpdate.isEnabled) {
+      return;
+    }
+
+    this.swUpdate.available.pipe(first()).subscribe(async () => {
+      const toast = await this.toastController.create({
+        message: 'Eine neue Version ist verfügbar. Zum Aktualisieren neu laden.',
+        buttons: [
+          {
+            text: 'Neu laden',
+            icon: 'refresh-circle-outline',
+            handler: () => {
+              window.location.reload();
+            },
+          },
+        ],
+        position: 'top',
+        color: 'primary',
+      });
+
+      await toast.present();
+    });
+
+    await this.swUpdate.checkForUpdate();
   }
 }
