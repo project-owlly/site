@@ -70,7 +70,7 @@ export class InfositePage implements OnInit {
     );
   }
 
-  trimString(str: string, length: number) {
+  trimString(str: string, length: number): string {
     return str?.length > length ? str.substring(0, length) + '...' : str;
   }
 }
