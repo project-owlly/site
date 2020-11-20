@@ -80,6 +80,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/auth/create/create.module').then((m) => m.CreatePageModule),
   },
+  {
+    path: 'finish',
+    loadChildren: () => import('./pages/wizard/finish/finish.module').then((m) => m.FinishPageModule),
+  },
 ];
 
 @NgModule({
