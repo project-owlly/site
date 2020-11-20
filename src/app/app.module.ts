@@ -15,6 +15,7 @@ import {AngularFireFunctionsModule, REGION} from '@angular/fire/functions';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import {environment} from './../environments/environment';
+import {ScullyLibModule} from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import {environment} from './../environments/environment';
     AngularFireFunctionsModule,
     AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    ScullyLibModule,
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},

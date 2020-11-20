@@ -1,0 +1,19 @@
+[
+  {"route": "/return"},
+  {"route": "/"},
+  {"route": "/home"},
+  {"route": "/pdftest"},
+  {"route": "/infosite"},
+  {"route": "/impressum"},
+  {"route": "/test"},
+  {"route": "/login"},
+  {"route": "/start"},
+  {"route": "/create"},
+  {"route": "/pdf"},
+  {"route": "/success"},
+  {"route": "/admin/dashboard"},
+  {"route": "/admin/newsletter"},
+  {"route": "/admin/create"},
+  {"route": "/finish"},
+  {"route": "/sign"}
+]

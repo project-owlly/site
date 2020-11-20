@@ -9,7 +9,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "scully:build": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,9 @@
     "@capacitor/core": "^2.4.2",
     "@ionic/angular": "^5.4.4",
     "@owlly/signature": "0.0.6",
+    "@scullyio/init": "^1.0.1",
+    "@scullyio/ng-lib": "^1.0.0",
+    "@scullyio/scully": "^1.0.0",
     "firebase": "^8.0.2",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
