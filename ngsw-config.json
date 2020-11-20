@@ -17,5 +17,21 @@
         "files": ["/assets/**", "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "Owlly cloud",
+      "urls": [
+        "https://europe-west6-project-owlly.cloudfunctions.net/OIDAuthUrl",
+        "https://europe-west6-project-owlly.cloudfunctions.net/OIDAuthUrlLogin",
+        "https://europe-west6-project-owlly.cloudfunctions.net/eidData",
+        "https://europe-west6-project-owlly.cloudfunctions.net/eidLogin"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "30d"
+      }
+    }
   ]
 }
