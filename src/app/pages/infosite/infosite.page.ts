@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
-import {PdfService} from 'src/app/services/pdf.service';
+
 import {Plugins} from '@capacitor/core';
-import {OwllyService} from 'src/app/services/owlly.service';
 
 interface Owlly {
   id: string;
@@ -47,7 +46,7 @@ export class InfositePage implements OnInit {
     id: 'vrrYZoolx2XSy23RW63f',
   };
 
-  constructor(private pdfService: PdfService, private oidcService: OidcService, private owllyService: OwllyService) {}
+  constructor(private oidcService: OidcService) {}
 
   ngOnInit() {}
 
@@ -66,10 +65,6 @@ export class InfositePage implements OnInit {
         console.log(error.message);
       }
     );
-  }
-
-  submit() {
-    this.pdfService.generatePDF({});
   }
 
   trimString(string, length) {
