@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OidcService} from 'src/app/services/oidc.service';
-import {PdfServiceService} from 'src/app/services/pdf-service.service';
+import {PdfService} from 'src/app/services/pdf.service';
 import {Plugins} from '@capacitor/core';
 import {OwllyService} from 'src/app/services/owlly.service';
 
@@ -47,7 +47,7 @@ export class InfositePage implements OnInit {
     id: 'vrrYZoolx2XSy23RW63f',
   };
 
-  constructor(private pdfService: PdfServiceService, private oidcService: OidcService, private owllyService: OwllyService) {}
+  constructor(private pdfService: PdfService, private oidcService: OidcService, private owllyService: OwllyService) {}
 
   ngOnInit() {}
 
