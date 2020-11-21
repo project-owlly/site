@@ -1,53 +1,53 @@
-<ion-content [fullscreen]="true" class="owlly-linear-gradient">
+<ion-content [fullscreen]="true">
   <app-header></app-header>
 
+  <div class="home-hero-div">
+    <div class="center">
+        <img src="../../../assets/home/header.png" alt="" class="transition hero-img">
+    </div>
+    <div>
+        <ion-card button (click)="cardClick()" class="owlly-linear-gradient hero-card">
+            <ion-card-content>
+          <div class="hero-card-text">
+            <h1>Jetzt Kampagne starten</h1>
+            <h2>Unterschriften sammeln im 21. Jahrhundert - effizient und sicher!</h2>
+          </div>
+            <ion-button (click)="onClick()" shape="round" color="tertiary">
+                Kampagne starten <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+    </div>
+  </div>
+<div class="underline owlly-linear-gradient"></div>
   <ion-grid>
     <ion-row>
-      <ion-col size="12">
-        <h1>
-          This is going to be the new Homepage
-        </h1>
+      <ion-col size-xl="6" size="12">
+        <ion-card style="background: var(--ion-color-secondary)" class="second-card">
+          <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
       </ion-col>
-    </ion-row>
-    <!-- Leading Text-->
-    <ion-row>
-      <ion-col size="12" size-md="6">
-        <h3>
-          owlly ermöglicht das sichere und einfache elektronische Unterschreiben, Validieren und Zählen von Volksbegehren für Kampagnen-Plattformen und bietet
-          ein ganzheitliches E-Collecting für die Schweiz.
-        </h3>
-      </ion-col>
-    </ion-row>
-    <!-- Newsletter anmelden-->
-    <ion-row id="lpButton">
-      <ion-col size="12">
-        <ion-button (click)="showNewsletter()" class="btn-owlly-newsletter" shape="round" color="tertiary" strong> für Newsletter anmelden </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <div id="socialMedia">
-          <ion-row>
-            <ion-col>
-              <a href="https://www.instagram.com/projectowlly/"><img src="../../../assets/socialmedia/instagram.svg" alt="instagram" width="30px" /></a>
-            </ion-col>
-            <ion-col>
-              <a href="https://twitter.com/projectowlly"><img src="../../../assets/socialmedia/twitter.svg" alt="twitter" width="30px" /></a>
-            </ion-col>
-            <ion-col>
-              <a href="https://www.facebook.com/projectowlly"><img src="../../../assets/socialmedia/facebook.svg" alt="facebook" width="30px" /></a>
-            </ion-col>
-            <ion-col>
-              <a href="https://github.com/project-owlly"><img src="../../../assets/socialmedia/github.svg" alt="github" width="30px" /></a>
-            </ion-col>
-          </ion-row>
-        </div>
+      <ion-col size-xl="6" size="12">
+        <ion-card style="background: var(--ion-color-primary)" class="second-card">
+          <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <!-- End Owlly hero -->
-
+<div style="height: 500px;"></div>
+  <!-- FAB & footer stuff -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="secondary" (click)="showFeedback()" translucent="true">
       <ion-icon name="mail-outline"></ion-icon>
