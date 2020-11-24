@@ -1,15 +1,44 @@
+//allgemein Stuff
+
+div {
+  transition: 1s;
+}
+
+ion-card {
+  box-shadow: 16px 17px 50px -3px rgba(0,0,0,0.22);
+  transition: 1s;
+}
+ion-card-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+ion-card-content {
+  font-weight: 300;
+  font-size: 1rem;
+  color: black;
+}
 ion-grid{
   //padding-bottom: 200px;
   padding-left: 10%;
   padding-right: 10%;
 }
+.card-button {
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  right: 20px;
+}
+
+//Hero Stuff
 .home-hero-div {
   display: flex;
   flex-direction: row;
-  padding: 20px 5% 0px;
+  padding: 20px 10% 0px;
+  margin-left: 0;
+  margin-right: 0;
   background: #E7E7E8;
-  align-self: center;
-  justify-content: center;
+  align-self: space-between;
+  justify-content: space-between;
 }
 .hero-img {
   width: 700px;
@@ -23,24 +52,45 @@ ion-grid{
   min-width: 500px;
   .hero-card-text {
     color: white;
-    padding: 0 20px 70px;;
+    padding: 10px 10px 70px;;
     h1 {
       font-size: 2rem;
       font-weight: bold;
     }
     h2 {
       font-size: 1rem;
+      font-weight: 300;
     }
   }
   ion-button {
     padding: 0 20px;
     margin: 0;
+    max-width: 300px;
   }
   ion-card-content {
     position: absolute;
     bottom: 10px,
   }
+}
+.hero-subtitle {
+  background: #E7E7E8;
+  padding: 20px 10%;
+  margin: 0;
+  h1, h2 {
+    margin: 0;
+  }
+}
 
+  //Misc Stuff
+.card-image {
+  overflow: hidden;
+  width: 100%;
+  vertical-align: bottom;
+  position: relative;
+  bottom: -20px;
+}
+.second-card {
+  height: 100%;
 }
 
 .underline {
@@ -49,12 +99,17 @@ ion-grid{
   margin: 0 11%;
 }
 
-.second-card {
-  
-}
-
 @media (max-width: 1250px) {
   .home-hero-div {
     display: block;
+  }
+  .hero-card {
+    min-width: 300px;
+    margin-bottom: 0;
+    .hero-card-text {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
   }
 }

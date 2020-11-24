@@ -12,36 +12,47 @@
             <h1>Jetzt Kampagne starten</h1>
             <h2>Unterschriften sammeln im 21. Jahrhundert - effizient und sicher!</h2>
           </div>
-            <ion-button (click)="onClick()" shape="round" color="tertiary">
+            <ion-button (click)="onClick()" expand="block" shape="round" color="tertiary">
                 Kampagne starten <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
               </ion-button>
             </ion-card-content>
           </ion-card>
     </div>
   </div>
+  <div class="hero-subtitle"><h1>Enabling digital democracy.</h1></div>
 <div class="underline owlly-linear-gradient"></div>
   <ion-grid>
     <ion-row>
       <ion-col size-xl="6" size="12">
-        <ion-card style="background: var(--ion-color-secondary)" class="second-card">
+        <ion-card button (click)="cardClick()" class="second-card">
           <ion-card-header>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-title>Awesome Title</ion-card-title>
+            <ion-card-title>E-Collecting kurz erklärt</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
-            Awesome content
-          </ion-card-content>
+          <ion-card-content >
+              Das elektronische Sammeln von Unterschriften für politische Volksbegehren wie Initiativen oder Referenden bietet Vorteile für alle!
+            </ion-card-content>
+            <div class="card-button">
+            <ion-button (click)="onClick()" shape="round" color="tertiary">
+                mehr <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+               </ion-button>
+              </div>
+          <img src="../../../assets/home/handy1.png" alt="" class="card-image">
         </ion-card>
       </ion-col>
       <ion-col size-xl="6" size="12">
-        <ion-card style="background: var(--ion-color-primary)" class="second-card">
+        <ion-card button (click)="cardClick()" class="second-card">
           <ion-card-header>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-title>Awesome Title</ion-card-title>
+            <ion-card-title>Unsere Mission</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            Awesome content
+            Wir bieten Lösungen und überwinden Grenzen! Für ein erfolgreiches und ganzheitliches E-Collecting braucht es alle Stakeholder.
           </ion-card-content>
+          <div class="card-button">
+              <ion-button (click)="onClick()" shape="round" color="tertiary">
+                  mehr <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+                 </ion-button>
+                </div>
+          <img src="../../../assets/home/flieger1.png" alt="" class="card-image">
         </ion-card>
       </ion-col>
     </ion-row>
