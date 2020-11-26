@@ -16,15 +16,7 @@ Here we have the **magic** of owlly.
 
 ### E-Collecting Button
 
-This buttons is used by campaigners to enable e-collecting
-
-### Signature Button
-
-We support **eID+** for authentication and signature.
-
-### PDF Form
-
-The pdf form is your way to support a public initiative.
+This button is used by campaigners to enable e-collecting
 
 ## For campaigners
 
